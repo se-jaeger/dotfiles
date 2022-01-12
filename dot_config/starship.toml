@@ -1,0 +1,47 @@
+add_newline = false
+
+format="""$cmd_duration
+$status
+$all$fill $time
+$character"""
+
+[character]
+success_symbol = "[➜ \\$](bold green)"
+error_symbol = "[➜ \\$](bold red)"
+
+[directory]
+truncate_to_repo = false
+truncation_length = 10
+style = "bold blue"
+
+[git_branch]
+style = "bold green"
+
+[status]
+disabled = false
+format = "[FAILED with exit code: $symbol $status\n]($style)"
+
+[cmd_duration]
+format = "[Command execution took: $duration]($style)"
+style = "bold dimmed black"
+
+[username]
+format = "[$user]($style)@"
+
+[package]
+version_format = "${raw}"
+
+[git_metrics]
+disabled = false
+
+[time]
+disabled = false
+
+[fill]
+disabled = false
+
+[line_break]
+disabled = true
+
+[docker_context]
+disabled = true
