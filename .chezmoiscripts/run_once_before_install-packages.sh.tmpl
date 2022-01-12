@@ -1,0 +1,80 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# zsh
+sudo apt install zsh
+sudo chsh -s /usr/bin/zsh $(echo $USER)
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+sudo apt update
+
+# fd
+sudo apt install fd-find
+sudo ln -s /usr/bin/fdfind /usr/local/bin/fd
+
+# bat
+sudo apt install bat
+sudo ln -s /usr/bin/batcat /usr/local/bin/bat
+
+# fzf
+sudo apt install fzf
+
+# exa
+sudo apt install exa
+
+# zoxide
+sudo apt install zoxide
+
+# tldr
+sudo apt install tldr
+
+# fonts-firacode
+sudo apt install fonts-firacode
+
+# starship
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
+{{ else if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+# CLI tools
+brew "starship"
+brew "trash"
+brew "fd"
+brew "fzf"
+brew "bat"
+brew "tealdeer"
+brew "watch"
+brew "kubernetes-cli"
+brew "helm"
+brew "zoxide"
+brew "exa"
+brew "gitui"
+brew "k9s"
+brew "the_silver_searcher"
+brew "fx"
+brew "thefuck"
+brew "yank"
+
+# fonts
+cask "font-fira-code"
+cask "font-hack-nerd-font"
+
+# python
+brew "python"
+brew "pyenv"
+brew "poetry"
+brew "black"
+brew "flake8"
+brew "isort"
+brew "mypy"
+brew "numpy"
+brew "jupyterlab"
+EOF
+
+{{ end -}}
