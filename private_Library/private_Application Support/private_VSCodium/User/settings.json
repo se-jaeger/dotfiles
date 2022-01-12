@@ -1,0 +1,66 @@
+{
+    "window.zoomLevel": 1,
+    "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
+    "files.autoSave": "onFocusChange",
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "breadcrumbs.enabled": true,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.multiCursorModifier": "alt",
+    "editor.minimap.enabled": true,
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length=100"
+    ],
+    // This does not work at the moment. VSCodium adds an '-' after 'isort' which is not recognized by modern versions.
+    // checkout for a workaround: https://gist.github.com/cb109/47496649640c9c5f4287b06db7a7c197
+    // "python.sortImports.path": "isort",
+    "python.sortImports.args": [
+        "--profile=black",
+        "--line-length=100"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=100"
+    ],
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "basic",
+    "autoDocstring.docstringFormat": "google",
+    "autoDocstring.startOnNewLine": true,
+    "cSpell.customDictionaries": {
+        "custom-dictionary-user": {
+            "name": "custom-dictionary-user",
+            "path": "~/.cspell/custom-dictionary-user.txt",
+            "addWords": true,
+            "scope": "user"
+        }
+    },
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX"
+    ],
+    "todo-tree.filtering.excludeGlobs": [
+        "**/node_modules",
+        "**/.venv",
+        "**/env"
+    ],
+}

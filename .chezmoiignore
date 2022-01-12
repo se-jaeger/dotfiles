@@ -1,0 +1,7 @@
+LICENSE
+README.md
+.oh-my-zsh
+
+{{ if eq .chezmoi.os "linux" -}}
+Library
+{{ end -}}
