@@ -1,0 +1,13 @@
+# Custom Dictionary Words
+astype
+dtype
+dtypes
+gtin
+isna
+proba
+psycopg2
+pydantic
+SERP
+Sklearn
+sklearn's
+tolist

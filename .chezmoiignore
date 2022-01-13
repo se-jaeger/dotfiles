@@ -4,4 +4,7 @@ README.md
 
 {{ if eq .chezmoi.os "linux" -}}
 Library
+.cspell
 {{ end -}}
+
+\ No newline at end of file
