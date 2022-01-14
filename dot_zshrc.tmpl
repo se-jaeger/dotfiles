@@ -1,7 +1,7 @@
 #### ZSH Settings and Plugins. ####
 ###################################
 
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 
 plugins=(
     extract
@@ -71,14 +71,14 @@ export FZF_CTRL_T_OPTS=" --preview 'bat --color=always {}'"
 export FZF_ALT_C_COMMAND="fd --type d --type l --hidden --follow"
 
 {{ if eq .chezmoi.os "darwin" -}}
-    source ~/.fzf.zsh
+    source {{ .chezmoi.homeDir }}/.fzf.zsh
 {{- else if eq .chezmoi.os "linux" -}}
     source /usr/share/doc/fzf/examples/key-bindings.zsh
 {{- end }}
 
 # add some tokens to env
-test -f .export_tokens && {
-    source .export_tokens
+test -f {{ .chezmoi.homeDir }}/.export_tokens && {
+    source {{ .chezmoi.homeDir }}/.export_tokens
 }
 
 
@@ -92,9 +92,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 pyenv-brew-relink() {
-    rm -f "$HOME/.pyenv/versions/*-brew"
+    rm -f "{{ .chezmoi.homeDir }}/.pyenv/versions/*-brew"
     for i in $(brew --cellar)/python*/* ; do
-        ln -s -f "$i" "$HOME/.pyenv/versions/${i##/*/}-brew"
+        ln -s -f "$i" "{{ .chezmoi.homeDir }}/.pyenv/versions/${i##/*/}-brew"
     done
     pyenv rehash
 }
@@ -105,7 +105,7 @@ pyenv-brew-relink
 alias brew='env PATH="${PATH//$(pyenv root)/shims:/}" brew'
 
 # gitui needs the (GitHub) SSH key loaded
-ssh-add ~/.ssh/id_ed25519 &> /dev/null
+ssh-add {{ .chezmoi.homeDir }}/.ssh/id_ed25519 &> /dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
