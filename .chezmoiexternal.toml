@@ -22,9 +22,9 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".oh-my-zsh/custom/plugins/zsh-autoactivate-environment"]
+[".oh-my-zsh/custom/plugins/zsh-activate-py-environment"]
     type = "archive"
-    url = "https://github.com/se-jaeger/zsh-autoactivate-environment/archive/master.tar.gz"
+    url = "https://github.com/se-jaeger/zsh-activate-py-environment/archive/main.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
