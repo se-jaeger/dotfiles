@@ -124,6 +124,10 @@ else
     fi
 fi
 unset __conda_setup
+
+# Custom conda settings..
+conda config --set changeps1 False
+conda config --set auto_activate_base false
 # <<< conda initialize <<<
 
 {{- end }}
