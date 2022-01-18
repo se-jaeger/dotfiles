@@ -43,7 +43,6 @@ tree() {
     fi
 }
 
-{{ if eq .chezmoi.os "darwin" -}} alias del="trash" {{- end }}
 
 # zoxide linux scripts depend on cd, which lists directory already.
 # Therefore, omit it on linux
@@ -86,6 +85,11 @@ test -f {{ .chezmoi.homeDir }}/.export_tokens && {
 #################################
 
 {{ if eq .chezmoi.os "darwin" -}}
+
+alias kcl="kubectl"
+alias hd="helm delete"
+alias hl="helm list"
+alias del="trash"
 
 # pyenv
 eval "$(pyenv init --path)"
