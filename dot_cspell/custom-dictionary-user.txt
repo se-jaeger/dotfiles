@@ -4,9 +4,11 @@ dtype
 dtypes
 gtin
 isna
+Kubernetes
 proba
 psycopg2
 pydantic
+scrapy
 SERP
 Sklearn
 sklearn's
