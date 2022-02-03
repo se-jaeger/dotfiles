@@ -1,6 +1,10 @@
 #### ZSH Settings and Plugins. ####
 ###################################
 
+# Oh My Zsh installation is updated by chezmoi
+# Auto updates will cause to drift out of sync with chezmoi's source state
+zstyle ':omz:update' mode disabled
+
 export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 
 plugins=(
