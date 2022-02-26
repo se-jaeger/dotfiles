@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo
+zpool iostat
+echo
+zpool status -x

@@ -5,6 +5,8 @@ README.md
 {{ if eq .chezmoi.os "linux" -}}
 Library
 .cspell
+{{ else if eq .chezmoi.os "darwin" -}}
+.config/motd-update
 {{ end -}}
 
 \ No newline at end of file

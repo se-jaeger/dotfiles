@@ -1,0 +1,31 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# escalation privileges
+sudo /bin/bash <<\EOF
+
+    CONFIG_DIR=/home/{{ .chezmoi.username }}/.config/motd-update
+    CRON_JOB_FILE=/etc/cron.d/motd-update
+    MOTD_SCRIPT_FILE=/etc/update-motd.d/99-zfs-status
+
+    # make idempotent
+    rm -f $CRON_JOB_FILE
+    rm -f $MOTD_SCRIPT_FILE
+
+    # add script
+    cp  $CONFIG_DIR/99-zfs-status $MOTD_SCRIPT_FILE
+
+    # first disable all then activate some
+    chmod -x /etc/update-motd.d/*
+	chmod +x /etc/update-motd.d/90-updates-available
+	chmod +x /etc/update-motd.d/91-release-upgrade
+	chmod +x /etc/update-motd.d/92-unattended-upgrades
+	chmod +x /etc/update-motd.d/98-reboot-required
+    chmod +x $MOTD_SCRIPT_FILE
+
+    # cron job need to have proper permissions
+    cp $CONFIG_DIR/motd-update.cron-job $CRON_JOB_FILE
+
+EOF
+
+{{ end -}}
