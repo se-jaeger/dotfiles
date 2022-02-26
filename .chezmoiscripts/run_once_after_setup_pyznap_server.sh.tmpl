@@ -1,0 +1,29 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# escalation privileges
+sudo /bin/bash <<\EOF
+
+    CONFIG_DIR=/home/{{ .chezmoi.username }}/.config/pyznap
+    PYZNAP_CONF_FILE=/etc/pyznap/pyznap.conf
+    APT_INTEGRATION_CONF_FILE=/etc/apt/apt.conf.d/80-zfs-snapshot
+    CRON_JOB_FILE=/etc/cron.d/pyznap
+
+    # make idempotent
+    rm -f $PYZNAP_CONF_FILE
+    rm -f $APT_INTEGRATION_CONF_FILE
+    rm -f $CRON_JOB_FILE
+
+    # add configuration to right directory
+    cp $CONFIG_DIR/pyznap.conf $PYZNAP_CONF_FILE
+    chown {{ .chezmoi.username }}:{{ .chezmoi.group }} $PYZNAP_CONF_FILE
+
+    # integrate with apt (need to be regular file)
+    cp  $CONFIG_DIR/80-zfs-snapshot $APT_INTEGRATION_CONF_FILE
+
+    # cron job need to have proper permissions
+    cp $CONFIG_DIR/pyznap.cron-job $CRON_JOB_FILE
+
+EOF
+
+{{ end -}}
