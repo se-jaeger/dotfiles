@@ -49,6 +49,9 @@ sudo /bin/bash <<EOF
     ln -sf /root/pyznap/venv/bin/pyznap /usr/local/bin/pyznap
     chown root:root -R /etc/pyznap/
 
+    ## containerd
+    apt install containerd
+
 EOF
 
 ## starship
