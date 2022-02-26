@@ -1,0 +1,57 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# escalation privileges
+sudo /bin/bash <<EOF
+    apt update
+
+    ## zsh
+    apt install zsh
+    chsh -s /usr/bin/zsh $(echo {{ .chezmoi.username }})
+
+    ## fd
+    apt install fd-find
+    ln -sf /usr/bin/fdfind /usr/local/bin/fd
+
+    ## bat
+    apt install bat
+    ln -sf /usr/bin/batcat /usr/local/bin/bat
+
+    ## fzf
+    apt install fzf
+
+    ## exa
+    apt install exa
+
+    ## zoxide
+    apt install zoxide
+
+    ## tldr
+    apt install tldr
+
+    ## fonts-firacode
+    apt install fonts-firacode
+
+    ## pyznap
+    apt install python3-venv
+    apt install python3
+
+    # remove existing installation
+    rm -r /root/pyznap
+    rm -f /usr/local/bin/pyznap
+
+    # install
+    mkdir /root/pyznap
+    python3 -m venv /root/pyznap/venv
+    source /root/pyznap/venv/bin/activate
+    pip install pyznap
+
+    ln -sf /root/pyznap/venv/bin/pyznap /usr/local/bin/pyznap
+    chown root:root -R /etc/pyznap/
+
+EOF
+
+## starship
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
+{{ end -}}
