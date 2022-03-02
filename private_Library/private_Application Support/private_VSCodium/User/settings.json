@@ -20,21 +20,11 @@
     "editor.formatOnSave": true,
     "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs",
     "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length=100"
-    ],
     // This does not work at the moment. VSCodium adds an '-' after 'isort' which is not recognized by modern versions.
     // checkout for a workaround: https://gist.github.com/cb109/47496649640c9c5f4287b06db7a7c197
     // "python.sortImports.path": "isort",
-    "python.sortImports.args": [
-        "--profile=black",
-        "--line-length=100"
-    ],
     "python.linting.mypyEnabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--max-line-length=100"
-    ],
     "[python]": {
         "editor.codeActionsOnSave": {
             "source.organizeImports": true
