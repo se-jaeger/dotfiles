@@ -23,6 +23,7 @@ brew "fx"
 brew "thefuck"
 brew "yank"
 brew "sshuttle"
+brew "tor"
 
 # fonts
 cask "font-fira-code"
@@ -33,4 +34,6 @@ brew "python"
 brew "pyenv"
 brew "poetry"
 EOF
+
+brew services restart tor
 {{ end -}}
