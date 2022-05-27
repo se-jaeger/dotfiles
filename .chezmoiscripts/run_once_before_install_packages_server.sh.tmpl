@@ -37,24 +37,25 @@ sudo /bin/bash <<EOF
     apt install python3
 
     # remove existing installation
-    rm -r /root/pyznap
+    rm -r /opt/pyznap
     rm -f /usr/local/bin/pyznap
 
     # install
-    mkdir /root/pyznap
-    python3 -m venv /root/pyznap/venv
-    source /root/pyznap/venv/bin/activate
+    mkdir /opt/pyznap
+    python3 -m venv /opt/pyznap
+    source /opt/pyznap/bin/activate
     pip install pyznap
-
-    ln -sf /root/pyznap/venv/bin/pyznap /usr/local/bin/pyznap
+    deactivate
+    ln -s /opt/pyznap/bin/pyznap /usr/local/bin/pyznap
+    pyznap setup
     chown root:root -R /etc/pyznap/
 
-    ## containerd
+    ## containerd + iptables
     apt install containerd
+    apt install iptables
 
+    ## starship
+    curl -sS https://starship.rs/install.sh | sh
 EOF
-
-## starship
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 {{ end -}}

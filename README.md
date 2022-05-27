@@ -9,7 +9,7 @@ On Ubuntu:
 
 ```bash
 sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "/usr/local/bin"
-chezmoi init --apply se-jaeger
+chezmoi init --apply se-jaeger --ssh
 ```
 
 On macOS

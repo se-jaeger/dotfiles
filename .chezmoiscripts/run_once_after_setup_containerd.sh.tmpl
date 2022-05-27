@@ -11,10 +11,10 @@ sudo /bin/bash <<\EOF
     # make idempotent
     rm -f $CRON_JOB_FILE
     rm -f $CONFIG_FILE
-    mkdir /etc/containerd
+    mkdir -p /etc/containerd
 
     # create necessary zfs filesystem
-	zfs create -o mountpoint=/var/lib/containerd/io.containerd.snapshotter.v1.zfs rpool/containerd |& echo
+    zfs create -o mountpoint=/var/lib/containerd/io.containerd.snapshotter.v1.zfs rpool/containerd |& echo
 
     # add configuration file 
     cp $CONFIG_DIR/config.toml $CONFIG_FILE
