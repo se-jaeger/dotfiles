@@ -1,0 +1,18 @@
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "mail"))  -}}
+#!/bin/sh
+
+# escalation privileges
+sudo /bin/bash <<EOF
+
+    apt update
+
+    ## install Docker
+    curl -sSL https://get.docker.com/ | CHANNEL=stable sh
+    systemctl enable --now docker
+
+    # install Docker Compose v2
+    apt install docker-compose-plugin -y
+
+EOF
+
+{{ end -}}

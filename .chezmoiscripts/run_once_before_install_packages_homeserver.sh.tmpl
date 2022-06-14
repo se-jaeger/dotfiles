@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "linux" -}}
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "homeserver"))  -}}
 #!/bin/sh
 
 # escalation privileges
@@ -6,35 +6,39 @@ sudo /bin/bash <<EOF
     apt update
 
     ## zsh
-    apt install zsh
+    apt install -y zsh
     chsh -s /usr/bin/zsh $(echo {{ .chezmoi.username }})
 
     ## fd
-    apt install fd-find
+    apt install -y fd-find
     ln -sf /usr/bin/fdfind /usr/local/bin/fd
 
     ## bat
-    apt install bat
+    apt install -y bat
     ln -sf /usr/bin/batcat /usr/local/bin/bat
 
     ## fzf
-    apt install fzf
+    apt install -y fzf
 
     ## exa
-    apt install exa
+    apt install -y exa
 
     ## zoxide
-    apt install zoxide
+    apt install -y zoxide
 
     ## tldr
-    apt install tldr
+    apt install -y tldr
 
     ## fonts-firacode
-    apt install fonts-firacode
+    apt install -y fonts-firacode
+
+    ## fail2ban
+    apt install -y iptables
+    apt install -y fail2ban
 
     ## pyznap
-    apt install python3-venv
-    apt install python3
+    apt install -y python3-venv
+    apt install -y python3
 
     # remove existing installation
     rm -r /opt/pyznap
@@ -50,9 +54,8 @@ sudo /bin/bash <<EOF
     pyznap setup
     chown root:root -R /etc/pyznap/
 
-    ## containerd + iptables
-    apt install containerd
-    apt install iptables
+    ## containerd
+    apt install -y containerd
 
     ## starship
     curl -sS https://starship.rs/install.sh | sh

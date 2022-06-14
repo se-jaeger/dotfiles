@@ -1,0 +1,43 @@
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "mail"))  -}}
+#!/bin/sh
+
+# escalation privileges
+sudo /bin/bash <<EOF
+    apt update
+
+    ## zsh
+    apt install -y zsh
+    chsh -s /usr/bin/zsh $(echo {{ .chezmoi.username }})
+
+    ## fd
+    apt install -y fd-find
+    ln -sf /usr/bin/fdfind /usr/local/bin/fd
+
+    ## bat
+    apt install -y bat
+    ln -sf /usr/bin/batcat /usr/local/bin/bat
+
+    ## fzf
+    apt install -y fzf
+
+    ## exa
+    apt install -y exa
+
+    ## zoxide
+    apt install -y zoxide
+
+    ## tldr
+    apt install -y tldr
+
+    ## fonts-firacode
+    apt install -y fonts-firacode
+
+    ## fail2ban
+    apt install -y iptables
+    apt install -y fail2ban
+
+    ## starship
+    curl -sS https://starship.rs/install.sh | sh
+EOF
+
+{{ end -}}

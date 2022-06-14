@@ -6,9 +6,10 @@ My personal dot files managed by chezmoi.
 ## Setup new machine
 
 On Ubuntu:
+(Firstly, add SSH key to GitHub: `ssh-keygen -C "GitHub" -f "~/.ssh/id_rsa" -P ''`)
 
 ```bash
-sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "/usr/local/bin"
+sudo sh -c "$(curl -fsLS chezmoi.io/get)" -- -b "/usr/local/bin"
 chezmoi init --apply se-jaeger --ssh
 ```
 

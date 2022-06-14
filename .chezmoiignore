@@ -1,9 +1,15 @@
 LICENSE
 README.md
 
-{{ if eq .chezmoi.os "linux" -}}
+{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "homeserver"))  -}}
 Library
 .cspell
+{{ else if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "mail"))  -}}
+Library
+.cspell
+.config/motd-update
+.config/pyznap
+.config/containerd
 {{ else if eq .chezmoi.os "darwin" -}}
 .config/motd-update
 .config/pyznap
