@@ -6,11 +6,10 @@ My personal dot files managed by chezmoi.
 ## Setup new machine
 
 On Ubuntu:
-(Firstly, add SSH key to GitHub: `ssh-keygen -C "GitHub" -f "~/.ssh/id_rsa" -P ''`)
 
 ```bash
 sudo sh -c "$(curl -fsLS chezmoi.io/get)" -- -b "/usr/local/bin"
-chezmoi init --apply se-jaeger --ssh
+chezmoi init --apply se-jaeger
 ```
 
 On macOS
@@ -34,5 +33,7 @@ chezmoi init --apply se-jaeger
    1. - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Command" section -> Add `activate_py_environment_if_existing && l` to "Send text at start"
 6. **Make <your-profile-name> Default**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> Other Actions -> Set as Default
-    - *`activate_py_environment_if_existing` is a function from my 
-[zsh-activate-py-environment](https://github.com/se-jaeger/zsh-autoactivate-environment)*
+  
+**Remarks:**  
+- `activate_py_environment_if_existing` is a function from my 
+[zsh-activate-py-environment](https://github.com/se-jaeger/zsh-autoactivate-environment)
