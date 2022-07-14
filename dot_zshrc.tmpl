@@ -84,6 +84,11 @@ test -f {{ .chezmoi.homeDir }}/.export_tokens && {
     source {{ .chezmoi.homeDir }}/.export_tokens
 }
 
+# add some secret alias
+test -f {{ .chezmoi.homeDir }}/.secret_alias && {
+    source {{ .chezmoi.homeDir }}/.secret_alias
+}
+
 
 #### macOS specific settings ####
 #################################
