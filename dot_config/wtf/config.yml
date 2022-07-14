@@ -75,7 +75,7 @@ wtf:
       position:
         top: 0
         left: 5
-        width: 3
+        width: 4
         height: 2
       args:
         - ip
@@ -90,17 +90,41 @@ wtf:
       refreshInterval: 60
       position:
         top: 0
-        left: 8
-        width: 3
+        left: 9
+        width: 4
         height: 2
-    cmdrunner:
+    prettyweather:
       enabled: true
-      title: uptime
-      refreshInterval: 30
+      refreshInterval: 5m
+      title: ☀️
       position:
         top: 2
         left: 5
-        width: 6
-        height: 1
-      args: [""]
-      cmd: "uptime"
+        width: 8
+        height: 4
+      city: "Berlin"
+      unit: m
+      view: FQ1n
+      language: de
+    hackernews:
+      enabled: true
+      refreshInterval: 15m
+      position:
+        top: 0
+        left: 13
+        height: 2
+        width: 7
+      numberOfStories: 10
+      storyType: top
+    resourceusage:
+      enabled: true
+      refreshInterval: 1s
+      position:
+        top: 2
+        left: 13
+        height: 4
+        width: 4
+      cpuCombined: false
+      showCPU: true
+      showMem: true
+      showSwp: true
