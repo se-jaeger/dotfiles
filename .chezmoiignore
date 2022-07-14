@@ -5,6 +5,7 @@ README.md
     Library
     .cspell
     .config/wtf
+    Library/Application Support/iTerm2/Scripts/AutoLaunch
 {{ end -}}
 
 {{ if or (eq .chezmoi.hostname "mail") (eq .chezmoi.os "darwin") -}}
