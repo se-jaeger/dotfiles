@@ -9,11 +9,11 @@ async def main(connection):
 
     # create panes and resize them
     top = app.current_terminal_window.current_tab.current_session
-    top.preferred_size = iterm2.util.Size(height=30, width=200)
+    top.preferred_size = iterm2.util.Size(height=50, width=250)
     await app.current_terminal_window.current_tab.async_update_layout()
 
     bottom_left = await top.async_split_pane(vertical=False)
-    bottom_left.preferred_size = iterm2.util.Size(height=3, width=200)
+    bottom_left.preferred_size = iterm2.util.Size(height=5, width=250)
     await app.current_terminal_window.current_tab.async_update_layout()
     
     bottom_middle = await bottom_left.async_split_pane(vertical=True)
@@ -25,5 +25,8 @@ async def main(connection):
 
     # new tab to work with
     await window.async_create_tab()
+
+    # activate pane to directly allow typing in password
+    await bottom_left.async_activate()
 
 iterm2.run_until_complete(main)
