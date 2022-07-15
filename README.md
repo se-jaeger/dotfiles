@@ -30,10 +30,14 @@ chezmoi init --apply se-jaeger
 4. **Working Directory of new sessions**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> tab "General" -> "Working Directory" section -> tick "Reuse precious session's directory"
 5. **Execute commands and startup of new sessions**
-   1. - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Command" section -> Add `activate_py_environment_if_existing && l` to "Send text at start"
-6. **Make <your-profile-name> Default**
+   - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Command" section -> Add `activate_py_environment_if_existing && l` to "Send text at start"
+6. **Setup closing behavior**
+    - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "'Undo' can revive ..." -> set to `600` seconds
+    - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "Prompt before closing?" -> tick "If there are jobs besides:"
+7. **Make <your-profile-name> Default**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> Other Actions -> Set as Default
   
 **Remarks:**  
 - `activate_py_environment_if_existing` is a function from my 
 [zsh-activate-py-environment](https://github.com/se-jaeger/zsh-autoactivate-environment)
+- `l` is a alias of zsh and adjusted in [.zshrc](./dot_zshrc.tmpl).
