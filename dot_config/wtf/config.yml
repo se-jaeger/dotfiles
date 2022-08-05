@@ -125,7 +125,7 @@ wtf:
       position:
         top: 0
         left: 13
-        height: 2
+        height: 4
         width: 7
-      numberOfStories: 10
+      numberOfStories: 15
       storyType: top
