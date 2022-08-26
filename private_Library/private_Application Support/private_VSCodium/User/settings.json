@@ -18,6 +18,7 @@
     "editor.multiCursorModifier": "alt",
     "editor.minimap.enabled": true,
     "editor.formatOnSave": true,
+    "editor.experimental.stickyScroll.enabled": true,
     "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs",
     "python.formatting.provider": "black",
     // This does not work at the moment. VSCodium adds an '-' after 'isort' which is not recognized by modern versions.
