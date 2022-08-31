@@ -4,7 +4,8 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
-# CLI tools
+
+## CLI tools
 brew "starship"
 brew "trash"
 brew "fd"
@@ -24,21 +25,52 @@ brew "jq"
 brew "thefuck"
 brew "yank"
 brew "sshuttle"
-brew "tor"
-brew "brave-browser"
-brew "bitwarden"
-brew "sk"
 brew "up"
 brew "wtfutil"
+brew "hugo"
 
-# fonts
+## fonts
 cask "font-fira-code"
 cask "font-hack-nerd-font"
 
-# python
+## python
 brew "python"
 brew "pyenv"
 brew "poetry"
+
+## Apps
+# Productivity
+brew "alfred"
+brew "iterm2"
+brew "obsidian"
+brew "omnifocus"
+brew "zotero"
+brew "bitwarden"
+
+# Messaging
+brew "franz"
+brew "rocket-chat"
+
+# Editors
+brew "vscodium"
+brew "basictex"
+brew "tex-live-utility"
+brew "texstudio"
+
+# Finance
+brew "moneymoney"
+brew "portfolioperformance"
+
+# Misc
+brew "spotify"
+brew "appcleaner"
+brew "iina"
+brew "monitorcontrol"
+brew "inkscape"
+brew "tableplus"
+brew "zoom"
+brew "brave-browser"
+
 EOF
 
 brew services restart tor
