@@ -12,7 +12,6 @@
     },
     "diffEditor.ignoreTrimWhitespace": false,
     "breadcrumbs.enabled": true,
-    "editor.acceptSuggestionOnEnter": "off",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.multiCursorModifier": "alt",
