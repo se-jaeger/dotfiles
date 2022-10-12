@@ -1,6 +1,5 @@
 wtf:
   colors:
-    background: black
     title: lightgreen
     border:
       focusable: darkslateblue
