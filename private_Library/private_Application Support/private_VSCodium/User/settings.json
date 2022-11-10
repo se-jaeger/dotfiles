@@ -1,5 +1,4 @@
 {
-    "window.zoomLevel": 1,
     "telemetry.telemetryLevel": "off",
     "redhat.telemetry.enabled": false,
     "files.autoSave": "onFocusChange",
@@ -31,7 +30,6 @@
         }
     },
     "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "basic",
     "jupyter.askForKernelRestart": false,
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": true,
@@ -55,7 +53,7 @@
         "**/.venv",
         "**/env"
     ],
-    "terminal.integrated.env.osx": {
-        "FIG_NEW_SESSION": "1"
-    },
+    "window.zoomLevel": 1,
+    "notebook.output.textLineLimit": 9999999,
+    "python.analysis.autoImportCompletions": true,
 }
