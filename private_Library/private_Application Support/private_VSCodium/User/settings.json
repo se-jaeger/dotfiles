@@ -1,6 +1,8 @@
 {
+    // telemetry
     "telemetry.telemetryLevel": "off",
     "redhat.telemetry.enabled": false,
+    // general settings
     "files.autoSave": "onFocusChange",
     "files.exclude": {
         "**/.git": true,
@@ -9,30 +11,27 @@
         "**/CVS": true,
         "**/.DS_Store": true
     },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "breadcrumbs.enabled": true,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
-    "editor.multiCursorModifier": "alt",
-    "editor.minimap.enabled": true,
     "editor.formatOnSave": true,
     "editor.experimental.stickyScroll.enabled": true,
+    // python settings
     "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs",
     "python.formatting.provider": "black",
-    // This does not work at the moment. VSCodium adds an '-' after 'isort' which is not recognized by modern versions.
-    // checkout for a workaround: https://gist.github.com/cb109/47496649640c9c5f4287b06db7a7c197
-    // "python.sortImports.path": "isort",
     "python.linting.mypyEnabled": true,
-    "python.linting.flake8Enabled": true,
+    "python.languageServer": "Pylance",
+    "ruff.importStrategy": "fromEnvironment",
     "[python]": {
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
+            "source.organizeImports": true,
+            "source.fixAll": true
+        },
     },
-    "python.languageServer": "Pylance",
-    "jupyter.askForKernelRestart": false,
+    "notebook.output.textLineLimit": 9999999,
+    "notebook.lineNumbers": "on",
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": true,
+    // spelling extension settings
     "cSpell.customDictionaries": {
         "custom-dictionary-user": {
             "name": "custom-dictionary-user",
@@ -41,6 +40,7 @@
             "scope": "user"
         }
     },
+    // todo extension settings
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -53,7 +53,4 @@
         "**/.venv",
         "**/env"
     ],
-    "window.zoomLevel": 1,
-    "notebook.output.textLineLimit": 9999999,
-    "python.analysis.autoImportCompletions": true,
 }
