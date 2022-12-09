@@ -80,11 +80,13 @@ export FZF_ALT_C_COMMAND="fd --type d --type l --hidden --follow"
 {{- end }}
 
 # add some tokens to env
+# Use 'umask 077; touch .export_tokens' to create only user readable file
 test -f {{ .chezmoi.homeDir }}/.export_tokens && {
     source {{ .chezmoi.homeDir }}/.export_tokens
 }
 
 # add some secret alias
+# Use 'umask 077; touch .secret_alias' to create only user readable file
 test -f {{ .chezmoi.homeDir }}/.secret_alias && {
     source {{ .chezmoi.homeDir }}/.secret_alias
 }
