@@ -8,6 +8,7 @@ Kubernetes
 proba
 psycopg2
 pydantic
+quantile
 scrapy
 SERP
 Sklearn
