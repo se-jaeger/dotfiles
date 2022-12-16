@@ -20,7 +20,19 @@ async def main(connection):
     bottom_right = await bottom_middle.async_split_pane(vertical=True)
 
     # run command(s)
+    ## backup tool's configuration
+    await top.async_send_text(
+        "DATE=$(date +date=%Y-%m-%d__time=%H-%M-%S);" +
+        "BASE_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs/Mackup;" +
+        "rsync --archive ${BASE_DIR}/latest ${BASE_DIR}/${DATE};" +
+        "mackup backup -f;" +
+        "\n"
+        )
+
+    ## start WTF dashboard
     await top.async_send_text("wtfutil\n")
+
+    ## Open SSH VPN tunnel
     await bottom_left.async_send_text("sshuttle_work\n")
 
     # new tab to work with

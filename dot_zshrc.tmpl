@@ -104,14 +104,6 @@ alias del="trash"
 alias watch="viddy"
 alias vsc="open -a VSCodium ."
 
-backup-tools() {
-    DATE=$(date +%Y-%m-%d)
-    BASE_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs/Mackup
-
-    cp -r -n ${BASE_DIR}/latest ${BASE_DIR}/${DATE}
-    mackup backup -f
-}
-
 eval $(thefuck --alias)
 alias f="fuck"
 
