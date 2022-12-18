@@ -22,7 +22,7 @@ async def main(connection):
     # run command(s)
     ## backup tool's configuration
     await top.async_send_text(
-        "DATE=$(date +date=%Y-%m-%d__time=%H-%M-%S);" +
+        "DATE=$(date +%Y-%m-%d__%H-%M-%S);" +
         "BASE_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs/Mackup;" +
         "rsync --archive ${BASE_DIR}/latest ${BASE_DIR}/${DATE};" +
         "mackup backup -f;" +
