@@ -36,24 +36,6 @@ sudo /bin/bash <<EOF
     apt install -y iptables
     apt install -y fail2ban
 
-    ## pyznap
-    apt install -y python3-venv
-    apt install -y python3
-
-    # remove existing installation
-    rm -r /opt/pyznap
-    rm -f /usr/local/bin/pyznap
-
-    # install
-    mkdir /opt/pyznap
-    python3 -m venv /opt/pyznap
-    source /opt/pyznap/bin/activate
-    pip install pyznap
-    deactivate
-    ln -s /opt/pyznap/bin/pyznap /usr/local/bin/pyznap
-    pyznap setup
-    chown root:root -R /etc/pyznap/
-
     ## containerd
     apt install -y containerd
 
