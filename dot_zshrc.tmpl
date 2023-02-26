@@ -152,6 +152,51 @@ pyenv-brew-relink() {
 
 pyenv-brew-relink
 
+
+# Python linting + formatting
+python_lint() {
+    if [ -z "$1" ]; then
+        DIRECTORY=$(pwd)
+    else
+        DIRECTORY=$(realpath $1)
+    fi
+    BLACK_CMD="black --check $DIRECTORY"
+    MYPY_CMD="mypy $DIRECTORY"
+    RUFF_CMD="ruff $DIRECTORY"
+
+    echo "\033[0;32mRunning: '$BLACK_CMD'\n\033[0m"
+    eval $BLACK_CMD
+    
+    echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
+    eval $MYPY_CMD
+    
+    echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
+    eval $RUFF_CMD
+
+    true # reset exit code.
+}
+python_format() {
+    if [ -z "$1" ]; then
+        DIRECTORY=$(pwd)
+    else
+        DIRECTORY=$(realpath $1)
+    fi
+    BLACK_CMD="black $DIRECTORY"
+    MYPY_CMD="mypy $DIRECTORY"
+    RUFF_CMD="ruff --fix $DIRECTORY"
+
+    echo "\033[0;32mRunning: '$BLACK_CMD'\n\033[0m"
+    eval $BLACK_CMD
+    
+    echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
+    eval $MYPY_CMD
+    
+    echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
+    eval $RUFF_CMD
+
+    true # reset exit code.
+}
+
 # to fix `brew doctor` warning when pyenv is installed:
 alias brew='env PATH="${PATH//$(pyenv root)/shims:/}" brew'
 
