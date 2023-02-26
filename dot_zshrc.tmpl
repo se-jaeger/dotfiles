@@ -66,19 +66,6 @@ j() {
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_PAGER="less -R"
 
-# fzf settings
-export FZF_DEFAULT_COMMAND="fd --type f --type l --hidden --follow"
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-export FZF_ALT_C_OPTS=" --preview 'bat --color=always {}'"
-export FZF_CTRL_T_OPTS=" --preview 'bat --color=always {}'"
-export FZF_ALT_C_COMMAND="fd --type d --type l --hidden --follow"
-
-{{ if eq .chezmoi.os "darwin" -}}
-    source {{ .chezmoi.homeDir }}/.fzf.zsh
-{{- else if eq .chezmoi.os "linux" -}}
-    source /usr/share/doc/fzf/examples/key-bindings.zsh
-{{- end }}
-
 # add some tokens to env
 # Use 'umask 077; touch .export_tokens' to create only user readable file
 test -f {{ .chezmoi.homeDir }}/.export_tokens && {
@@ -91,11 +78,19 @@ test -f {{ .chezmoi.homeDir }}/.secret_alias && {
     source {{ .chezmoi.homeDir }}/.secret_alias
 }
 
-
-#### macOS specific settings ####
+{{ if eq .chezmoi.os "linux" -}}
+#### Linux specific settings ####
 #################################
 
-{{ if eq .chezmoi.os "darwin" -}}
+# fzf settings
+export FZF_DEFAULT_COMMAND="fd --type f --type l --hidden --follow"
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+{{ else if eq .chezmoi.os "darwin" -}}
+#### macOS specific settings ####
+#################################
 
 alias kcl="kubectl"
 alias hd="helm delete"
@@ -103,6 +98,42 @@ alias hl="helm list"
 alias del="trash"
 alias watch="viddy"
 alias vsc="open -a VSCodium ."
+
+# skim settings
+export SKIM_DEFAULT_COMMAND="fd --type file --type symlink --follow"
+export SKIM_DEFAULT_OPTIONS="--reverse --height 40% --inline-info --no-clear --ansi"
+
+search_files(){
+    if [ -n "$1" ]; then
+        FLAGS="$1"
+    else
+        FLAGS=""
+    fi
+
+    SKIM_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND $FLAGS" sk --preview 'bat --color=always {}' --header 'Searching and preview files ...'
+}
+
+search_file_content(){
+    if [ -n "$1" ]; then
+        FLAGS="$1"
+    else
+        FLAGS=""
+    fi
+
+    sk --interactive --cmd 'rg --color=always --line-number "{}"' --header 'Searching files content ...'
+}
+
+search_directories(){
+    if [ -n "$1" ]; then
+        FLAGS="$1"
+    else
+        FLAGS=""
+    fi
+
+    SKIM_DEFAULT_COMMAND="fd --type directory --follow" sk --preview 'exa --all --long --header --group --git --icons --group-directories-first {}' --header 'Searching and preview directories ...'
+}
+
+[ -f /usr/local/share/zsh/site-functions/key-bindings.zsh ] && source /usr/local/share/zsh/site-functions/key-bindings.zsh
 
 eval $(thefuck --alias)
 alias f="fuck"
