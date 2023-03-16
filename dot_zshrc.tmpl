@@ -166,13 +166,13 @@ python_lint() {
 
     echo "\033[0;32mRunning: '$BLACK_CMD'\n\033[0m"
     eval $BLACK_CMD
+
+    echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
+    eval $RUFF_CMD
     
     echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
     eval $MYPY_CMD
     
-    echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
-    eval $RUFF_CMD
-
     true # reset exit code.
 }
 python_format() {
@@ -188,11 +188,11 @@ python_format() {
     echo "\033[0;32mRunning: '$BLACK_CMD'\n\033[0m"
     eval $BLACK_CMD
     
-    echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
-    eval $MYPY_CMD
-    
     echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
     eval $RUFF_CMD
+
+    echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
+    eval $MYPY_CMD
 
     true # reset exit code.
 }
