@@ -17,7 +17,7 @@ async def main(connection):
     await app.current_terminal_window.current_tab.async_update_layout()
     
     bottom_middle = await bottom_left.async_split_pane(vertical=True)
-    bottom_right = await bottom_middle.async_split_pane(vertical=True)
+    await bottom_middle.async_split_pane(vertical=True)
 
     # run command(s)
     ## backup tool's configuration
@@ -32,8 +32,8 @@ async def main(connection):
     ## start WTF dashboard
     await top.async_send_text("wtfutil\n")
 
-    ## Open SSH VPN tunnel
-    await bottom_left.async_send_text("sshuttle_work\n")
+    ## Open VPN tunnel
+    await bottom_left.async_send_text("print_connect_to_work_vpn_info\n")
 
     # new tab to work with
     await window.async_create_tab()
