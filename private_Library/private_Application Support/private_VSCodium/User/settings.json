@@ -14,7 +14,7 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
-    "editor.experimental.stickyScroll.enabled": true,
+    "editor.stickyScroll.enabled": true,
     // python settings
     "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs",
     "python.formatting.provider": "black",
