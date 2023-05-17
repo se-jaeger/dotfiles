@@ -1,7 +1,10 @@
 [user]
 	name = Sebastian Jäger
 	email = git@sebastian-jaeger.me
+	{{ if eq .chezmoi.os "darwin" -}}signingkey = 3608F3D413836957{{ end}}
 [core]
 	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
 [init]
 	defaultBranch = main
+{{ if eq .chezmoi.os "darwin" -}}[commit]
+	gpgsign = true{{ end}}

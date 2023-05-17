@@ -203,6 +203,9 @@ alias brew='env PATH="${PATH//$(pyenv root)/shims:/}" brew'
 # gitui needs the (GitHub) SSH key loaded
 ssh-add {{ .chezmoi.homeDir }}/.ssh/id_ed25519 &> /dev/null
 
+# set gpg tty to sign git commits
+export GPG_TTY=$(tty)
+
 {{- end }}
 
 
