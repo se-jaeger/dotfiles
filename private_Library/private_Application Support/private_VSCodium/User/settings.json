@@ -2,6 +2,7 @@
     // telemetry
     "telemetry.telemetryLevel": "off",
     "redhat.telemetry.enabled": false,
+    "gitlens.telemetry.enabled": false,
     // general settings
     "files.autoSave": "onFocusChange",
     "files.exclude": {
@@ -29,6 +30,7 @@
     },
     "notebook.output.textLineLimit": 9999999,
     "notebook.lineNumbers": "on",
+    "jupyter.experiments.enabled": false,
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": true,
     // spelling extension settings
