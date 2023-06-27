@@ -10,6 +10,7 @@ export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 plugins=(
     extract
     git
+    {{ if and (eq .chezmoi.os "linux") (not (eq .chezmoi.hostname "mail")) -}} poetry {{- end }}
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-activate-py-environment
@@ -138,20 +139,31 @@ search_directories(){
 eval $(thefuck --alias)
 alias f="fuck"
 
+# set gpg tty to sign git commits
+export GPG_TTY=$(tty)
+{{- end }}
+
+
+{{ if not (or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver")) -}}
+#### Python tools and settings ####
+###################################
+
+{{ if eq .chezmoi.os "linux" -}} export PATH="/home/{{ .chezmoi.username }}/.local/bin:/home/{{ .chezmoi.username }}/.pyenv/bin:$PATH" {{- end }}
+
 # pyenv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-pyenv-brew-relink() {
-    rm -f "{{ .chezmoi.homeDir }}/.pyenv/versions/*-brew"
-    for i in $(brew --cellar)/python*/* ; do
-        ln -s -f "$i" "{{ .chezmoi.homeDir }}/.pyenv/versions/${i##/*/}-brew"
-    done
-    pyenv rehash
-}
+{{ if eq .chezmoi.os "darwin" -}}
+rm -f "{{ .chezmoi.homeDir }}/.pyenv/versions/*-brew"
+for i in $(brew --cellar)/python*/* ; do
+    ln -s -f "$i" "{{ .chezmoi.homeDir }}/.pyenv/versions/${i##/*/}-brew"
+done
+pyenv rehash
 
-pyenv-brew-relink
-
+# to fix `brew doctor` warning when pyenv is installed:
+alias brew='env PATH="${PATH//$(pyenv root)/shims:/}" brew'
+{{- end }}
 
 # Python linting + formatting
 python_lint() {
@@ -197,15 +209,8 @@ python_format() {
     true # reset exit code.
 }
 
-# to fix `brew doctor` warning when pyenv is installed:
-alias brew='env PATH="${PATH//$(pyenv root)/shims:/}" brew'
-
 # gitui needs the (GitHub) SSH key loaded
 ssh-add {{ .chezmoi.homeDir }}/.ssh/id_ed25519 &> /dev/null
-
-# set gpg tty to sign git commits
-export GPG_TTY=$(tty)
-
 {{- end }}
 
 

@@ -3,12 +3,17 @@ README.md
 
 {{ if eq .chezmoi.os "linux" -}}
     Library
-    .cspell
     .config/wtf
     Library/Application Support/iTerm2/Scripts/AutoLaunch
+    .mackup
+    .mackup.cfg
 {{ end -}}
 
-{{ if or (eq .chezmoi.hostname "mail") (eq .chezmoi.os "darwin") -}}
+{{ if or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver") -}}
+    .cspell
+{{ end -}}
+
+{{ if not (eq .chezmoi.hostname "homeserver") -}}
     .config/motd-update
     .config/containerd
 {{ end -}}

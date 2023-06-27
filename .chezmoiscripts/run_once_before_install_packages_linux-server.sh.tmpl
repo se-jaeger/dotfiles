@@ -1,4 +1,4 @@
-{{ if (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "homeserver"))  -}}
+{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 # escalation privileges
@@ -21,7 +21,11 @@ sudo /bin/bash <<EOF
     apt install -y fzf
 
     ## exa
-    apt install -y exa
+    apt install -y unzip
+    wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-musl-v0.10.1.zip
+    unzip -p exa-linux-x86_64-musl-v0.10.1.zip bin/exa > /usr/local/bin/exa
+    rm -rf exa-linux-x86_64-musl-v0.10.1.zip
+    chmod 755 /usr/local/bin/exa
 
     ## zoxide
     apt install -y zoxide
@@ -32,15 +36,16 @@ sudo /bin/bash <<EOF
     ## fonts-firacode
     apt install -y fonts-firacode
 
+    ## gitui
+    wget https://github.com/extrawurst/gitui/releases/download/v0.22.1/gitui-linux-musl.tar.gz -O - | tar -xz -C /usr/local/bin/
+    chown root:root /usr/local/bin/gitui
+    chmod 755 /usr/local/bin/gitui
+
     ## fail2ban
     apt install -y iptables
     apt install -y fail2ban
 
-    ## containerd
-    apt install -y containerd
-
     ## starship
     curl -sS https://starship.rs/install.sh | sh
 EOF
-
 {{ end -}}
