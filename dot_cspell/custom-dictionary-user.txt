@@ -19,6 +19,7 @@ mypy
 proba
 psycopg2
 pydantic
+pyenv
 Pylance
 pypoetry
 quantile
@@ -29,6 +30,7 @@ SERP
 Sklearn
 sklearn's
 snapshotting
+thefuck
 tolist
 Vecs
 venv
