@@ -20,12 +20,11 @@ sudo /bin/bash <<EOF
     ## fzf
     apt install -y fzf
 
-    ## exa
-    apt install -y unzip
-    wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-musl-v0.10.1.zip
-    unzip -p exa-linux-x86_64-musl-v0.10.1.zip bin/exa > /usr/local/bin/exa
-    rm -rf exa-linux-x86_64-musl-v0.10.1.zip
-    chmod 755 /usr/local/bin/exa
+    ## eza
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo tee /etc/apt/trusted.gpg.d/gierens.asc
+    echo "deb http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+    sudo apt update
+    sudo apt install -y eza
 
     ## zoxide
     apt install -y zoxide

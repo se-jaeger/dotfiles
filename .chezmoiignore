@@ -3,11 +3,11 @@ README.md
 
 {{ if eq .chezmoi.os "linux" -}}
     Library
-    .config/wtf
     Library/Application Support/iTerm2/Scripts/AutoLaunch
     .mackup
     .mackup.cfg
     .config/custom_starship.itermcolors
+    .config/broot
 {{ end -}}
 
 {{ if or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver") -}}

@@ -16,23 +16,37 @@
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
     "editor.stickyScroll.enabled": true,
+    "editor.semanticHighlighting.enabled": true,
     // python settings
     "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs",
-    "python.formatting.provider": "black",
-    "python.linting.mypyEnabled": true,
-    "python.languageServer": "Pylance",
-    "ruff.importStrategy": "fromEnvironment",
+    "pyright.disableOrganizeImports": true,
+    // Pylance no longer usable with VSCodium, see: 
+    // https://www.reddit.com/r/linux/comments/k0s8qw/vs_code_developers_prevent_running_the_new/
+    // https://stackoverflow.com/questions/75345501/make-python-code-highlighting-for-vscodium-equal-to-vscode
+    // https://stackoverflow.com/a/75432992 
+    "python.languageServer": "None",
     "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
-            "source.fixAll": true
-        },
+            "source.organizeImports.ruff": true
+        }
     },
+    // ruff settings
+    "ruff.enable": true,
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
+    "ruff.lint.run": "onType",
+    "ruff.importStrategy": "fromEnvironment",
+    // mypy settings
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "mypy-type-checker.showNotifications": "always",
     "notebook.output.textLineLimit": 9999999,
     "notebook.lineNumbers": "on",
     "jupyter.experiments.enabled": false,
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": true,
+    "debug.console.acceptSuggestionOnEnter": "on",
     // spelling extension settings
     "cSpell.customDictionaries": {
         "custom-dictionary-user": {
@@ -56,4 +70,8 @@
         "**/env"
     ],
     "errorLens.enabled": true,
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+    ],
 }

@@ -16,16 +16,17 @@ brew "viddy"
 brew "kubernetes-cli"
 brew "helm"
 brew "zoxide"
-brew "exa"
+brew "eza"
+brew "broot"
 brew "gitui"
 brew "k9s"
 brew "ripgrep"
 brew "fx"
 brew "jq"
+brew "jless"
 brew "thefuck"
 brew "yank"
 brew "up"
-brew "wtfutil"
 brew "hugo"
 brew "mackup"
 brew "tesseract"
@@ -33,7 +34,7 @@ brew "tesseract-lang"
 
 ### VPN
 brew "sshuttle"
-cask "wireguard"
+brew "wireguard-tools"
 brew "openfortivpn"
 
 ## fonts
@@ -52,7 +53,6 @@ cask "iterm2"
 cask "obsidian"
 cask "omnifocus"
 cask "zotero"
-cask "bitwarden"
 
 # Messaging
 cask "rocket-chat"
@@ -78,6 +78,4 @@ cask "zoom"
 cask "brave-browser"
 
 EOF
-
-brew services restart tor
 {{ end -}}

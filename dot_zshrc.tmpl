@@ -32,22 +32,12 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 # some builtin replacements
-alias ls="exa --all --long --header --group --git --icons --group-directories-first"
+alias ls="eza --all --long --header --group --git --icons --group-directories-first"
 alias cat="bat"
 cd() {
     builtin cd "$@"
     l
 }
-
-# custom commands
-tree() {
-    if [ -z "$1" ]; then
-        exa --all --tree --header --group --git --icons --group-directories-first
-    else
-        exa --all --tree --header --group --git --icons --group-directories-first --level $1
-    fi
-}
-
 
 # zoxide linux scripts depend on cd, which lists directory already.
 # Therefore, omit it on linux
@@ -83,8 +73,17 @@ test -f {{ .chezmoi.homeDir }}/.secret_alias && {
 #### Linux specific settings ####
 #################################
 
+# custom tree command
+tree() {
+    if [ -z "$1" ]; then
+        eza --all --tree --header --group --git --icons --group-directories-first
+    else
+        eza --all --tree --header --group --git --icons --group-directories-first --level $1
+    fi
+}
+
 # fzf settings
-export FZF_DEFAULT_COMMAND="fd --type f --type l --hidden --follow"
+export FZF_DEFAULT_COMMAND="fd --type file --type symlink --follow"
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -99,6 +98,10 @@ alias hl="helm list"
 alias del="trash"
 alias watch="viddy"
 alias vsc="open -a VSCodium ."
+
+# custom tree command
+source /Users/sebastian/.config/broot/launcher/bash/br
+alias tree="br"
 
 # skim settings
 export SKIM_DEFAULT_COMMAND="fd --type file --type symlink --follow"
@@ -121,7 +124,7 @@ search_file_content(){
         FLAGS=""
     fi
 
-    sk --interactive --cmd 'rg --color=always --line-number "{}"' --header 'Searching files content ...'
+    SKIM_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND $FLAGS" sk --interactive --cmd 'rg --context 3 --color=always --line-number "{}"' --header 'Searching files content ...'
 }
 
 search_directories(){
@@ -131,7 +134,7 @@ search_directories(){
         FLAGS=""
     fi
 
-    SKIM_DEFAULT_COMMAND="fd --type directory --follow" sk --preview 'exa --all --long --header --group --git --icons --group-directories-first {}' --header 'Searching and preview directories ...'
+    SKIM_DEFAULT_COMMAND="fd --type directory --follow" sk --preview 'eza --all --long --header --group --git --icons --group-directories-first {}' --header 'Searching and preview directories ...'
 }
 
 [ -f /usr/local/share/zsh/site-functions/key-bindings.zsh ] && source /usr/local/share/zsh/site-functions/key-bindings.zsh
@@ -172,12 +175,8 @@ python_lint() {
     else
         DIRECTORY=$(realpath $1)
     fi
-    BLACK_CMD="black --check $DIRECTORY"
     MYPY_CMD="mypy $DIRECTORY"
     RUFF_CMD="ruff $DIRECTORY"
-
-    echo "\033[0;32mRunning: '$BLACK_CMD'\n\033[0m"
-    eval $BLACK_CMD
 
     echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
     eval $RUFF_CMD
@@ -193,12 +192,8 @@ python_format() {
     else
         DIRECTORY=$(realpath $1)
     fi
-    BLACK_CMD="black $DIRECTORY"
     MYPY_CMD="mypy $DIRECTORY"
     RUFF_CMD="ruff --fix $DIRECTORY"
-
-    echo "\033[0;32mRunning: '$BLACK_CMD'\n\033[0m"
-    eval $BLACK_CMD
     
     echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
     eval $RUFF_CMD
@@ -210,7 +205,7 @@ python_format() {
 }
 
 # gitui needs the (GitHub) SSH key loaded
-ssh-add {{ .chezmoi.homeDir }}/.ssh/id_ed25519 &> /dev/null
+eval `ssh-agent -s` &> /dev/null && ssh-add {{ .chezmoi.homeDir }}/.ssh/id_ed25519 &> /dev/null
 {{- end }}
 
 

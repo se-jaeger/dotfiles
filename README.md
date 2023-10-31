@@ -28,13 +28,18 @@ chezmoi init --apply se-jaeger
 3. **Increase scroll buffer**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> tab "Terminal" -> tick "Unlimited scrollback"
 4. **Working Directory of new sessions**
-    - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> tab "General" -> "Working Directory" section -> tick "Reuse precious session's directory"
+    - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> tab "General" -> "Working Directory" section -> tick "Reuse previous session's directory"
 5. **Execute commands and startup of new sessions**
-   - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Command" section -> Add `activate_py_environment_if_existing && l` to "Send text at start"
+   - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> tab "General" -> "Command" section -> Add `activate_py_environment_if_existing && l` to "Send text at start"
 6. **Setup closing behavior**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "'Undo' can revive ..." -> set to `600` seconds
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "Prompt before closing?" -> tick "If there are jobs besides:"
-7. **Make <your-profile-name> Default**
+7. **Remap `⌥+Return↩` shortcut (for `broot`)**
+   - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> tab "Keys" -> sub-tab "Key Mappings" -> add new mapping `+`
+   - Chose "Action:" `Send Hex Codes: 0x1b 0x0d`
+8. **Allow Python API**
+   - iterm2 -> General -> tab "Magic" -> tick "Enable Python API"
+9.  **Make <your-profile-name> Default**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> Other Actions -> Set as Default
   
 **Remarks:**  
