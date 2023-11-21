@@ -4,6 +4,7 @@ anonymization
 astype
 aufnahmenummer
 Autogluon
+autogluon
 backuppool
 Bericht
 canmount
@@ -14,6 +15,8 @@ dtype
 dtypes
 ECOD
 ernaehrung
+egzb
+figsize
 filesystems
 Fira
 gemidas
@@ -31,6 +34,8 @@ minmax
 mountpoint
 multiclass
 mypy
+ndarray
+nsamples
 proba
 psycopg2
 pydantic
@@ -48,9 +53,11 @@ sklearn's
 snapshotting
 sturz
 Sturzformulare
+sturzrisiko
 thefuck
 tolist
 Vecs
 venv
 virtualenvs
+wandb
 zrepl
