@@ -26,11 +26,12 @@
     // https://stackoverflow.com/a/75432992 
     "python.languageServer": "None",
     "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
+            "source.fixAll": true,
             "source.organizeImports.ruff": true
-        }
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
     },
     // ruff settings
     "ruff.enable": true,
@@ -43,6 +44,11 @@
     "mypy-type-checker.showNotifications": "always",
     "notebook.output.textLineLimit": 9999999,
     "notebook.lineNumbers": "on",
+    "notebook.formatOnSave.enabled": true,
+    "notebook.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true
+    },
     "jupyter.experiments.enabled": false,
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": true,

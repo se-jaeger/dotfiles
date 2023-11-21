@@ -176,10 +176,10 @@ python_lint() {
         DIRECTORY=$(realpath $1)
     fi
     MYPY_CMD="mypy $DIRECTORY"
-    RUFF_CMD="ruff $DIRECTORY"
+    RUFF_CHECK_CMD="ruff check $DIRECTORY"
 
-    echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
-    eval $RUFF_CMD
+    echo "\033[0;32m\n\nRunning: '$RUFF_CHECK_CMD'\n\033[0m"
+    eval $RUFF_CHECK_CMD
     
     echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
     eval $MYPY_CMD
@@ -193,10 +193,14 @@ python_format() {
         DIRECTORY=$(realpath $1)
     fi
     MYPY_CMD="mypy $DIRECTORY"
-    RUFF_CMD="ruff --fix $DIRECTORY"
+    RUFF_CHECK_CMD="ruff check --fix $DIRECTORY"
+    RUFF_FORMAT_CMD="ruff format $DIRECTORY"
     
-    echo "\033[0;32m\n\nRunning: '$RUFF_CMD'\n\033[0m"
-    eval $RUFF_CMD
+    echo "\033[0;32m\n\nRunning: '$RUFF_FORMAT_CMD'\n\033[0m"
+    eval $RUFF_FORMAT_CMD
+
+    echo "\033[0;32m\n\nRunning: '$RUFF_CHECK_CMD'\n\033[0m"
+    eval $RUFF_CHECK_CMD
 
     echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
     eval $MYPY_CMD
