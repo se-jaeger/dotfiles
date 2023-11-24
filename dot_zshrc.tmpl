@@ -40,15 +40,6 @@ cd() {
     l
 }
 
-# zoxide linux scripts depend on cd, which lists directory already.
-# Therefore, omit it on linux
-eval "$(zoxide init zsh)"
-j() {
-    z "$@" # j for jump and no movement of finger
-    {{ if eq .chezmoi.os "darwin" -}} l {{- end }}
-}
-
-
 #### Environment variables, and settings ####
 #############################################
 
@@ -99,6 +90,12 @@ alias hl="helm list"
 alias del="trash"
 alias watch="viddy"
 alias vsc="open -a VSCodium ."
+
+eval "$(zoxide init zsh)"
+j() {
+    z "$@" # j for jump and no movement of finger
+    l
+}
 
 # custom tree command
 source {{ .chezmoi.homeDir }}/.config/broot/launcher/bash/br
