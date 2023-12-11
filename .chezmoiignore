@@ -3,7 +3,6 @@ README.md
 
 {{ if eq .chezmoi.os "linux" -}}
     Library
-    Library/Application Support/iTerm2/Scripts/AutoLaunch
     .mackup
     .mackup.cfg
     .config/custom_starship.itermcolors
@@ -12,9 +11,11 @@ README.md
 
 {{ if or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver") -}}
     .cspell
+    .config/VSCodium
 {{ end -}}
 
 {{ if not (eq .chezmoi.hostname "homeserver") -}}
     .config/motd-update
     .config/containerd
+    .config/yt-dlp.conf
 {{ end -}}
