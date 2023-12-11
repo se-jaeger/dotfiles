@@ -19,17 +19,14 @@
     "editor.semanticHighlighting.enabled": true,
     // python settings
     "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs",
-    "pyright.disableOrganizeImports": true,
-    // Pylance no longer usable with VSCodium, see: 
-    // https://www.reddit.com/r/linux/comments/k0s8qw/vs_code_developers_prevent_running_the_new/
-    // https://stackoverflow.com/questions/75345501/make-python-code-highlighting-for-vscodium-equal-to-vscode
-    // https://stackoverflow.com/a/75432992 
-    "python.languageServer": "None",
+    // Hack to make Pylance usable with VSCodium, see: 
+    // https://github.com/VSCodium/vscodium/discussions/1641#discussion-5634184
+    "python.languageServer": "Pylance",
     "[python]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.fixAll": true,
-            "source.organizeImports.ruff": true
+            "source.fixAll": "explicit",
+            "source.organizeImports.ruff": "explicit"
         },
         "editor.defaultFormatter": "charliermarsh.ruff",
     },
@@ -42,13 +39,14 @@
     // mypy settings
     "mypy-type-checker.importStrategy": "fromEnvironment",
     "mypy-type-checker.showNotifications": "always",
+    // Notebook/Jupyter settings
     "notebook.output.textLineLimit": 9999999,
     "notebook.lineNumbers": "on",
-    "notebook.formatOnSave.enabled": true,
-    "notebook.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.organizeImports": true
-    },
+    // "notebook.formatOnSave.enabled": true,
+    // "notebook.codeActionsOnSave": {
+    //     "source.fixAll": true,
+    //     "source.organizeImports": true
+    // },
     "jupyter.experiments.enabled": false,
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": true,
@@ -80,4 +78,6 @@
         "error",
         "warning"
     ],
+    "editor.accessibilitySupport": "off",
+    "remote.autoForwardPortsSource": "hybrid",
 }
