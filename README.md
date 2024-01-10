@@ -34,12 +34,9 @@ chezmoi init --apply se-jaeger
 6. **Setup closing behavior**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "'Undo' can revive ..." -> set to `600` seconds
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "Prompt before closing?" -> tick "If there are jobs besides:"
-7. **Remap `⌥+Return↩` shortcut (for `broot`)**
-   - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> tab "Keys" -> sub-tab "Key Mappings" -> add new mapping `+`
-   - Chose "Action:" `Send Hex Codes: 0x1b 0x0d`
-8. **Allow Python API**
+7. **Allow Python API**
    - iterm2 -> General -> tab "Magic" -> tick "Enable Python API"
-9.  **Make <your-profile-name> Default**
+8.  **Make <your-profile-name> Default**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> Other Actions -> Set as Default
   
 **Remarks:**  

@@ -97,8 +97,15 @@ j() {
 }
 
 # custom tree command
-source {{ .chezmoi.homeDir }}/.config/broot/launcher/bash/br
-alias tree="br"
+tree(){
+    if [ -n "$1" ]; then
+        LEVEL="--level=$1"
+    else
+        LEVEL=""
+    fi
+
+    eza --tree $LEVEL --header --group --git --icons --group-directories-first
+}
 
 # skim settings
 export SKIM_DEFAULT_COMMAND="fd --type file --type symlink --follow"
