@@ -15,6 +15,5 @@ README.md
 
 {{ if not (eq .chezmoi.hostname "homeserver") -}}
     .config/motd-update
-    .config/containerd
     .config/yt-dlp.conf
 {{ end -}}

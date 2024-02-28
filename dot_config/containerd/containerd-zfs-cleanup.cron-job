@@ -1,7 +1,0 @@
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
-# delete pods/containers/images that are no longer used
-0 3 * * 0     root    bash -c '/usr/local/bin/crictl rmp $(/usr/local/bin/crictl pods --state NotReady -q)'
-10 3 * * 0     root    bash -c '/usr/local/bin/crictl rm $(/usr/local/bin/crictl ps -a --state Exited -q)'
-20 3 * * 0     root    bash -c '/usr/local/bin/crictl rmi --prune'
