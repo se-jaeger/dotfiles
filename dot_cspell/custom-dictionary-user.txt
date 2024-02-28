@@ -3,8 +3,8 @@ allgemein
 anonymization
 astype
 aufnahmenummer
-Autogluon
 autogluon
+Autogluon
 backuppool
 Bericht
 canmount
@@ -14,8 +14,8 @@ datapool
 dtype
 dtypes
 ECOD
-ernaehrung
 egzb
+ernaehrung
 figsize
 filesystems
 Fira
@@ -43,6 +43,7 @@ pyenv
 Pylance
 Pyod
 pypoetry
+qausi
 quantile
 RMSE
 rpool

@@ -35,11 +35,26 @@ chezmoi init --apply se-jaeger
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "'Undo' can revive ..." -> set to `600` seconds
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "Prompt before closing?" -> tick "If there are jobs besides:"
 7. **Allow Python API**
-   - iterm2 -> General -> tab "Magic" -> tick "Enable Python API"
-8.  **Make <your-profile-name> Default**
+   - iTerm2 -> General -> tab "Magic" -> tick "Enable Python API"
+8. **Shortcut to Select Split Pane**
+   - iTerm2 -> Keys -> tab "Navigation Shortcuts" -> set "Shortcut to choose a split pane" -> `⌥ Number`
+9.  **Make <your-profile-name> Default**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> Other Actions -> Set as Default
   
 **Remarks:**  
 - `activate_py_environment_if_existing` is a function from my 
 [zsh-activate-py-environment](https://github.com/se-jaeger/zsh-autoactivate-environment)
 - `l` is a alias of zsh and adjusted in [.zshrc](./dot_zshrc.tmpl).
+
+
+## VSCodium Extension Registry
+
+By default, VSCodium uses the [Open VSX Extension Registry](https://open-vsx.org/). However, one probably wants to install extensions from the VSCode store. Therefore, these dotfiles create the file `~/Library/Application Support/VSCodium/product.json` and configure it as default store. For some extensions (e.g., `Open Remote - SSH`), you need to switch back to these settings (or delete the `product.json` file):
+```json
+{
+    "extensionsGallery": {
+        "serviceUrl": "https://open-vsx.org/vscode/gallery",
+        "itemUrl": "https://open-vsx.org/vscode/item"
+    }
+}
+```

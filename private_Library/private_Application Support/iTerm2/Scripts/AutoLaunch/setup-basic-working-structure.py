@@ -35,7 +35,7 @@ async def main(connection):
     # new tab to work with
     await window.async_create_tab()
     await app.current_terminal_window.current_tab.current_session.async_send_text(
-        "cd code; tree \n"
+        "cd code\n"
     )
 
 

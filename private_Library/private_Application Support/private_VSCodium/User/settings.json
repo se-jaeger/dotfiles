@@ -19,9 +19,6 @@
     "editor.semanticHighlighting.enabled": true,
     // python settings
     "python.venvPath": "~/Library/Caches/pypoetry/virtualenvs",
-    // Hack to make Pylance usable with VSCodium, see: 
-    // https://github.com/VSCodium/vscodium/discussions/1641#discussion-5634184
-    "python.languageServer": "Pylance",
     "[python]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
@@ -37,6 +34,7 @@
     "ruff.lint.run": "onType",
     "ruff.importStrategy": "fromEnvironment",
     // mypy settings
+    "mypy-type-checker.preferDaemon": false, // NOTE: this is currently (23.01.2024) buggy
     "mypy-type-checker.importStrategy": "fromEnvironment",
     "mypy-type-checker.showNotifications": "always",
     // Notebook/Jupyter settings
@@ -80,4 +78,5 @@
     ],
     "editor.accessibilitySupport": "off",
     "remote.autoForwardPortsSource": "hybrid",
+    "security.promptForRemoteFileProtocolHandling": false
 }
