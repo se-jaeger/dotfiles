@@ -34,11 +34,13 @@ chezmoi init --apply se-jaeger
 6. **Setup closing behavior**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "'Undo' can revive ..." -> set to `600` seconds
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Session" section -> "Prompt before closing?" -> tick "If there are jobs besides:"
-7. **Allow Python API**
+7. **Choose `Hack Nerd Font Mono`**
+   - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> "Text" section -> "Font" -> choose `Hack Nerd Font Mono`
+8. **Allow Python API**
    - iTerm2 -> General -> tab "Magic" -> tick "Enable Python API"
-8. **Shortcut to Select Split Pane**
+9. **Shortcut to Select Split Pane**
    - iTerm2 -> Keys -> tab "Navigation Shortcuts" -> set "Shortcut to choose a split pane" -> `⌥ Number`
-9.  **Make <your-profile-name> Default**
+10. **Make <your-profile-name> Default**
     - iTerm2 -> Preferences -> tab "Profiles" -> select <your-profile-name> -> Other Actions -> Set as Default
   
 **Remarks:**  
