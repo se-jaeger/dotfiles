@@ -6,16 +6,32 @@
 zstyle ':omz:update' mode disabled
 
 export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
+{{ if eq .chezmoi.os "darwin" -}} VSCODE=codium {{- end }}
 
 plugins=(
+    # simple alias/helper functions
     extract
+    kubectl
     git
-    {{ if and (eq .chezmoi.os "linux") (not (eq .chezmoi.hostname "mail")) -}} poetry {{- end }}
+    ripgrep
+    fd
+    fzf
+    z
+    
+    {{ if eq .chezmoi.os "darwin" -}} vscode {{- end }}
+    {{ if eq .chezmoi.os "darwin" -}} thefuck {{- end }}
+    {{ if not (or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver")) -}} poetry {{- end }}
+    
+    # more advanced zsh features
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-activate-py-environment
+    zsh-interactive-cd
 
-    # should be last plugin loaded
+    # activate starship theme
+    starship
+
+    # should be the last plugins loaded
     history-substring-search
 )
 
@@ -39,58 +55,7 @@ cd() {
     l
 }
 
-#### Environment variables, and settings ####
-#############################################
-
-{{ if eq .chezmoi.os "linux" -}} export LANG=en_US.UTF-8 {{- end }}
-
-# use bat for manpages
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BAT_PAGER="less -R"
-
-# add some tokens to env
-# Use 'umask 077; touch .export_tokens' to create only user readable file
-test -f {{ .chezmoi.homeDir }}/.export_tokens && {
-    source {{ .chezmoi.homeDir }}/.export_tokens
-}
-
-# add some secret alias
-# Use 'umask 077; touch .secret_alias' to create only user readable file
-test -f {{ .chezmoi.homeDir }}/.secret_alias && {
-    source {{ .chezmoi.homeDir }}/.secret_alias
-}
-
-{{ if eq .chezmoi.os "linux" -}}
-#### Linux specific settings ####
-#################################
-
-# custom tree command
-tree() {
-    if [ -z "$1" ]; then
-        eza --all --tree --header --group --git --icons --group-directories-first
-    else
-        eza --all --tree --header --group --git --icons --group-directories-first --level $1
-    fi
-}
-
-# fzf settings
-export FZF_DEFAULT_COMMAND="fd --type file --type symlink --follow"
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-
-{{ else if eq .chezmoi.os "darwin" -}}
-#### macOS specific settings ####
-#################################
-
-alias kcl="kubectl"
-alias hd="helm delete"
-alias hl="helm list"
-alias del="trash"
-alias watch="viddy"
-alias vsc="open -a VSCodium ."
-
-eval "$(zoxide init zsh)"
+# jump to already visited directories
 j() {
     z "$@" # j for jump and no movement of finger
     l
@@ -104,47 +69,47 @@ tree(){
         LEVEL=""
     fi
 
-    eza --tree $LEVEL --header --group --git --icons --group-directories-first
+    eza --all --tree --header --group --git --icons --group-directories-first $LEVEL
 }
 
-# skim settings
-export SKIM_DEFAULT_COMMAND="fd --type file --type symlink --follow"
-export SKIM_DEFAULT_OPTIONS="--reverse --height 40% --inline-info --no-clear --ansi"
+#### Environment variables, and settings ####
+#############################################
 
-search_files(){
-    if [ -n "$1" ]; then
-        FLAGS="$1"
-    else
-        FLAGS=""
-    fi
+{{ if eq .chezmoi.os "linux" -}} export LANG=en_US.UTF-8 {{- end }}
 
-    SKIM_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND $FLAGS" sk --preview 'bat --color=always {}' --header 'Searching and preview files ...'
+# use bat for manpages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_PAGER="less -R"
+
+# fzf settings
+export FZF_DEFAULT_COMMAND="fd --type file --type symlink --follow"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --cycle --multi"
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window down:5:wrap
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+# add some tokens to env
+# Use 'umask 077; touch .export_tokens' to create only user readable file
+test -f {{ .chezmoi.homeDir }}/.export_tokens && {
+    source {{ .chezmoi.homeDir }}/.export_tokens
 }
 
-search_file_content(){
-    if [ -n "$1" ]; then
-        FLAGS="$1"
-    else
-        FLAGS=""
-    fi
-
-    SKIM_DEFAULT_COMMAND="$SKIM_DEFAULT_COMMAND $FLAGS" sk --interactive --cmd 'rg --context 3 --color=always --line-number "{}"' --header 'Searching files content ...'
+# add some secret alias
+# Use 'umask 077; touch .secret_alias' to create only user readable file
+test -f {{ .chezmoi.homeDir }}/.secret_alias && {
+    source {{ .chezmoi.homeDir }}/.secret_alias
 }
 
-search_directories(){
-    if [ -n "$1" ]; then
-        FLAGS="$1"
-    else
-        FLAGS=""
-    fi
+{{ if eq .chezmoi.os "darwin" -}}
+#### macOS specific settings ####
+#################################
 
-    SKIM_DEFAULT_COMMAND="fd --type directory --follow" sk --preview 'eza --all --long --header --group --git --icons --group-directories-first {}' --header 'Searching and preview directories ...'
-}
-
-[ -f /usr/local/share/zsh/site-functions/key-bindings.zsh ] && source /usr/local/share/zsh/site-functions/key-bindings.zsh
-
-eval $(thefuck --alias)
-alias f="fuck"
+alias hd="helm delete"
+alias hl="helm list"
+alias del="trash"
+alias watch="viddy"
 
 # set gpg tty to sign git commits
 export GPG_TTY=$(tty)
@@ -216,9 +181,3 @@ python_format() {
 eval `ssh-agent -s` &> /dev/null && ssh-add {{ .chezmoi.homeDir }}/.ssh/id_ed25519 &> /dev/null
 {{- end }}
 
-
-#### Terminal Theme ####
-########################
-
-# Finally, activate Terminal Theme
-eval "$(starship init zsh)"
