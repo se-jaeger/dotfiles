@@ -32,11 +32,8 @@ sudo /bin/bash <<EOF
     ## tldr
     apt install -y tldr
 
-    ## fonts-firacode
-    apt install -y fonts-firacode
-
     ## gitui
-    wget https://github.com/extrawurst/gitui/releases/download/v0.22.1/gitui-linux-musl.tar.gz -O - | tar -xz -C /usr/local/bin/
+    wget https://github.com/extrawurst/gitui/releases/download/v0.26.1/gitui-linux-x86_64.tar.gz -O - | tar -xz -C /usr/local/bin/
     chown root:root /usr/local/bin/gitui
     chmod 755 /usr/local/bin/gitui
 
@@ -46,5 +43,22 @@ sudo /bin/bash <<EOF
 
     ## starship
     curl -sS https://starship.rs/install.sh | sh
+
+    ## build nvim from source
+    apt install -y ninja-build gettext cmake unzip curl build-essential
+    cd /tmp
+    rm -rf neovim
+    git clone https://github.com/neovim/neovim
+    cd neovim
+    git checkout stable
+    make CMAKE_BUILD_TYPE=RelWithDebInfo
+    cd build
+    cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+    rm -rf /tmp/neovim
+    
+    # Dependencies for nvim
+    apt install -y npm
+    apt install -y cargo
+
 EOF
 {{ end -}}

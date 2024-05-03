@@ -18,7 +18,6 @@ plugins=(
     fzf
     z
     
-    {{ if eq .chezmoi.os "darwin" -}} vscode {{- end }}
     {{ if eq .chezmoi.os "darwin" -}} thefuck {{- end }}
     {{ if not (or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver")) -}} poetry {{- end }}
     
@@ -54,6 +53,15 @@ cd() {
     builtin cd "$@"
     l
 }
+
+# prefer ~/.config file
+export XDG_CONFIG_HOME=$HOME/.config
+
+# use nvim as default editor
+export EDITOR=$(where nvim)
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # jump to already visited directories
 j() {
@@ -106,8 +114,6 @@ test -f {{ .chezmoi.homeDir }}/.secret_alias && {
 #### macOS specific settings ####
 #################################
 
-alias hd="helm delete"
-alias hl="helm list"
 alias del="trash"
 alias watch="viddy"
 
