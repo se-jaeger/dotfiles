@@ -17,7 +17,7 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 -- don't use swap/backup but undofile
 opt.swapfile = false
 opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undodir"
 
 -- context lines above/below + colorcolumn
 opt.scrolloff = 20

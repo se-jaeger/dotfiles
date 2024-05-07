@@ -18,8 +18,8 @@ keymap.set({ "n", "v" }, "<leader>wm", "<C-w>|<C-w>_", { desc = "Maximize window
 keymap.set({ "n", "v" }, "<leader>we", "<C-w>=", { desc = "Equalize window sizes" })
 
 -- yank to system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set({ "n", "v" }, "<leader>Y", [["+Y]])
+keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+keymap.set({ "n", "v" }, "<leader>Y", [["+Y]])
 
 -- gitui
 keymap.set(
