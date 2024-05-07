@@ -1,102 +1,39 @@
-#### ZSH Settings and Plugins. ####
-###################################
+#### ZSH options and settings ####
+##################################
 
-# Oh My Zsh installation is updated by chezmoi
-# Auto updates will cause to drift out of sync with chezmoi's source state
-zstyle ':omz:update' mode disabled
+# plugins
+source ~/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source ~/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source ~/.local/share/zsh/plugins/zsh-activate-py-environment/zsh-activate-py-environment.plugin.zsh
 
-export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
-{{ if eq .chezmoi.os "darwin" -}} VSCODE=codium {{- end }}
+# don't change the ordering of these!
+source ~/.config/zsh/config.zsh
+source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/keybindings.zsh
+source ~/.config/zsh/completion.zsh
 
-plugins=(
-    # simple alias/helper functions
-    extract
-    kubectl
-    git
-    ripgrep
-    fd
-    fzf
-    z
-    
-    {{ if eq .chezmoi.os "darwin" -}} thefuck {{- end }}
-    {{ if not (or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver")) -}} poetry {{- end }}
-    
-    # more advanced zsh features
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-activate-py-environment
-    zsh-interactive-cd
+#### fzf ####
+#############
+if [ $(command -v "fzf") ]; then
+    eval "$(fzf --zsh)"
+fi
 
-    # activate starship theme
-    starship
-
-    # should be the last plugins loaded
-    history-substring-search
-)
-
-source $ZSH/oh-my-zsh.sh
-
-
-#### Aliases, builtin replacements, and commands ####
-#####################################################
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-
-# some builtin replacements
-alias ls="eza --all --long --header --group --git --icons --group-directories-first"
-alias cat="bat"
-cd() {
-    builtin cd "$@"
-    l
-}
-
-# prefer ~/.config file
-export XDG_CONFIG_HOME=$HOME/.config
-
-# use nvim as default editor
-export EDITOR=$(where nvim)
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
-
-# jump to already visited directories
-j() {
-    z "$@" # j for jump and no movement of finger
-    l
-}
-
-# custom tree command
-tree(){
-    if [ -n "$1" ]; then
-        LEVEL="--level=$1"
-    else
-        LEVEL=""
-    fi
-
-    eza --all --tree --header --group --git --icons --group-directories-first $LEVEL
-}
-
-#### Environment variables, and settings ####
-#############################################
-
-{{ if eq .chezmoi.os "linux" -}} export LANG=en_US.UTF-8 {{- end }}
-
-# use bat for manpages
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BAT_PAGER="less -R"
-
-# fzf settings
 export FZF_DEFAULT_COMMAND="fd --type file --type symlink --follow"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --cycle --multi"
 export FZF_CTRL_R_OPTS="
-  --preview 'echo {}' --preview-window down:5:wrap
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
+
+#### zoxide ####
+################
+ 
+if [ $(command -v "zoxide") ]; then
+  eval "$(zoxide init zsh)"
+fi
+
+#### Some Private Tokens/Aliases ####
+#####################################
 
 # add some tokens to env
 # Use 'umask 077; touch .export_tokens' to create only user readable file
@@ -155,10 +92,10 @@ python_lint() {
 
     echo "\033[0;32m\n\nRunning: '$RUFF_CHECK_CMD'\n\033[0m"
     eval $RUFF_CHECK_CMD
-    
+
     echo "\033[0;32m\n\nRunning: '$MYPY_CMD'\n\033[0m"
     eval $MYPY_CMD
-    
+
     true # reset exit code.
 }
 python_format() {
@@ -170,7 +107,7 @@ python_format() {
     MYPY_CMD="mypy $DIRECTORY"
     RUFF_CHECK_CMD="ruff check --fix $DIRECTORY"
     RUFF_FORMAT_CMD="ruff format $DIRECTORY"
-    
+
     echo "\033[0;32m\n\nRunning: '$RUFF_FORMAT_CMD'\n\033[0m"
     eval $RUFF_FORMAT_CMD
 
@@ -187,3 +124,8 @@ python_format() {
 eval `ssh-agent -s` &> /dev/null && ssh-add {{ .chezmoi.homeDir }}/.ssh/id_ed25519 &> /dev/null
 {{- end }}
 
+
+#### Terminal Theme ####
+########################
+
+eval "$(starship init zsh)"

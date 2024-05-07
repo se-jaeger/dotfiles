@@ -1,0 +1,24 @@
+# XDG config
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# default language
+export LANG="en_US.UTF-8"
+
+# make nvim default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# zsh settings
+export KEYTIMEOUT=10
+export HISTSIZE=50000
+export SAVEHIST=10000
+export HISTFILE=~/.zsh_history
+skip_global_compinit=1
+
+# TERM
+export TERM=screen-256color
+
+# use vim for manpages
+export MANPAGER='nvim +Man!'

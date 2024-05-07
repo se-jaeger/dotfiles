@@ -1,34 +1,20 @@
-[".oh-my-zsh"]
-type = "archive"
-url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
-exact = true
-stripComponents = 1
-refreshPeriod = "168h"
-
-[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-type = "archive"
-url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
-exact = true
-stripComponents = 1
-refreshPeriod = "168h"
-
-[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+[".local/share/zsh/plugins/zsh-syntax-highlighting"]
 type = "archive"
 url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
 exact = true
 stripComponents = 1
 refreshPeriod = "168h"
 
-[".oh-my-zsh/custom/plugins/zsh-history-substring-search"]
+[".local/share/zsh/plugins/zsh-activate-py-environment"]
 type = "archive"
-url = "https://github.com/zsh-users/zsh-history-substring-search/archive/master.tar.gz"
+url = "https://github.com/se-jaeger/zsh-activate-py-environment/archive/main.tar.gz"
 exact = true
 stripComponents = 1
 refreshPeriod = "168h"
 
-[".oh-my-zsh/custom/plugins/zsh-activate-py-environment"]
+[".local/share/zsh/plugins/zsh-autosuggestions"]
 type = "archive"
-url = "https://github.com/se-jaeger/zsh-activate-py-environment/archive/main.tar.gz"
+url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
 exact = true
 stripComponents = 1
 refreshPeriod = "168h"
@@ -39,28 +25,6 @@ url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
 exact = true
 stripComponents = 1
 refreshPeriod = "168h"
-
-# Speeling files for nvim
-[".config/nvim/spell/de.utf-8.spl"]
-type = "file"
-url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl"
-refreshPeriod = "168h"
-
-[".config/nvim/spell/de.utf-8.sug"]
-type = "file"
-url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug"
-refreshPeriod = "168h"
-
-[".config/nvim/spell/en.utf-8.spl"]
-type = "file"
-url = "http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl"
-refreshPeriod = "168h"
-
-[".config/nvim/spell/en.utf-8.sug"]
-type = "file"
-url = "http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug"
-refreshPeriod = "168h"
-
 
 {{ if eq .chezmoi.os "darwin" -}}
 # Color Themes for Alacritty
