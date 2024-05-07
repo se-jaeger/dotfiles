@@ -18,7 +18,10 @@ sudo /bin/bash <<EOF
     ln -sf /usr/bin/batcat /usr/local/bin/bat
 
     ## fzf
-    apt install -y fzf
+    rm -f /usr/local/bin/fzf
+    wget https://github.com/junegunn/fzf/releases/download/0.51.0/fzf-0.51.0-linux_amd64.tar.gz -O - | tar -xz -C /usr/local/bin/
+    chown root:root /usr/local/bin/fzf
+    chmod 755 /usr/local/bin/fzf
 
     ## zoxide
     apt install -y zoxide
@@ -36,6 +39,7 @@ sudo /bin/bash <<EOF
     apt install -y tldr
 
     ## gitui
+    rm -f /usr/local/bin/gitui
     wget https://github.com/extrawurst/gitui/releases/download/v0.26.1/gitui-linux-x86_64.tar.gz -O - | tar -xz -C /usr/local/bin/
     chown root:root /usr/local/bin/gitui
     chmod 755 /usr/local/bin/gitui
