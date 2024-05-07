@@ -1,8 +1,19 @@
 add_newline = false
 
-format="""$cmd_duration
-$status
-$all$fill $time
+format = """$cmd_duration
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$package\
+$python\
+$cmd_duration\
+$jobs\
+$fill $time
 $character"""
 
 [character]
@@ -16,10 +27,6 @@ style = "bold blue"
 
 [git_branch]
 style = "bold green"
-
-[status]
-disabled = false
-format = "[FAILED with exit code: $symbol $status\n]($style)"
 
 [cmd_duration]
 format = "[Command execution took: $duration]($style)"
@@ -37,11 +44,3 @@ disabled = false
 [time]
 disabled = false
 
-[fill]
-disabled = false
-
-[line_break]
-disabled = true
-
-[docker_context]
-disabled = true

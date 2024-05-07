@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-# escalation privileges
+# escalate privileges
 sudo /bin/bash <<EOF
     apt update
 
@@ -19,6 +19,9 @@ sudo /bin/bash <<EOF
 
     ## fzf
     apt install -y fzf
+
+    ## zoxide
+    apt install -y zoxide
 
     ## ripgrep
     apt install ripgrep
@@ -55,7 +58,7 @@ sudo /bin/bash <<EOF
     cd build
     cpack -G DEB && sudo dpkg -i nvim-linux64.deb
     rm -rf /tmp/neovim
-    
+
     # Dependencies for nvim
     apt install -y npm
     apt install -y cargo
