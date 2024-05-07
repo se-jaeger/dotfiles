@@ -46,6 +46,7 @@ alias g='git'
 alias gaa='git add --all'
 alias gcmsg='git commit --message'
 alias gst='git status'
+alias gp='git push'
 
 # kubectl
 alias k="kubectl"
