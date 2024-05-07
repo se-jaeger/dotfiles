@@ -53,19 +53,31 @@ sudo /bin/bash <<EOF
 
     ## build nvim from source
     apt install -y ninja-build gettext cmake unzip curl build-essential
-    cd /tmp
-    rm -rf neovim
-    git clone https://github.com/neovim/neovim
-    cd neovim
+    rm -rf /tmp/neovim
+    git clone https://github.com/neovim/neovim /tmp/neovim
+    cd /tmp/neovim
     git checkout stable
     make CMAKE_BUILD_TYPE=RelWithDebInfo
     cd build
     cpack -G DEB && sudo dpkg -i nvim-linux64.deb
     rm -rf /tmp/neovim
+    cd  # avoid downstream issues
 
     # Dependencies for nvim
     apt install -y npm
     apt install -y cargo
 
+    ## build tmux from source
+    apt install -y libevent-dev ncurses-dev build-essential bison pkg-config autoconf automake
+    apt remove -y tmux
+    rm -rf /tmp/tmux
+    git clone https://github.com/tmux/tmux.git /tmp/tmux
+    cd /tmp/tmux
+    git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+    sh autogen.sh
+    ./configure
+    make && sudo make install
+    rm -rf /tmp/tmux
+    cd  # avoid downstream issues
 EOF
 {{ end -}}
