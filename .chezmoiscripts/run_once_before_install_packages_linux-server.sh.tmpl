@@ -1,6 +1,20 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
+/bin/bash <<EOF
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    . "{{ .chezmoi.homeDir }}/.cargo/env"
+
+    ## eza
+    cargo install eza
+
+    ## gitui
+    cargo install gitui --locked
+
+    ## zellij
+    cargo install --locked zellij
+EOF
+
 # escalate privileges
 sudo /bin/bash <<EOF
     apt update
@@ -8,6 +22,9 @@ sudo /bin/bash <<EOF
     ## zsh
     apt install -y zsh
     chsh -s /usr/bin/zsh $(echo {{ .chezmoi.username }})
+
+    # Dependencies
+    apt install -y npm
 
     ## fd
     apt install -y fd-find
@@ -29,20 +46,10 @@ sudo /bin/bash <<EOF
     ## ripgrep
     apt install ripgrep
 
-    ## eza
-    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo tee /etc/apt/trusted.gpg.d/gierens.asc
-    echo "deb http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
-    sudo apt update
-    sudo apt install -y eza
 
     ## tldr
     apt install -y tldr
 
-    ## gitui
-    rm -f /usr/local/bin/gitui
-    wget https://github.com/extrawurst/gitui/releases/download/v0.26.1/gitui-linux-x86_64.tar.gz -O - | tar -xz -C /usr/local/bin/
-    chown root:root /usr/local/bin/gitui
-    chmod 755 /usr/local/bin/gitui
 
     ## fail2ban
     apt install -y iptables
@@ -63,21 +70,5 @@ sudo /bin/bash <<EOF
     rm -rf /tmp/neovim
     cd  # avoid downstream issues
 
-    # Dependencies for nvim
-    apt install -y npm
-    apt install -y cargo
-
-    ## build tmux from source
-    apt install -y libevent-dev ncurses-dev build-essential bison pkg-config autoconf automake
-    apt remove -y tmux
-    rm -rf /tmp/tmux
-    git clone https://github.com/tmux/tmux.git /tmp/tmux
-    cd /tmp/tmux
-    git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
-    sh autogen.sh
-    ./configure
-    make && sudo make install
-    rm -rf /tmp/tmux
-    cd  # avoid downstream issues
 EOF
 {{ end -}}

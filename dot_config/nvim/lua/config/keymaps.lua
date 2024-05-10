@@ -20,17 +20,3 @@ keymap.set({ "n", "v" }, "<leader>we", "<C-w>=", { desc = "Equalize window sizes
 -- yank to system clipboard
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set({ "n", "v" }, "<leader>Y", [["+Y]])
-
--- gitui
-keymap.set(
-  "n",
-  "<leader>gG",
-  "<CMD>lua LazyVim.terminal.open({'gitui'}, {esc_esc = false, ctrl_hjkl = false})<CR>",
-  { desc = "GitUI (cwd)" }
-)
-keymap.set(
-  "n",
-  "<leader>gg",
-  "<CMD>lua LazyVim.terminal.open({'gitui'}, {cwd = LazyVim.root.get(), esc_esc = false, ctrl_hjkl = false})<CR>",
-  { desc = "GitUI (cwd)" }
-)
