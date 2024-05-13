@@ -10,12 +10,13 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect '^M' .accept-line
-bindkey -M menuselect '^I' accept-and-infer-next-history
+bindkey -M menuselect 'u' undo
+bindkey -M menuselect '^M' .accept-line  # NOTE: leading '.' is important here!
+bindkey -M menuselect '^I' .expand-or-complete-prefix
 
 # use TAB to go to menu selection
-bindkey -M vicmd '^I' down-line-or-select
-bindkey -M viins '^I' down-line-or-select
+bindkey -M vicmd '^I' menu-expand-or-complete
+bindkey -M viins '^I' menu-expand-or-complete
 
 # start in vi command mode
 autoload -Uz add-zle-hook-widget
