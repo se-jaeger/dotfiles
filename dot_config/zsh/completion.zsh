@@ -28,7 +28,6 @@ zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
 # Required for completion to be in good groups (named after the tags)
 zstyle ':completion:*' group-name ''
 
-
 # reordering listed groups
 zstyle ':completion:*:*:-command-:*:*' group-order aliases commands builtins
 zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
