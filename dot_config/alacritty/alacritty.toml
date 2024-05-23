@@ -24,7 +24,6 @@ decorations = "None"
 startup_mode = "Windowed"
 decorations_theme_variant = "Dark"
 option_as_alt = "Both"
-padding = { x = 3, y = 0 }
 
 [scrolling]
 history = 100000
