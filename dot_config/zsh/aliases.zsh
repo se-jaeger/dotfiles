@@ -24,8 +24,8 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 
-# jump to already visited directories
-j() {
+# move to already visited directories
+m() {
     z "$@"
     ls
 }

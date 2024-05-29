@@ -1,12 +1,19 @@
+# Changing Directories
+setopt AUTO_CD
+
 # Completion
 setopt ALWAYS_TO_END
+setopt AUTO_PARAM_KEYS
+setopt AUTO_PARAM_SLASH
+setopt NO_AUTO_REMOVE_SLASH
 setopt COMPLETE_ALIASES
 setopt COMPLETE_IN_WORD
+setopt GLOB_COMPLETE
 setopt AUTO_LIST
 setopt MENU_COMPLETE
-setopt AUTO_PARAM_SLASH
 
 # Expansion and Globbing
+setopt GLOB
 setopt GLOB_DOTS
 
 # History
@@ -20,8 +27,6 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 # Input/Output
-setopt CORRECT
-setopt NO_CORRECT_ALL
 setopt INTERACTIVE_COMMENTS
 
 # Job Control
@@ -33,6 +38,7 @@ setopt LOCAL_TRAPS
 setopt LOCAL_OPTIONS
 
 # Shell State
-setopt LOGIN
 setopt INTERACTIVE
+setopt LOGIN
+setopt VI
 setopt ZLE
