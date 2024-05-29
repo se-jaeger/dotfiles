@@ -1,0 +1,56 @@
+#!/bin/bash
+
+inbox_dir_name="0-inbox"
+inbox_path="$SECOND_BRAIN/$inbox_dir_name"
+
+if [[ ! -d "$SECOND_BRAIN" ]]; then
+	echo "Vault directory does not exist!"
+	echo
+	echo "Check:"
+	echo "\$SECOND_BRAIN=$SECOND_BRAIN"
+	exit 1
+fi
+
+# cd to second-brain dir
+cd "$SECOND_BRAIN"
+
+if [[ $# -gt 1 ]]; then
+	echo "Please provide only one filename separated by dashes, without .md extension."
+	echo "Example: zet my-new-note"
+	exit 1
+
+# Prompt the user if no filename is provided
+elif [[ $# -eq 0 ]]; then
+	nvim +Oil +ZenMode +TwilightDisable "+lua vim.diagnostic.enable(false)"
+	exit
+
+else
+	filename=$1
+fi
+
+# if inbox directory does not exists, print error message and stop script
+if [[ ! -d "$inbox_path" ]]; then
+	echo "Inbox directory does not exist."
+	echo
+	echo "Check:"
+	echo "$SECOND_BRAIN/$inbox_dir_name"
+	exit 1
+fi
+
+# if file already exists, print error message and stop script
+file_path="$inbox_path/$filename.md"
+if [[ -f "$file_path" ]]; then
+	echo "Given filename ('$filename') already exists in inbox."
+	echo "See: '$inbox_path'"
+	exit 1
+fi
+
+# format the file
+{
+	echo "# $filename"
+	echo -en "\n"
+	echo -en "\n"
+} >>"$file_path"
+
+# Open the file in Neovim
+nvim + +ZenMode +TwilightDisable "+lua vim.diagnostic.enable(false)" "$file_path"
