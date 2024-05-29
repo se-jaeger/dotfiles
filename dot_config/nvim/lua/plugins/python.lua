@@ -144,14 +144,14 @@ return {
         pattern = "MoltenInitPost",
         callback = function()
           local runner = require("quarto.runner")
-          vim.keymap.set("n", "<leader>na", runner.run_all, { desc = "run all cells", silent = true })
+          vim.keymap.set("n", "<leader>nA", runner.run_all, { desc = "run all cells", silent = true })
           vim.keymap.set("n", "<leader>nc", function()
             runner.run_cell()
             vim.cmd("MoltenNext")
           end, { desc = "run and move to next cell", silent = true })
           vim.keymap.set("n", "<leader>nl", runner.run_line, { desc = "run line", silent = true })
-          vim.keymap.set("n", "<leader>nA", runner.run_above, { desc = "run cell and above", silent = true })
-          vim.keymap.set("n", "<leader>nB", runner.run_below, { desc = "run cell and below", silent = true })
+          vim.keymap.set("n", "<leader>na", runner.run_above, { desc = "run cell and above", silent = true })
+          vim.keymap.set("n", "<leader>nb", runner.run_below, { desc = "run cell and below", silent = true })
           vim.keymap.set(
             "n",
             "<leader>no",
@@ -161,7 +161,7 @@ return {
           vim.keymap.set("n", "<leader>nq", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
           vim.keymap.set("n", "<leader>nR", ":MoltenRestart<CR>", { desc = "restart kernel", silent = true })
           vim.keymap.set("n", "<leader>nI", ":MoltenInterrupt<CR>", { desc = "interrupt kernel", silent = true })
-          vim.keymap.set("n", "<leader>nd", ":MoltenDelete<CR>", { desc = "delete cell output", silent = true })
+          vim.keymap.set("n", "<leader>nD", ":MoltenDelete<CR>", { desc = "delete cell output", silent = true })
         end,
       })
 
