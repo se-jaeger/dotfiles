@@ -4,9 +4,6 @@ return {
   {
     "stevearc/aerial.nvim",
     opts = {
-      layout = {
-        resize_to_content = true,
-      },
       autojump = true,
       manage_folds = true,
       link_folds_to_tree = true,

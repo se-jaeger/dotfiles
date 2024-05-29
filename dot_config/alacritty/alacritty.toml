@@ -16,9 +16,6 @@ import = [
 program = "zellij"
 args = ["--layout", "welcome"]
 
-[env]
-TERM = "xterm-256color"
-
 [window]
 decorations = "None"
 startup_mode = "Windowed"
