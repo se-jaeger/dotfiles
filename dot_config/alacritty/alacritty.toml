@@ -14,7 +14,7 @@ import = [
 
 [shell]
 program = "zellij"
-args = ["--layout", "welcome"]
+args = ["--layout", "compact"]
 
 [window]
 decorations = "None"
