@@ -11,3 +11,6 @@ gbprod
 chrisgrieser
 bindkey
 setopt
+pynvim
+jupytext
+titlecase

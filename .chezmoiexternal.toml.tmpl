@@ -19,67 +19,31 @@ exact = true
 stripComponents = 1
 refreshPeriod = "168h"
 
-[".local/share/tmux/plugins/tpm"]
-type = "archive"
-url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
-exact = true
-stripComponents = 1
+# Spelling files for nvim
+[".config/nvim/spell/de.utf-8.spl"]
+type = "file"
+url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl"
+refreshPeriod = "168h"
+
+[".config/nvim/spell/de.utf-8.sug"]
+type = "file"
+url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug"
+refreshPeriod = "168h"
+
+[".config/nvim/spell/en.utf-8.spl"]
+type = "file"
+url = "http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl"
+refreshPeriod = "168h"
+
+[".config/nvim/spell/en.utf-8.sug"]
+type = "file"
+url = "http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug"
 refreshPeriod = "168h"
 
 {{ if eq .chezmoi.os "darwin" -}}
 # Color Themes for Alacritty
-[".config/alacritty/themes/catppuccin-latte.toml"]
-type = "file"
-url = "https://github.com/catppuccin/alacritty/raw/main/catppuccin-latte.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/catppuccin-frappe.toml"]
-type = "file"
-url = "https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/catppuccin-macchiato.toml"]
-type = "file"
-url = "https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/catppuccin-mocha.toml"]
-type = "file"
-url = "https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/gruvbox-dark.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/gruvbox_dark.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/gruvbox-light.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/gruvbox_light.toml"
-refreshPeriod = "168h"
-
 [".config/alacritty/themes/gruvbox-material.toml"]
 type = "file"
 url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/gruvbox_material.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/gruvbox-material-hard-dark.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/gruvbox_material_hard_dark.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/gruvbox-material-hard-light.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/gruvbox_material_hard_light.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/gruvbox-material-medium-light.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/gruvbox_material_medium_light.toml"
-refreshPeriod = "168h"
-
-[".config/alacritty/themes/gruvbox-material-medium-dark.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/gruvbox_material_medium_dark.toml"
 refreshPeriod = "168h"
 {{- end }}

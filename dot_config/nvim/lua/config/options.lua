@@ -27,7 +27,8 @@ opt.colorcolumn = "120"
 opt.isfname:append("@-@")
 
 -- spell checking
-opt.spell = false
+opt.spelllang = { "en", "de" }
+opt.spell = true
 
 -- do not use system clipboard
 opt.clipboard = ""

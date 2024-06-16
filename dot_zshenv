@@ -24,3 +24,4 @@ export TERM=xterm-256color
 
 # use vim for manpages
 export MANPAGER='nvim +Man!'
+. "$HOME/.cargo/env"
