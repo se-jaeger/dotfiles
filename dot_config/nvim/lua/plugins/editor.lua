@@ -44,20 +44,6 @@ return {
     },
   },
 
-  -- gitsigns
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      current_line_blame = true,
-      current_line_blame_opts = {
-        virt_text_pos = "eol",
-      },
-      current_line_blame_formatter_opts = {
-        relative_time = true,
-      },
-    },
-  },
-
   -- oil
   {
     "stevearc/oil.nvim",
@@ -129,7 +115,7 @@ return {
     "gabrielpoca/replacer.nvim",
     keys = {
       {
-        "<leader>x",
+        "<leader>r",
         function()
           require("replacer").run()
         end,
@@ -153,7 +139,6 @@ return {
         },
       })
 
-      -- add keybinding
       vim.api.nvim_set_keymap(
         "n",
         "<Leader>cg",

@@ -5,8 +5,8 @@ return {
   version = "*",
   lazy = true,
   event = {
-    "BufReadPre " .. "**.md",
-    "BufNewFile " .. "**.md",
+    "BufReadPre " .. vault_path .. "**.md",
+    "BufNewFile " .. vault_path .. "**.md",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
