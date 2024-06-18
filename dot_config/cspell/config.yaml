@@ -3,18 +3,18 @@ language: "en"
 dictionaries:
   - custom-words
   # the following are pre-defined
-  - de-de
   - python
   - bash
-  - data-science
   - docker
   - filetypes
-  - golang
   - git
   - k8s
   - makefile
-  - markdown
   - rust
+  # the following are not pre-defined
+  - data-science
+  - de-de
+  - markdown
 dictionaryDefinitions:
   - name: "custom-words"
     path: "~/.config/cspell/custom-words.txt"
