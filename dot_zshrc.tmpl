@@ -94,8 +94,8 @@ python_lint() {
     else
         DIRECTORY=$(realpath $1)
     fi
-    MYPY_CMD="mypy $DIRECTORY"
-    RUFF_CHECK_CMD="ruff check $DIRECTORY"
+    MYPY_CMD="${HOME}/.local/share/nvim/mason/bin/mypy $DIRECTORY"
+    RUFF_CHECK_CMD="${HOME}/.local/share/nvim/mason/bin/ruff check $DIRECTORY"
 
     echo "\033[0;32m\n\nRunning: '$RUFF_CHECK_CMD'\n\033[0m"
     eval $RUFF_CHECK_CMD
@@ -111,9 +111,9 @@ python_format() {
     else
         DIRECTORY=$(realpath $1)
     fi
-    MYPY_CMD="mypy $DIRECTORY"
-    RUFF_CHECK_CMD="ruff check --fix $DIRECTORY"
-    RUFF_FORMAT_CMD="ruff format $DIRECTORY"
+    MYPY_CMD="${HOME}/.local/share/nvim/mason/bin/mypy $DIRECTORY"
+    RUFF_CHECK_CMD="${HOME}/.local/share/nvim/mason/bin/ruff check --fix $DIRECTORY"
+    RUFF_FORMAT_CMD="${HOME}/.local/share/nvim/mason/bin/ruff format $DIRECTORY"
 
     echo "\033[0;32m\n\nRunning: '$RUFF_FORMAT_CMD'\n\033[0m"
     eval $RUFF_FORMAT_CMD

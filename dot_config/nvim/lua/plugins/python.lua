@@ -5,12 +5,6 @@ return {
   -- activate LazyVim's python extras
   { import = "lazyvim.plugins.extras.lang.python" },
 
-  -- disable venv because it's I'm handling this outside of nvim
-  { "linux-cultist/venv-selector.nvim", enabled = false },
-
-  --  disable automatic dap installation because it screws up my venv setup
-  { "jay-babu/mason-nvim-dap.nvim", enabled = false },
-
   -- use local venv python for debugging
   {
     "mfussenegger/nvim-dap",
@@ -28,7 +22,7 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "mypy" })
+      vim.list_extend(opts.ensure_installed, { "mypy", "ruff" })
     end,
   },
   {
