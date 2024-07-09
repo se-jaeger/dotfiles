@@ -6,13 +6,19 @@
     . "{{ .chezmoi.homeDir }}/.cargo/env"
 
     ## eza
-    cargo install eza
+    cargo install eza --locked
 
     ## gitui
     cargo install gitui --locked
 
     ## zellij
     cargo install --locked zellij
+
+    ## git-delta
+    cargo install --locked git-delta
+
+    ## tealdeer
+    cargo install --locked tealdeer
 
     ## cargo update command
     cargo install cargo-update

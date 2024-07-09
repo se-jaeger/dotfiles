@@ -2,8 +2,24 @@
 	name = Sebastian Jäger
 	email = git@sebastian-jaeger.me
 	{{ if eq .chezmoi.os "darwin" -}}signingkey = 3608F3D413836957{{ end}}
+
 [core]
 	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
 [init]
 	defaultBranch = main
 {{ if eq .chezmoi.os "darwin" -}}[commit]
