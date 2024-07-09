@@ -9,7 +9,6 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      --  NOTE: make sure to install 'debugpy' in the local venv to use debugger
       "mfussenegger/nvim-dap-python",
       config = function()
         require("dap-python").setup("python")

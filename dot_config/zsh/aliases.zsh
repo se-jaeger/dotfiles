@@ -38,7 +38,7 @@ tree(){
         LEVEL=""
     fi
 
-    eza --all --tree --header --group --git --icons --group-directories-first $LEVEL
+    eza --all --tree --icons --group-directories-first $LEVEL
 }
 
 # git
