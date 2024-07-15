@@ -118,8 +118,8 @@ return {
       "folke/which-key.nvim",
       optional = true,
       opts = {
-        defaults = {
-          ["<leader>n"] = { name = "+notebooks" },
+        spec = {
+          { "<leader>n", group = "notebooks" },
         },
       },
     },
