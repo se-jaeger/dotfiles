@@ -4,7 +4,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "gitignore",
         "css",
         "ssh_config",
         "rust",

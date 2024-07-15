@@ -1,4 +1,6 @@
 return {
+  { import = "lazyvim.plugins.extras.lang.git" },
+
   -- advanced git search
   {
     "aaronhallaert/advanced-git-search.nvim",
