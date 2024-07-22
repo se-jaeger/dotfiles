@@ -106,21 +106,6 @@ return {
     opts = {},
   },
 
-  -- replacer
-  { "nvim-pack/nvim-spectre", enabled = false },
-  {
-    "gabrielpoca/replacer.nvim",
-    keys = {
-      {
-        "<leader>r",
-        function()
-          require("replacer").run()
-        end,
-        desc = "Make Quickfix Window Editable",
-      },
-    },
-  },
-
   -- neogen
   {
     "danymat/neogen",
@@ -143,22 +128,6 @@ return {
         { noremap = true, silent = true, desc = "Generate DocString" }
       )
     end,
-  },
-
-  -- nvim-rip-substitute
-  {
-    "chrisgrieser/nvim-rip-substitute",
-    cmd = "RipSubstitute",
-    keys = {
-      {
-        "<leader>fs",
-        function()
-          require("rip-substitute").sub()
-        end,
-        mode = { "n", "x" },
-        desc = " rip substitute",
-      },
-    },
   },
 
   -- arrow
