@@ -8,6 +8,8 @@ export SECOND_BRAIN="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents
 # default language
 export LANG="en_US.UTF-8"
 
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
+
 # make nvim default editor
 export EDITOR="nvim"
 export VISUAL="nvim"

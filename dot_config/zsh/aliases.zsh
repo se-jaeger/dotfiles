@@ -51,3 +51,5 @@ alias gp='git push'
 # kubectl
 alias k="kubectl"
 
+# fd
+alias fd="fd --hidden --no-ignore-vcs"

@@ -1,0 +1,13 @@
+# use smart case
+--smart-case
+
+# search hidden files/directories
+--hidden
+
+# but not the following
+--glob=!.git/*
+--glob=!.trash/*
+--glob=!.Trash/*
+
+# do not respect .gitignore files
+--no-ignore-vcs
