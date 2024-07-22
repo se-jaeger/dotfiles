@@ -15,12 +15,6 @@ keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll half page up and center cur
 keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
 keymap.set({ "n", "v" }, "<leader>Y", [["+Y]], { desc = "Yank to clipboard" })
 
--- amplified versions of hjkl
-vim.keymap.set("n", "jj", "6j", { desc = "Move 6 lines down" })
-vim.keymap.set("n", "kk", "6k", { desc = "Move 6 lines up" })
-vim.keymap.set("n", "hh", "0^", { desc = "Move to first non blank char in line" })
-vim.keymap.set("n", "ll", "$", { desc = "Move to last char in line" })
-
 -- don't pollute register from too short entries
 vim.keymap.set("n", "dd", function()
   if string.len(vim.fn.getline("."):match("^%s*(.*%S)") or "") < 5 then
