@@ -49,16 +49,21 @@ sudo /bin/bash <<EOF
     chown root:root /usr/local/bin/fzf
     chmod 755 /usr/local/bin/fzf
 
+    ## viddy
+    mkdir tmp
+    cd tmp
+    wget -O viddy.tar.gz https://github.com/sachaos/viddy/releases/download/v0.4.0/viddy_Linux_x86_64.tar.gz && tar xvf viddy.tar.gz && mv viddy /usr/local/bin
+    cd ..
+    rm -rf tmp
+
     ## zoxide
     apt install -y zoxide
 
     ## ripgrep
     apt install ripgrep
 
-
     ## tldr
     apt install -y tldr
-
 
     ## fail2ban
     apt install -y iptables

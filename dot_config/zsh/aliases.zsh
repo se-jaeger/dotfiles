@@ -53,3 +53,6 @@ alias k="kubectl"
 
 # fd
 alias fd="fd --hidden --no-ignore-vcs"
+
+# watch
+alias watch="viddy --differences --bell --skip-empty-diffs"
