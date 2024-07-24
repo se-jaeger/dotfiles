@@ -179,7 +179,6 @@ return {
       leader_key = ";",
       buffer_leader_key = "m",
       separate_save_and_remove = true,
-      index_keys = "asdfqwer1234",
       per_buffer_config = {
         lines = 5,
       },
