@@ -54,6 +54,11 @@ type = "file"
 url = "http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug"
 refreshPeriod = "168h"
 
+[".local/share/zellij/plugins/zjstatus.wasm"]
+type = "file"
+url = "https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm"
+refreshPeriod = "168h"
+
 {{ if eq .chezmoi.os "darwin" -}}
 # Color Themes for Alacritty
 [".config/alacritty/themes/gruvbox-material.toml"]
