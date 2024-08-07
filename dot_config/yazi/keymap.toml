@@ -1,0 +1,115 @@
+# Use the augmented leave command for the h key
+[[manager.prepend_keymap]]
+on = ["h"]
+run = "plugin augment-command --args='leave'"
+desc = "Go back to the parent directory"
+
+# Use the augmented arrow down command for the j key
+[[manager.prepend_keymap]]
+on = ["j"]
+run = "plugin augment-command --args='arrow 1'"
+desc = "Move cursor down"
+
+# Use the augmented arrow up command for the k key
+[[manager.prepend_keymap]]
+on = ["k"]
+run = "plugin augment-command --args='arrow -1'"
+desc = "Move cursor up"
+
+# Use the augmented enter command for the l key
+[[manager.prepend_keymap]]
+on = ["l"]
+run = "plugin augment-command --args='enter'"
+desc = "Enter a directory and skip directories with only a single subdirectory"
+
+# Use K to move up in the parent directory
+[[manager.prepend_keymap]]
+on = ["K"]
+run = "plugin augment-command --args='parent-arrow -1'"
+desc = "Move cursor up in the parent directory"
+
+# Use J to move down in the parent directory
+[[manager.prepend_keymap]]
+on = ["J"]
+run = "plugin augment-command --args='parent-arrow 1'"
+desc = "Move cursor down in the parent directory"
+
+[[manager.prepend_keymap]]
+on = "F"
+run = "plugin smart-filter"
+desc = "Smart filter"
+
+[[manager.prepend_keymap]]
+on = "T"
+run = "plugin --sync max-preview"
+desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+on = "f"
+run = "plugin jump-to-char"
+desc = "Jump to char"
+
+# Use d to cut files
+[[manager.prepend_keymap]]
+on = ["d"]
+run = "yank --cut"
+desc = "Cut the selected files"
+
+# Use p to paste files
+[[manager.prepend_keymap]]
+on = ["p"]
+run = "plugin augment-command --args='paste'"
+desc = "Paste the files"
+
+# Use x to move files to the trash
+[[manager.prepend_keymap]]
+on = ["x"]
+run = "plugin augment-command --args='remove'"
+desc = "Move the files to the trash"
+
+
+# keymaps to activate motions
+[[manager.prepend_keymap]]
+on = ["1"]
+run = "plugin relative-motions --args=1"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["2"]
+run = "plugin relative-motions --args=2"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["3"]
+run = "plugin relative-motions --args=3"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["4"]
+run = "plugin relative-motions --args=4"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["5"]
+run = "plugin relative-motions --args=5"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["6"]
+run = "plugin relative-motions --args=6"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["7"]
+run = "plugin relative-motions --args=7"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["8"]
+run = "plugin relative-motions --args=8"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = ["9"]
+run = "plugin relative-motions --args=9"
+desc = "Move in relative steps"

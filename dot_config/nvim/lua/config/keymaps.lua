@@ -23,3 +23,8 @@ vim.keymap.set("n", "dd", function()
   return "dd"
 end, { expr = true })
 vim.keymap.set("n", "x", '"_x')
+
+-- delete floating terminal key maps
+keymap.del("n", "<leader>ft")
+keymap.del("n", "<leader>fT")
+keymap.del("n", "<c-/>")

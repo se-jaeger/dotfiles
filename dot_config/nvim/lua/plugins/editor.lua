@@ -1,19 +1,4 @@
 return {
-  -- neo-tree settings
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          never_show = {
-            ".DS_Store",
-          },
-        },
-      },
-    },
-  },
-
   -- yanky
   { import = "lazyvim.plugins.extras.coding.yanky" },
   {
@@ -56,37 +41,41 @@ return {
     },
   },
 
-  -- oil
+  -- replacing neo-tree.nvim with yazi.nvim
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
-    "stevearc/oil.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = function(_, opts)
-      opts = vim.tbl_deep_extend("force", opts or {}, {
-        delete_to_trash = true,
-        skip_confirm_for_simple_edits = true,
-        view_options = {
-          show_hidden = true,
-        },
-        float = {
-          preview_split = "right",
-        },
-      })
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "-",
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi at the current file",
+      },
+      {
+        "<C-_>",
+        "<cmd>Yazi toggle<cr>",
+        desc = "Resume the last yazi session",
+      },
+    },
+    ---@type YaziConfig
+    opts = {
+      open_for_directories = true,
+      use_ya_for_events_reading = true,
+      use_yazi_client_id_flag = true,
 
-      local oil = require("oil")
-      oil.setup(opts)
-      vim.keymap.set("n", "-", function()
-        oil.open_float()
-        oil.toggle_hidden()
-
-        -- Wait until oil has opened, for a maximum of 1 second.
-        vim.wait(1000, function()
-          return oil.get_cursor_entry() ~= nil
-        end)
-        if oil.get_cursor_entry() then
-          oil.open_preview()
-        end
-      end)
-    end,
+      keymaps = {
+        show_help = "<F1>",
+        open_file_in_vertical_split = "<C-v>",
+        open_file_in_horizontal_split = "<C-x>",
+        open_file_in_tab = "<C-t>",
+        grep_in_directory = "<C-s>",
+        replace_in_directory = "<C-g>",
+        cycle_open_buffers = "<TAB>",
+        copy_relative_path_to_selected_files = "<C-y>",
+        send_to_quickfix_list = "<C-q>",
+      },
+    },
   },
 
   -- aerial
