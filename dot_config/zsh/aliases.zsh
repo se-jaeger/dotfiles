@@ -19,6 +19,7 @@ alias ......='cd ../../../../..'
 
 alias l="ls"
 
+# Wrapper for yazi that changes directory and alias to make this really fast and robust against typos
 function fj() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -27,6 +28,7 @@ function fj() {
 	fi
 	rm -f -- "$tmp"
 }
+alias jf="fj"
 
 # nvim
 alias v="nvim"
