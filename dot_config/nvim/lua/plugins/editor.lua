@@ -117,17 +117,13 @@ return {
     end,
   },
 
-  -- zen-mode
+  -- no-neck-pain.nvim
   {
-    -- NOTE: alternative - https://github.com/shortcuts/no-neck-pain.nvim/wiki/Showcase#right-padding-only
-    "folke/zen-mode.nvim",
-    dependencies = {
-      {
-        "folke/twilight.nvim",
-        opts = {},
-      },
+    "shortcuts/no-neck-pain.nvim",
+    version = "*",
+    opts = {
+      width = 150,
     },
-    opts = {},
   },
 
   -- neogen
