@@ -11,5 +11,10 @@ return {
         },
       },
     },
+    pickers = {
+      find_files = {
+        find_command = { "fd", "--type", "file", "--color", "never", "--exclude", ".git", "--exclude", "target" },
+      },
+    },
   },
 }
