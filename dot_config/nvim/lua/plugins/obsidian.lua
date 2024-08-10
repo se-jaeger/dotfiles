@@ -22,14 +22,15 @@ return {
     new_notes_location = "notes_subdir",
     daily_notes = {
       folder = "journal",
-      date_format = "%Y-%m-%d",
+      -- changes the file name and id property
+      date_format = "%Y-%m-%d-%a",
+      -- adds an alias with different format
       alias_format = "%B %-d, %Y",
       template = "daily",
     },
     templates = {
       folder = "templates",
-      date_format = "%Y-%m-%d",
-      time_format = "%H:%M",
+      date_format = "%Y-%m-%d %A",
     },
     attachments = {
       img_folder = "attachments",
