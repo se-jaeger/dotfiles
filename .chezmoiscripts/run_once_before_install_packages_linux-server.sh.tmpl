@@ -5,10 +5,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . "{{ .chezmoi.homeDir }}/.cargo/env"
 
 ## eza
-cargo install eza --locked
+cargo install --locked eza
 
 ## gitui
-cargo install gitui --locked
+cargo install --locked gitui
 
 ## zellij
 cargo install --locked zellij
@@ -18,6 +18,9 @@ cargo install --locked git-delta
 
 ## tealdeer
 cargo install --locked tealdeer
+
+## yazi
+cargo install --locked yazi-fm yazi-cli
 
 ## cargo update command
 cargo install cargo-update
@@ -55,7 +58,7 @@ sudo /bin/bash <<EOF
 
     ## fzf
     rm -f /usr/local/bin/fzf
-    wget https://github.com/junegunn/fzf/releases/download/v0.54.1/fzf-0.54.1-linux_amd64.tar.gz -O - | tar -xz -C /usr/local/bin/
+    wget https://github.com/junegunn/fzf/releases/download/v0.54.3/fzf-0.54.3-linux_amd64.tar.gz -O - | tar -xz -C /usr/local/bin/
     chown root:root /usr/local/bin/fzf
     chmod 755 /usr/local/bin/fzf
 

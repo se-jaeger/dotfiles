@@ -63,18 +63,7 @@ return {
       open_for_directories = true,
       use_ya_for_events_reading = true,
       use_yazi_client_id_flag = true,
-
-      keymaps = {
-        show_help = "<F1>",
-        open_file_in_vertical_split = "<C-v>",
-        open_file_in_horizontal_split = "<C-x>",
-        open_file_in_tab = "<C-t>",
-        grep_in_directory = "<C-s>",
-        replace_in_directory = "<C-g>",
-        cycle_open_buffers = "<TAB>",
-        copy_relative_path_to_selected_files = "<C-y>",
-        send_to_quickfix_list = "<C-q>",
-      },
+      open_multiple_tabs = true,
     },
   },
 
