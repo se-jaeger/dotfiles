@@ -1,28 +1,38 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-/bin/bash <<EOF
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    . "{{ .chezmoi.homeDir }}/.cargo/env"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+. "{{ .chezmoi.homeDir }}/.cargo/env"
 
-    ## eza
-    cargo install eza --locked
+## eza
+cargo install eza --locked
 
-    ## gitui
-    cargo install gitui --locked
+## gitui
+cargo install gitui --locked
 
-    ## zellij
-    cargo install --locked zellij
+## zellij
+cargo install --locked zellij
 
-    ## git-delta
-    cargo install --locked git-delta
+## git-delta
+cargo install --locked git-delta
 
-    ## tealdeer
-    cargo install --locked tealdeer
+## tealdeer
+cargo install --locked tealdeer
 
-    ## cargo update command
-    cargo install cargo-update
-EOF
+## cargo update command
+cargo install cargo-update
+
+# download repo if it does not exists
+if [ ! -d ~/.local/share/utils/ ]; then
+	git clone git@github.com:se-jaeger/utils.git ~/.local/share/utils/
+fi
+
+# update repo and install utils
+cd ~/.local/share/utils
+git fetch
+git pull
+cargo install --path rust/zet/
+cargo install --path rust/motd/
 
 # escalate privileges
 sudo /bin/bash <<EOF

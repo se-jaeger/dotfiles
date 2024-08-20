@@ -1,0 +1,22 @@
+[last_update]
+[uptime]
+
+{{ if eq .chezmoi.os "darwin" -}}
+[last_login]
+users = ["sebastian"]
+n = 2
+{{- end }}
+
+[filesystem]
+root = "/"
+{{ if eq .chezmoi.hostname "homeserver" -}}
+home = "/home/sebs"
+{{- end }}
+
+[memory]
+
+{{ if eq .chezmoi.hostname "homeserver" -}}
+[zpool_status]
+[zpool_iostat]
+{{- end }}
+
