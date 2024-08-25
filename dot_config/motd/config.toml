@@ -9,3 +9,5 @@ n = 2
 root = "/"
 
 [memory]
+
+[brew_upgradable]
