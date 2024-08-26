@@ -22,6 +22,9 @@ cargo install --locked tealdeer
 ## yazi
 cargo install --locked yazi-fm yazi-cli
 
+## viddy
+cargo install --locked viddy
+
 ## cargo update command
 cargo install cargo-update
 
@@ -61,13 +64,6 @@ sudo /bin/bash <<EOF
     wget https://github.com/junegunn/fzf/releases/download/v0.54.3/fzf-0.54.3-linux_amd64.tar.gz -O - | tar -xz -C /usr/local/bin/
     chown root:root /usr/local/bin/fzf
     chmod 755 /usr/local/bin/fzf
-
-    ## viddy
-    mkdir tmp
-    cd tmp
-    wget -O viddy.tar.gz https://github.com/sachaos/viddy/releases/download/v0.4.0/viddy_Linux_x86_64.tar.gz && tar xvf viddy.tar.gz && mv viddy /usr/local/bin
-    cd ..
-    rm -rf tmp
 
     ## zoxide
     apt install -y zoxide
