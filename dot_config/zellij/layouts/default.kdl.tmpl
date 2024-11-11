@@ -1,16 +1,19 @@
 layout {
     default_tab_template {
-        pane size=2 borderless=true {
-            plugin location="zjstatus"
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
         }
         children
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
     }
     tab name="MOTD" {
         pane {
              command "$HOME/.cargo/bin/motd"
         }
     }
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" }}
     tab name="Journaling" {
         pane {
             command "$HOME/.cargo/bin/zet"
