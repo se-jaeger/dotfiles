@@ -1,6 +1,7 @@
 require("full-border"):setup()
 require("relative-motions"):setup({ show_numbers = "relative", show_motion = true, only_motions = true })
 require("starship"):setup()
+require("git"):setup()
 require("augment-command"):setup({
 	prompt = false,
 	default_item_group_for_prompt = "hovered",

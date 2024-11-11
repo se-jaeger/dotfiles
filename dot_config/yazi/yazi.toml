@@ -4,3 +4,13 @@ sort_by = "natural"
 sort_dir_first = true
 show_hidden = true
 scrolloff = 20
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*/"
+run = "git"
