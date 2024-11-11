@@ -76,15 +76,11 @@ return {
       manage_folds = true,
       link_folds_to_tree = true,
       link_tree_to_folds = true,
-      open_automatic = function(bufnr)
-        local aerial = require("aerial")
-        -- Enforce a minimum line count
-        return vim.api.nvim_buf_line_count(bufnr) > 40
-          -- Enforce a minimum symbol count
-          and aerial.num_symbols(bufnr) > 2
-          -- A useful way to keep aerial closed when closed manually
-          and not aerial.was_closed()
-      end,
+      close_on_select = true,
+      layout = {
+        min_width = { 20, 0.1 },
+        resize_to_content = true,
+      },
     },
   },
 
@@ -158,4 +154,7 @@ return {
       },
     },
   },
+
+  -- overseer
+  { import = "lazyvim.plugins.extras.editor.overseer" },
 }

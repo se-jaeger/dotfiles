@@ -18,6 +18,8 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 alias l="ls"
+alias c="clear"
+alias o="open"
 
 # Wrapper for yazi that changes directory and alias to make this really fast and robust against typos
 function fj() {
@@ -25,6 +27,7 @@ function fj() {
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		builtin cd -- "$cwd"
+        l
 	fi
 	rm -f -- "$tmp"
 }
