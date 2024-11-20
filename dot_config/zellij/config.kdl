@@ -4,21 +4,22 @@
 
 keybinds clear-defaults=true {
     shared {
-        // CUSTOM KEYBINDINGS: need also some setup for alacritty
-        bind "" { ToggleFloatingPanes; SwitchToMode "locked"; }  // Cmd P
-        bind "" { GoToTab 1; SwitchToMode "locked"; }  // Cmd 1
-        bind "" { GoToTab 2; SwitchToMode "locked"; }  // Cmd 2
-        bind "" { GoToTab 3; SwitchToMode "locked"; }  // Cmd 3
-        bind "" { GoToTab 4; SwitchToMode "locked"; }  // Cmd 4
-        bind "" { GoToTab 5; SwitchToMode "locked"; }  // Cmd 5
-        bind "" { GoToTab 6; SwitchToMode "locked"; }  // Cmd 6
-        bind "" { GoToTab 7; SwitchToMode "locked"; }  // Cmd 7
-        bind "" { GoToTab 8; SwitchToMode "locked"; }  // Cmd 8
-        bind "" { GoToTab 9; SwitchToMode "locked"; }  // Cmd 9
+        // CUSTOM KEYBINDINGS
+        bind "Alt 1" { GoToTab 1; SwitchToMode "locked"; }
+        bind "Alt 2" { GoToTab 2; SwitchToMode "locked"; }
+        bind "Alt 3" { GoToTab 3; SwitchToMode "locked"; }
+        bind "Alt 4" { GoToTab 4; SwitchToMode "locked"; }
+        bind "Alt 5" { GoToTab 5; SwitchToMode "locked"; }
+        bind "Alt 6" { GoToTab 6; SwitchToMode "locked"; }
+        bind "Alt 7" { GoToTab 7; SwitchToMode "locked"; }
+        bind "Alt 8" { GoToTab 8; SwitchToMode "locked"; }
+        bind "Alt 9" { GoToTab 9; SwitchToMode "locked"; }
+        // END CUSTOM KEYBINDINGS
     }
     normal {
         // CUSTOM KEYBINDINGS: make nested zellij possible
         bind "Ctrl b" { Write 2; SwitchToMode "locked"; }
+        // END CUSTOM KEYBINDINGS
     }
     locked {
         bind "Ctrl b" { SwitchToMode "normal"; }

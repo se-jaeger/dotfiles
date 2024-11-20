@@ -37,6 +37,7 @@ alias jf="fj"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias svim="sudo XDG_CONFIG_HOME=$HOME/.config PATH=$PATH nvim"
 
 # move to already visited directories
 m() {
