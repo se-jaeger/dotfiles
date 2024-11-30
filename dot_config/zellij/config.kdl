@@ -14,10 +14,17 @@ keybinds clear-defaults=true {
         bind "Alt 7" { GoToTab 7; SwitchToMode "locked"; }
         bind "Alt 8" { GoToTab 8; SwitchToMode "locked"; }
         bind "Alt 9" { GoToTab 9; SwitchToMode "locked"; }
+        bind "Alt t" { NewTab; SwitchToMode "locked"; }
+        bind "Alt x" { CloseFocus; SwitchToMode "locked"; }
+        bind "Alt left" { MoveFocusOrTab "left"; SwitchToMode "locked"; }
+        bind "Alt down" { MoveFocus "down"; SwitchToMode "locked"; }
+        bind "Alt up" { MoveFocus "up"; SwitchToMode "locked"; }
+        bind "Alt right" { MoveFocusOrTab "right"; SwitchToMode "locked"; }
         // END CUSTOM KEYBINDINGS
     }
     normal {
-        // CUSTOM KEYBINDINGS: make nested zellij possible
+        // CUSTOM KEYBINDINGS
+        // make nested zellij possible
         bind "Ctrl b" { Write 2; SwitchToMode "locked"; }
         // END CUSTOM KEYBINDINGS
     }
