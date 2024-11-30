@@ -157,4 +157,13 @@ return {
 
   -- overseer
   { import = "lazyvim.plugins.extras.editor.overseer" },
+
+  -- todo-comments.nvim
+  {
+    "folke/todo-comments.nvim",
+    opts = {
+      search = { pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]] },
+      highlight = { pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]] },
+    },
+  },
 }
