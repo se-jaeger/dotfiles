@@ -1,13 +1,10 @@
 [last_update]
 [uptime]
 
-[last_login]
-users = ["sebastian"]
-n = 2
-
 [filesystem]
 root = "/"
 
 [memory]
 
 [brew_upgradable]
+list = true

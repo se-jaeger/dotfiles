@@ -146,8 +146,8 @@ return {
       mappings = {
         open_vertical = "|",
       },
-      leader_key = ";",
-      buffer_leader_key = "m",
+      leader_key = "L",
+      buffer_leader_key = "M",
       separate_save_and_remove = true,
       per_buffer_config = {
         lines = 5,
