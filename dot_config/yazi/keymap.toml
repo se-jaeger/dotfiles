@@ -41,7 +41,7 @@ desc = "Smart filter"
 
 [[manager.prepend_keymap]]
 on = "T"
-run = "plugin --sync max-preview"
+run = "plugin max-preview"
 desc = "Maximize or restore preview"
 
 [[manager.prepend_keymap]]
@@ -66,7 +66,6 @@ desc = "Paste the files"
 on = ["x"]
 run = "plugin augment-command --args='remove'"
 desc = "Move the files to the trash"
-
 
 # keymaps to activate motions
 [[manager.prepend_keymap]]

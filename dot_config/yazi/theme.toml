@@ -52,7 +52,7 @@ title = {}
 value = {}
 selected = { reversed = true }
 
-[select]
+[pick]
 border = { fg = "#504945" }
 active = { fg = "#fe8019" }
 inactive = {}
@@ -90,11 +90,11 @@ rules = [
     # Archives
     { mime = "application/zip", fg = "#fe8019" },
     { mime = "application/gzip", fg = "#fe8019" },
-    { mime = "application/x-tar", fg = "#fe8019" },
-    { mime = "application/x-bzip", fg = "#fe8019" },
-    { mime = "application/x-bzip2", fg = "#fe8019" },
-    { mime = "application/x-7z-compressed", fg = "#fe8019" },
-    { mime = "application/x-rar", fg = "#fe8019" },
+    { mime = "application/tar", fg = "#fe8019" },
+    { mime = "application/bzip", fg = "#fe8019" },
+    { mime = "application/bzip2", fg = "#fe8019" },
+    { mime = "application/7z-compressed", fg = "#fe8019" },
+    { mime = "application/rar", fg = "#fe8019" },
 
     # Fallback
     { name = "*", fg = "#a89984" },
