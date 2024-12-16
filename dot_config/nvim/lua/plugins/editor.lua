@@ -10,16 +10,6 @@ return {
       opts.system_clipboard = {
         sync_with_ring = false,
       }
-
-      opts.picker = {
-        telescope = {
-          mappings = {
-            i = {
-              ["<c-k>"] = require("telescope.actions").move_selection_previous,
-            },
-          },
-        },
-      }
     end,
   },
 
@@ -102,15 +92,6 @@ return {
     end,
   },
 
-  -- no-neck-pain.nvim
-  {
-    "shortcuts/no-neck-pain.nvim",
-    version = "*",
-    opts = {
-      width = 150,
-    },
-  },
-
   -- neogen
   {
     "danymat/neogen",
@@ -164,6 +145,19 @@ return {
     opts = {
       search = { pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]] },
       highlight = { pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]] },
+    },
+  },
+
+  -- dial.nvim
+  { import = "lazyvim.plugins.extras.editor.dial" },
+
+  -- inc-rename
+  { import = "lazyvim.plugins.extras.editor.inc-rename" },
+  {
+    "folke/noice.nvim",
+    optional = true,
+    opts = {
+      presets = { inc_rename = true },
     },
   },
 }

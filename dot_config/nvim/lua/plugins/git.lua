@@ -6,18 +6,13 @@ return {
     "aaronhallaert/advanced-git-search.nvim",
     cmd = { "AdvancedGitSearch" },
     dependencies = {
-      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
       "sindrets/diffview.nvim",
     },
     config = function()
-      require("telescope").setup({
-        extensions = {
-          advanced_git_search = {
-            diff_plugin = "diffview",
-          },
-        },
+      require("advanced_git_search.fzf").setup({
+        diff_plugin = "diffview",
       })
-      require("telescope").load_extension("advanced_git_search")
     end,
     keys = {
       { "<leader>gf", ":AdvancedGitSearch search_log_content_file<CR>", desc = "Current File History" },
