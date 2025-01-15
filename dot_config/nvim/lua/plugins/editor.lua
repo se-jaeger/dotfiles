@@ -48,7 +48,6 @@ return {
         desc = "Resume the last yazi session",
       },
     },
-    ---@type YaziConfig
     opts = {
       open_for_directories = true,
       use_ya_for_events_reading = true,
@@ -88,7 +87,7 @@ return {
   {
     "mbbill/undotree",
     config = function()
-      vim.keymap.set("n", "<leader>fu", "<CMD>UndotreeToggle<CR><CMD>UndotreeFocus<CR>", { desc = "Open Undotree" })
+      vim.keymap.set("n", "<leader>fu", "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", { desc = "Open Undotree" })
     end,
   },
 
@@ -131,13 +130,10 @@ return {
       buffer_leader_key = "M",
       separate_save_and_remove = true,
       per_buffer_config = {
-        lines = 5,
+        lines = 11,
       },
     },
   },
-
-  -- overseer
-  { import = "lazyvim.plugins.extras.editor.overseer" },
 
   -- todo-comments.nvim
   {

@@ -5,7 +5,7 @@
 local keymap = vim.keymap -- for conciseness
 
 -- use jk to exit insert mode
-keymap.set({ "i", "v" }, "jk", "<ESC>", { desc = "Exit insert/visual mode with jk" })
+keymap.set("i", "jk", "<ESC>", { desc = "Exit insert/visual mode with jk" })
 
 -- vertical movements
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll half page down and center cursor" })

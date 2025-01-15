@@ -8,7 +8,6 @@ local opt = vim.opt
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
-opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
 -- backspace
@@ -21,7 +20,7 @@ opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undodir"
 
 -- context lines above/below + colorcolumn
 opt.scrolloff = 20
-opt.colorcolumn = "120"
+opt.colorcolumn = "160"
 
 -- fix allowed file naming
 opt.isfname:append("@-@")
@@ -32,3 +31,26 @@ opt.spell = true
 
 -- do not use system clipboard
 opt.clipboard = ""
+
+-- TODO: This is a workaround: https://github.com/folke/which-key.nvim/issues/584
+-- TODO: rolled back on 15.01.25 because above fix no longer worked..
+if vim.env.SSH_TTY then
+  local function paste()
+    return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+  end
+  local osc52 = require("vim.ui.clipboard.osc52")
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = osc52.copy("+"),
+      ["*"] = osc52.copy("*"),
+    },
+    paste = {
+      ["+"] = paste,
+      ["*"] = paste,
+    },
+  }
+end
+
+-- disable animations
+vim.g.snacks_animate = false
