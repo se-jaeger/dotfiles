@@ -10,6 +10,17 @@ return {
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
+    {
+      "saghen/blink.cmp",
+      dependencies = {
+        { "saghen/blink.compat", lazy = true, version = false },
+      },
+      opts = {
+        sources = {
+          compat = { "obsidian", "obsidian_new", "obsidian_tags" },
+        },
+      },
+    },
   },
   opts = {
     workspaces = {
@@ -56,5 +67,8 @@ return {
     follow_url_func = function(url)
       vim.fn.jobstart({ "open", url })
     end,
+    picker = {
+      name = "fzf-lua",
+    },
   },
 }
