@@ -31,6 +31,8 @@ return {
       })
       opts.grep = vim.tbl_deep_extend("force", opts.grep or {}, {
         actions = {
+          ["ctrl-i"] = { actions.toggle_ignore },
+          ["ctrl-h"] = { actions.toggle_hidden },
           ["alt-i"] = false,
           ["alt-h"] = false,
         },
