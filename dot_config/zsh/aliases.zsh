@@ -59,6 +59,7 @@ tree(){
 # git
 alias g='git'
 alias gaa='git add --all'
+alias gc='git commit'
 alias gcmsg='git commit --message'
 alias gst='git status'
 alias gp='git push'
