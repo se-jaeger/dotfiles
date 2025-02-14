@@ -3,9 +3,12 @@
 return {
   {
     "saghen/blink.cmp",
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
+    dependencies = {
+      {
+        "Kaiser-Yang/blink-cmp-git",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
+    },
     opts = {
       keymap = {
         preset = "super-tab",
@@ -13,6 +16,15 @@ return {
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-u>"] = { "scroll_documentation_up", "fallback" },
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+      },
+      sources = {
+        default = { "git" },
+        providers = {
+          git = {
+            module = "blink-cmp-git",
+            name = "Git",
+          },
+        },
       },
     },
   },
