@@ -72,3 +72,6 @@ alias fd="fd --hidden --no-ignore-vcs"
 
 # watch
 alias watch="viddy --differences --bell --skip-empty-diffs"
+
+# gpg-tui
+alias gpg-tui="gpg-tui --config '~/.config/gpg-tui/gpg-tui.toml'"
