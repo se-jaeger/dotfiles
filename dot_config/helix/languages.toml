@@ -1,0 +1,26 @@
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff", "pylyzer"]
+auto-format = true
+
+[language.formatter]
+command = "sh"
+args = [
+  "-c",
+  # we typically do both fix linting issues and format
+  "ruff check --fix - | ruff format -"
+]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.pylyzer]
+command = "pylyzer"
+args = ["--server"]
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"

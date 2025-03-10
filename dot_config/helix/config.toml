@@ -1,0 +1,30 @@
+theme = "gruvbox_material_dark_hard"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+end-of-line-diagnostics = "hint"
+
+[editor.indent-guides]
+render = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+git-ignore = false
+git-global = false
+
+[keys.normal]
+C-s = ":update" 
+C-j = "save_selection"
+
+[keys.insert]
+C-s = [":update", "normal_mode"]
+
+[keys.insert.j]
+k = "normal_mode"
