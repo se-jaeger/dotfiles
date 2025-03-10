@@ -15,7 +15,7 @@ return {
     },
   },
 
-  --scrollEOF
+  -- scrollEOF
   {
     "Aasim-A/scrollEOF.nvim",
     event = { "CursorMoved", "WinScrolled" },
@@ -31,4 +31,7 @@ return {
       },
     },
   },
+
+  -- beacon
+  { "danilamihailov/beacon.nvim" },
 }
