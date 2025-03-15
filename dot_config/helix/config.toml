@@ -4,6 +4,17 @@ theme = "gruvbox_dark_hard"
 line-number = "relative"
 bufferline = "multiple"
 end-of-line-diagnostics = "hint"
+scrolloff = 20
+clipboard-provider = "termcode"
+
+[editor.statusline]
+center = ["workspace-diagnostics", "spacer", "version-control"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-inlay-hints = true
 
 [editor.indent-guides]
 render = true
@@ -16,15 +27,23 @@ insert = "bar"
 
 [editor.file-picker]
 hidden = false
-git-ignore = false
-git-global = false
 
+################
+# Key Mappings #
 [keys.normal]
-C-s = ":update" 
+C-s = ":write" 
 C-j = "save_selection"
+y = ["yank_to_clipboard", "yank"]
+
+# use yazi as file-picker
+"-" = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
 
 [keys.insert]
-C-s = [":update", "normal_mode"]
-
-[keys.insert.j]
-k = "normal_mode"
+j = { k = "normal_mode" }
