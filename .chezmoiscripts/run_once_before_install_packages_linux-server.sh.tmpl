@@ -44,44 +44,51 @@ sudo /bin/bash <<EOF
     apt update
 
     ## zsh
-    apt install -y zsh
+    apt install --yes zsh
     chsh -s /usr/bin/zsh $(echo {{ .chezmoi.username }})
 
     # Dependencies
-    apt install -y npm
+    apt install --yes npm
 
     ## fd
-    apt install -y fd-find
+    apt install --yes fd-find
     ln -sf /usr/bin/fdfind /usr/local/bin/fd
 
     ## bat
-    apt install -y bat
+    apt install --yes bat
     ln -sf /usr/bin/batcat /usr/local/bin/bat
 
     ## fzf
     rm -f /usr/local/bin/fzf
-    wget https://github.com/junegunn/fzf/releases/download/v0.54.3/fzf-0.54.3-linux_amd64.tar.gz -O - | tar -xz -C /usr/local/bin/
+    wget https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz -O - | tar -xz -C /usr/local/bin/
     chown root:root /usr/local/bin/fzf
     chmod 755 /usr/local/bin/fzf
 
     ## zoxide
-    apt install -y zoxide
+    apt install --yes zoxide
 
     ## ripgrep
     apt install ripgrep
 
     ## tldr
-    apt install -y tldr
+    apt install --yes tldr
 
     ## fail2ban
-    apt install -y iptables
-    apt install -y fail2ban
+    apt install --yes iptables
+    apt install --yes fail2ban
 
     ## starship
     curl -sS https://starship.rs/install.sh | sh
 
+	## yazi dependencies
+	apt install --yes ffmpeg 7zip jq poppler-utils zoxide imagemagick
+
+	## helix
+	sudo add-apt-repository --yes ppa:maveonair/helix-editor
+	sudo apt install helix
+
     ## build nvim from source
-    apt install -y ninja-build gettext cmake unzip curl build-essential
+    apt install --yes ninja-build gettext cmake unzip curl build-essential
     rm -rf /tmp/neovim
     git clone https://github.com/neovim/neovim /tmp/neovim
     cd /tmp/neovim

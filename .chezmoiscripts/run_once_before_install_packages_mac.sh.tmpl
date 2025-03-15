@@ -16,98 +16,94 @@ git pull
 cargo install --path rust/zet/
 cargo install --path rust/motd/
 
-# install tools via brew
-brew bundle --no-lock --file=/dev/stdin <<EOF
 ## Utils
-brew "coreutils"
+brew install coreutils
 
 ## CLI tools
-brew "zellij"
-brew "yazi"
-brew "sevenzip"
-brew "poppler"
-brew "ffmpeg" 
-brew "imagemagick"
-brew "starship"
-brew "trash"
-brew "fd"
-brew "fzf"
-brew "bat"
-brew "viddy"
-brew "kubernetes-cli"
-brew "helm"
-brew "zoxide"
-brew "eza"
-brew "gitui"
-brew "k9s"
-brew "ripgrep"
-brew "csvlens"
-brew "fx"
-brew "jq"
-brew "jless"
-brew "yank"
-brew "up"
-brew "go"
-brew "hugo"
-brew "bitwarden-cli"
-brew "gnupg"
-brew "git-delta"
-brew "tealdeer"
-brew "gpg-tui"
+brew install zellij
+brew install yazi
+brew install sevenzip
+brew install poppler
+brew install ffmpeg
+brew install imagemagick
+brew install starship
+brew install trash
+brew install fd
+brew install fzf
+brew install bat
+brew install viddy
+brew install kubernetes-cli
+brew install helm
+brew install zoxide
+brew install eza
+brew install gitui
+brew install k9s
+brew install ripgrep
+brew install csvlens
+brew install fx
+brew install jq
+brew install jless
+brew install yank
+brew install up
+brew install go
+brew install hugo
+brew install bitwarden-cli
+brew install gnupg
+brew install git-delta
+brew install tealdeer
+brew install gpg-tui
 
-tap "fluxcd/tap"
-brew "fluxcd/tap/flux"
+brew tap "fluxcd/tap"
+brew install fluxcd/tap/flux
 
 ### VPN
-brew "openfortivpn"
+brew install openfortivpn
 
 ## fonts
-tap "homebrew/cask-fonts"
-cask "font-hack-nerd-font"
+brew tap "homebrew/cask-fonts"
+brew install font-hack-nerd-font
 
 ## python
-brew "python"
-brew "pyenv"
-brew "poetry"
-brew "uv"
-brew "ruff"
-brew "pyright"
-brew "pylyzer"
+brew install python
+brew install pyenv
+brew install poetry
+brew install uv
+brew install ruff
+brew install pylyzer
 
 ## Apps
 # Productivity
-cask "raycast"
-cask "alacritty"
-cask "obsidian"
-cask "omnifocus"
-cask "zotero"
-cask "nextcloud"
+brew install raycast
+brew install alacritty
+brew install obsidian
+brew install omnifocus
+brew install zotero
+brew install nextcloud
 
 # Messaging
-cask "rocket-chat"
+brew install rocket-chat
 
 # Editors
-cask "basictex"
-cask "tex-live-utility"
-cask "texstudio"
-brew "nvim"
-brew "helix"
+brew install basictex
+brew install tex-live-utility
+brew install texstudio
+brew install nvim
+brew install helix
 
 # Finance
-cask "moneymoney"
-cask "portfolioperformance"
+brew install moneymoney
+brew install portfolioperformance
 
 # Misc
-cask "spotify"
-cask "appcleaner"
-cask "iina"
-cask "monitorcontrol"
-cask "inkscape"
-cask "tableplus"
-cask "zoom"
-cask "brave-browser"
-cask "librewolf"
-brew "npm"
+brew install spotify
+brew install appcleaner
+brew install iina
+brew install monitorcontrol
+brew install inkscape
+brew install tableplus
+brew install zoom
+brew install brave-browser
+brew install librewolf
+brew install npm
 
-EOF
 {{ end -}}
