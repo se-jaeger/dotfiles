@@ -1,6 +1,7 @@
 [[language]]
 name = "python"
-language-servers = ["pyright", "ruff", "pylyzer"]
+#language-servers = ["pylyzer", "ruff", "codebook", "scls"]
+language-servers = ["pyright", "ruff", "codebook", "scls"]
 auto-format = true
 
 [language.formatter]
@@ -11,16 +12,47 @@ args = [
   "ruff check --fix - | ruff format -"
 ]
 
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
+[[language]]
+name = "text"
+scope = ""
+file-types = ["txt"]
+language-servers = ["codebook", "scls"]
 
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
+[[language]]
+name = "markdown"
+language-servers = ["moxide", "codebook", "scls"]
 
-[language-server.pylyzer]
-command = "pylyzer"
-args = ["--server"]
+[[language]]
+name = "rust"
+language-servers = [ "rust-analyzer", "codebook", "scls" ]
 
+[[language]]
+name = "toml"
+language-servers = [ "taplo", "codebook", "scls" ]
+
+
+
+#########################
+# Setup additional LSPs #
 [language-server.rust-analyzer.config.check]
 command = "clippy"
+
+[language-server.codebook]
+command = "codebook-lsp"
+args = ["serve"]
+
+[language-server.moxide]
+command = "markdown-oxide"
+
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
+feature_words = true                 # enable completion by word
+feature_snippets = true              # enable snippets
+snippets_first = true                # completions will return before snippets by default
+snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
+feature_unicode_input = false        # enable "unicode input"
+feature_paths = false                # enable path completion
+feature_citations = false            # enable citation completion (only on `citation` feature enabled)
