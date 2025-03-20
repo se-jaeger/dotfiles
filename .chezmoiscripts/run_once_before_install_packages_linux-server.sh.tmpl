@@ -80,33 +80,34 @@ sudo /bin/bash <<EOF
     ## starship
     curl -sS https://starship.rs/install.sh | sh
 
-		## yazi dependencies
-		apt install --yes ffmpeg 7zip jq poppler-utils zoxide imagemagick
-
-		## helix
-		# TODO: currently helix can't be build for ubuntu because of cargo is too old...
-		# sudo add-apt-repository --yes ppa:maveonair/helix-editor
-		# sudo apt install helix
-
-		# TODO: so for now, build from source
-		rm -rf /tmp/helix
-		git clone git@github.com:helix-editor/helix.git /tmp/helix
- 		cd /tmp/helix
- 		export HELIX_DEFAULT_RUNTIME=$(pwd)/runtime
-		cargo install --path helix-term --locked
-		cd # avoid downstream issues
-
-    ## build nvim from source
-    apt install --yes ninja-build gettext cmake unzip curl build-essential
-    rm -rf /tmp/neovim
-    git clone https://github.com/neovim/neovim /tmp/neovim
-    cd /tmp/neovim
-    git checkout stable
-    make CMAKE_BUILD_TYPE=RelWithDebInfo
-    cd build
-    cpack -G DEB && sudo dpkg -i nvim-linux64.deb
-    cd  # avoid downstream issues
-    rm -rf /tmp/neovim
-
+	## yazi dependencies
+	apt install --yes ffmpeg 7zip jq poppler-utils zoxide imagemagick
 EOF
+
+## helix
+# TODO: currently helix can't be build for ubuntu because of cargo is too old...
+# sudo add-apt-repository --yes ppa:maveonair/helix-editor
+# sudo apt install helix
+
+# TODO: so for now, build from source
+rm -rf /tmp/helix
+git clone git@github.com:helix-editor/helix.git /tmp/helix
+cd /tmp/helix
+export HELIX_DEFAULT_RUNTIME=$(pwd)/runtime
+cargo install --path helix-term --locked
+cd # avoid downstream issues
+
+## build nvim from source
+apt install --yes ninja-build gettext cmake unzip curl build-essential
+rm -rf /tmp/neovim
+git clone https://github.com/neovim/neovim /tmp/neovim
+cd /tmp/neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+cd build
+cpack -G DEB
+sudo dpkg -i nvim-linux-x86_64.deb
+cd  # avoid downstream issues
+rm -rf /tmp/neovim
+
 {{ end -}}
