@@ -16,8 +16,8 @@ layout {
 {{ if eq .chezmoi.os "darwin" }}
     tab name="Zettelkasten" {
         pane {
-            command "$HOME/.cargo/bin/zet"
-            args "--second-brain" "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain"
+            command "zsh"
+            args "-c" "zet"
         }
     }
 {{- end }}
