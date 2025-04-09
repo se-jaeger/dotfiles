@@ -6,7 +6,24 @@ dictionaries = ["en_us", "de"]
 # Custom allowlist of words to ignore (case-insensitive)
 # Codebook will add words here when you select "Add to dictionary"
 # Default: []
-words = ["codebook", "rustc"]
+words = [
+    "codebook",
+    "rustc"
+    "alacritty",
+    "clippy",
+    "gruvbox",
+    "harper",
+    "moxide",
+    "pdflatex",
+    "pylyzer",
+    "pyright",
+    "scls",
+    "synctex",
+    "taplo",
+    "texbin",
+    "texlab",
+    "zellij",
+]
 
 # Words that should always be flagged as incorrect
 # Default: []
