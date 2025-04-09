@@ -1,15 +1,15 @@
 [[language]]
 name = "python"
-#language-servers = ["pylyzer", "ruff", "codebook", "harper-ls", "scls"]
+# language-servers = ["pylyzer", "ruff", "codebook", "harper-ls", "scls"]
 language-servers = ["pyright", "ruff", "codebook", "harper-ls", "scls"]
 auto-format = true
 
 [language.formatter]
 command = "sh"
 args = [
-  "-c",
-  # We typically do both fix linting issues and format
-  "ruff check --fix - | ruff format -"
+    "-c",
+    # We typically do both fix linting issues and format
+    "ruff check --fix - | ruff format -",
 ]
 
 [[language]]
@@ -21,19 +21,39 @@ language-servers = ["harper-ls", "scls"]
 [[language]]
 name = "markdown"
 language-servers = ["moxide", "codebook", "scls"]
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "md"] }
 
 [[language]]
 name = "rust"
-language-servers = [ "rust-analyzer", "codebook", "harper-ls", "scls" ]
+language-servers = ["rust-analyzer", "codebook", "harper-ls", "scls"]
 
 [[language]]
 name = "toml"
-language-servers = [ "taplo", "codebook", "harper-ls", "scls" ]
+language-servers = ["taplo", "codebook", "harper-ls", "scls"]
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "toml"] }
 
 [[language]]
 name = "latex"
 language-servers = ["texlab", "codebook", "harper-ls", "scls"]
 
+[[language]]
+name = "yaml"
+language-servers = ["codebook", "harper-ls", "scls"]
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "yaml"] }
+
+[[language]]
+name = "json"
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "json"] }
+
+[[language]]
+name = "dockerfile"
+language-servers = ["codebook", "harper-ls", "scls"]
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "dockerfile"] }
 
 #########################
 # Setup additional LSPs #
@@ -52,9 +72,6 @@ command = "clippy"
 [language-server.codebook]
 command = "codebook-lsp"
 args = ["serve"]
-
-[language-server.moxide]
-command = "markdown-oxide"
 
 [language-server.scls]
 command = "simple-completion-language-server"

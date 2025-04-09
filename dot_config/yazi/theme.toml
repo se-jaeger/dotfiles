@@ -23,7 +23,6 @@ tab_width = 1
 border_symbol = "│"
 border_style = { fg = "#665c54" }
 
-
 [status]
 separator_open = ""
 separator_close = ""
@@ -78,7 +77,6 @@ hovered = { bg = "#504945", bold = true }
 footer = { fg = "#3c3836", bg = "#a89984" }
 
 [filetype]
-
 rules = [
     # Images
     { mime = "image/*", fg = "#83a598" },

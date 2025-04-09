@@ -8,7 +8,7 @@ dictionaries = ["en_us", "de"]
 # Default: []
 words = [
     "codebook",
-    "rustc"
+    "rustc",
     "alacritty",
     "clippy",
     "gruvbox",
@@ -23,6 +23,7 @@ words = [
     "texbin",
     "texlab",
     "zellij",
+    "dprint",
 ]
 
 # Words that should always be flagged as incorrect
@@ -37,8 +38,8 @@ ignore_paths = ["target/**/*", "**/*.json", ".git/**/*"]
 # Useful for domain-specific strings or patterns
 # Default: []
 ignore_patterns = [
-    "^[ATCG]+$",             # DNA sequences
-    "\\d{3}-\\d{2}-\\d{4}"   # Social Security Number format
+    "^[ATCG]+$", # DNA sequences
+    "\\d{3}-\\d{2}-\\d{4}", # Social Security Number format
 ]
 
 # Whether to use global configuration (project config only)

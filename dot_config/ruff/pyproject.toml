@@ -9,9 +9,9 @@ select = [
     "ALL", # include all the rules, including new ones
 ]
 ignore = [
-    "D100",   # Do not document public modules
-    "D104",   # Do not document public packages
-    "TD003",  # Allow TODOs without links
+    "D100", # Do not document public modules
+    "D104", # Do not document public packages
+    "TD003", # Allow TODOs without links
     "ISC003", # Do not implicitly concatenate strings
 ]
 

@@ -32,18 +32,17 @@ hidden = false
 ################
 # Key Mappings #
 [keys.normal]
-C-s = ":write" 
+C-s = ":write"
 C-j = "save_selection"
 
 # use yazi as file-picker
 "-" = [
-  ':sh rm -f /tmp/unique-file',
-  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
-  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
-  ':open %sh{cat /tmp/unique-file}',
-  ':redraw',
+    ':sh rm -f /tmp/unique-file',
+    ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+    ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+    ':open %sh{cat /tmp/unique-file}',
+    ':redraw',
 ]
-
 
 [keys.insert]
 j = { k = "normal_mode" }
