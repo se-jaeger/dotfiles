@@ -6,6 +6,7 @@ bufferline = "multiple"
 end-of-line-diagnostics = "hint"
 scrolloff = 20
 clipboard-provider = "termcode"
+completion-replace = true
 
 [editor.statusline]
 center = ["workspace-diagnostics", "spacer", "version-control"]
@@ -20,7 +21,7 @@ display-inlay-hints = true
 render = true
 
 [editor.inline-diagnostics]
-cursor-line = "hint"
+cursor-line = "warning"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -33,7 +34,6 @@ hidden = false
 [keys.normal]
 C-s = ":write" 
 C-j = "save_selection"
-y = ["yank_to_clipboard", "yank"]
 
 # use yazi as file-picker
 "-" = [

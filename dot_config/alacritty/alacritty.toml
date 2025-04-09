@@ -1,16 +1,6 @@
 [general]
 import = [
-    # "~/.config/alacritty/themes/catppuccin-latte.toml"
-    # "~/.config/alacritty/themes/catppuccin-frappe.toml"
-    # "~/.config/alacritty/themes/catppuccin-macchiato.toml"
-    # "~/.config/alacritty/themes/catppuccin-mocha.toml"
-    # "~/.config/alacritty/themes/gruvbox-dark.toml"
-    # "~/.config/alacritty/themes/gruvbox-light.toml"
     "~/.config/alacritty/themes/gruvbox-material.toml",
-    # "~/.config/alacritty/themes/gruvbox-material-hard-dark.toml"
-    # "~/.config/alacritty/themes/gruvbox-material-hard-light.toml"
-    # "~/.config/alacritty/themes/gruvbox-material-medium-dark.toml"
-    # "~/.config/alacritty/themes/gruvbox-material-medium-light.toml"
 ]
 
 [terminal.shell]
