@@ -44,5 +44,31 @@ C-j = "save_selection"
     ':redraw',
 ]
 
+# Latex bindings
+# HACK: harper-ls does not work with tex files. This script temporarily renames it.
+t.l = [
+    ':write',
+    ':run-shell-command rm -f /tmp/change-filename-to',
+    ''':run-shell-command "
+            filename=%{buffer_name}
+            extension=${filename##*.}
+            case $extension in
+                txt)
+                    echo ${filename%%.*}.tex > /tmp/change-filename-to;;
+                tex) echo ${filename%%.*}.txt > /tmp/change-filename-to;;
+            esac
+        "
+    ''',
+    ':move %sh{cat /tmp/change-filename-to}',
+]
+# NOTE: Assuming justfile exists that has default recipe to build (and view) and 'clean' recipe.
+t.c = [
+    ":run-shell-command just clean",
+]
+t.b = [
+    ":write-all",
+    ":run-shell-command just",
+]
+
 [keys.insert]
 j = { k = "normal_mode" }

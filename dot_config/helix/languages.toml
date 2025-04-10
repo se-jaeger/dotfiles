@@ -36,7 +36,7 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 [[language]]
 name = "latex"
-language-servers = ["texlab", "codebook", "harper-ls", "scls"]
+language-servers = ["texlab", "codebook", "scls"]
 
 [[language]]
 name = "yaml"
@@ -57,14 +57,15 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 #########################
 # Setup additional LSPs #
+[language-server.harper-ls.config.harper-ls]
+userDictPath = "~/.config/harper-ls/dictionary.txt"
+fileDictPath = "~/.local/share/harper-ls/file_dictionaries"
 
-[language-server.texlab.config.texlab.forwardSearch]
-executable = "/Library/TeX/texbin/synctex"
-
-[language-server.texlab.config.texlab.build]
-executable = "/Library/TeX/texbin/pdflatex"
-onSave = true
-forwardSearchAfter = true
+[language-server.harper-ls.config.harper-ls.linters]
+BoringWords = true
+LinkingVerbs = true
+UseGenitive = true
+SpelledNumbers = true
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
