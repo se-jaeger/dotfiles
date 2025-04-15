@@ -16,8 +16,7 @@ layout {
 {{ if eq .chezmoi.os "darwin" }}
     tab name="Zettelkasten" {
         pane {
-            command "zsh"
-            args "-c" "zet"
+            command "zet"
         }
     }
 {{- end }}

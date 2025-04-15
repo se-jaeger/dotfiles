@@ -43,10 +43,6 @@ cargo install --path rust/motd/
 sudo /bin/bash <<EOF
     apt update
 
-    ## zsh
-    apt install --yes zsh
-    chsh -s /usr/bin/zsh $(echo {{ .chezmoi.username }})
-
     # Dependencies
     apt install --yes npm
 

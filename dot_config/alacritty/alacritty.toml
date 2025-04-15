@@ -4,8 +4,8 @@ import = [
 ]
 
 [terminal.shell]
-program = "zellij"
-args = ["attach", "--create", "main"]
+program = "fish"
+args = ["--command", "zellij attach --create main"]
 
 [window]
 decorations = "None"
