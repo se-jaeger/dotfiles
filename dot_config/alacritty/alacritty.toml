@@ -1,7 +1,3 @@
-[general]
-import = [
-    "~/.config/alacritty/themes/gruvbox-material.toml",
-]
 
 [terminal.shell]
 program = "fish"
