@@ -80,9 +80,6 @@ if status is-interactive
     bind U redo
     bind --mode insert j,k 'set fish_bind_mode default' repaint-mode
 
-    bind j _fzf_search_history execute
-    bind k _fzf_search_history
-
     # move left/right or prev/next directory if commandline is empty
     set -l prevd_or_backward_char '
         if test -z (commandline)
