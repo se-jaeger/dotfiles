@@ -70,23 +70,6 @@ export GPG_TTY=$(tty)
 #### Python tools and settings ####
 ###################################
 
-{{ if eq .chezmoi.os "linux" -}} export PATH="/home/{{ .chezmoi.username }}/.local/bin:/home/{{ .chezmoi.username }}/.pyenv/bin:$PATH" {{- end }}
-
-# pyenv
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
-{{ if eq .chezmoi.os "darwin" -}}
-rm -f "{{ .chezmoi.homeDir }}/.pyenv/versions/*-brew"
-for i in $(brew --cellar)/python*/* ; do
-    ln -s -f "$i" "{{ .chezmoi.homeDir }}/.pyenv/versions/${i##/*/}-brew"
-done
-pyenv rehash
-
-# to fix `brew doctor` warning when pyenv is installed:
-alias brew='env PATH="${PATH//$(pyenv root)/shims:/}" brew'
-{{- end }}
-
 # Python linting + formatting
 python_lint() {
     if [ -z "$1" ]; then
