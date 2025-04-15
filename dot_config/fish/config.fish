@@ -104,6 +104,7 @@ if status is-interactive
     #### Abbreviations ####
     #######################
     abbr b brew
+    abbr c clear
     abbr g git
     abbr k kubectl
     abbr o open
