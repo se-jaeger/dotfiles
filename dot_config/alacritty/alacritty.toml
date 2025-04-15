@@ -10,9 +10,6 @@ decorations_theme_variant = "Dark"
 option_as_alt = "Both"
 padding = { x = 3, y = 0 }
 
-[scrolling]
-history = 100000
-
 [font]
 normal = { family = "Hack Nerd Font", style = "Regular" }
 size = 14
