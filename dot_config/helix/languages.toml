@@ -20,7 +20,7 @@ language-servers = ["harper-ls", "scls"]
 
 [[language]]
 name = "markdown"
-language-servers = ["moxide", "codebook", "scls"]
+language-servers = ["moxide", "harper-ls", "scls"]
 auto-format = true
 formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "md"] }
 

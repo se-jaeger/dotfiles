@@ -32,6 +32,8 @@ hidden = false
 ################
 # Key Mappings #
 [keys.normal]
+"space".q.q = ":quit"
+"space".q.f = ":quit!"
 C-s = ":write"
 C-j = "save_selection"
 
