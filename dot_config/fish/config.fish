@@ -108,6 +108,16 @@ if status is-interactive
     abbr k kubectl
     abbr o open
 
+    # Jujutsu
+    abbr je jj edit
+    abbr jd jj diff
+    abbr jl jj log
+    abbr jn jj new
+    abbr jsh jj show
+    abbr jsp jj split
+    abbr jsq jj squash
+    abbr jst jj status
+
     #### Setup Tools ####
     #####################
 

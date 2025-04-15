@@ -1,0 +1,10 @@
+[user]
+name = "Sebastian Jäger"
+email = "mail@sebastian-jaeger.me"
+
+[ui]
+default-command = ["log"]
+
+[signing]
+backend = "gpg"
+key = "3608F3D413836957"
