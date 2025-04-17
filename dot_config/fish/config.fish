@@ -35,13 +35,14 @@ if test -f "$HOME/.cargo/env.fish"
 end
 
 # fzf
-set --global --export FZF_DEFAULT_COMMAND "fd --type file --type symlink --follow"
+set --global --export FZF_DEFAULT_COMMAND "fd --follow"
 set --global --export FZF_DEFAULT_OPTS "
-    --height ~40%
+    --height 20
     --preview-window=right,75%
     --layout reverse
     --cycle
     --multi
+    --bind 'change:first'
     --bind 'CTRL-j:down'
     --bind 'CTRL-k:up'
     --bind 'CTRL-u:preview-half-page-up'
@@ -75,9 +76,10 @@ if status is-interactive
 
         bind --mode $mode ctrl-j _fzf_search_history execute
         bind --mode $mode ctrl-k _fzf_search_history 'set fish_bind_mode default'
+
+        bind --mode $mode U redo
     end
 
-    bind U redo
     bind --mode insert j,k 'set fish_bind_mode default' repaint-mode
 
     # move left/right or prev/next directory if commandline is empty
@@ -108,7 +110,8 @@ if status is-interactive
 
     # Jujutsu
     abbr je jj edit
-    abbr jd jj diff
+    abbr jdf jj diff
+    abbr jds jj describe
     abbr jl jj log
     abbr jn jj new
     abbr jsh jj show
