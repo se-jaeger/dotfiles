@@ -39,6 +39,7 @@ set --global --export FZF_DEFAULT_COMMAND "fd --follow"
 set --global --export FZF_DEFAULT_OPTS "
     --height 20
     --preview-window=right,75%
+    --preview 'preview {}'
     --layout reverse
     --cycle
     --multi
@@ -58,20 +59,20 @@ if status is-interactive
     # supress greeting message
     set fish_greeting
 
+    # fzf
+    fzf --fish | FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= source
+    bind --erase ctrl-r
+
     ####### Key Bindigns #######
     ############################
     # TODO: make more helix like
     # TODO: keybinding for clear-screen in all modes
-    # TODO: fzf directory bindings: search only dir/file 
 
     # using vi-bindings    
     fish_vi_key_bindings
 
-    # fzf setup
-    set --export fzf_preview_dir_cmd 'eza --all --long --header --no-permissions --no-filesize --no-user --no-time --git --icons --group-directories-first --color always'
-
     for mode in default insert
-        bind --mode $mode ctrl-f _fzf_search_directory
+        bind --mode $mode ctrl-f fzf-file-widget
         bind --mode $mode tab _fzf_search_completions
 
         bind --mode $mode ctrl-j _fzf_search_history execute
