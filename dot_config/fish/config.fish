@@ -103,22 +103,22 @@ if status is-interactive
 
     #### Abbreviations ####
     #######################
-    abbr b brew
-    abbr c clear
-    abbr g git
-    abbr k kubectl
-    abbr o open
+    abbr --position command b brew
+    abbr --position command c clear
+    abbr --position command g git
+    abbr --position command k kubectl
+    abbr --position command o open
 
     # Jujutsu
-    abbr je jj edit
-    abbr jdf jj diff
-    abbr jds jj describe
-    abbr jl jj log
-    abbr jn jj new
-    abbr jsh jj show
-    abbr jsp jj split
-    abbr jsq jj squash
-    abbr jst jj status
+    abbr --position command je jj edit
+    abbr --position command jdf jj diff
+    abbr --position command jds jj describe
+    abbr --position command jl jj log
+    abbr --position command jn jj new
+    abbr --position command jsh jj show
+    abbr --position command jsp jj split
+    abbr --position command jsq jj squash
+    abbr --position command jst jj status
 
     #### Setup Tools ####
     #####################
