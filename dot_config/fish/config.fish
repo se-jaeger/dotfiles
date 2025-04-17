@@ -65,8 +65,6 @@ if status is-interactive
 
     ####### Key Bindigns #######
     ############################
-    # TODO: make more helix like
-    # TODO: keybinding for clear-screen in all modes
 
     # using vi-bindings    
     fish_vi_key_bindings
