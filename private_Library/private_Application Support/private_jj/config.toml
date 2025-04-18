@@ -10,6 +10,8 @@ backend = "gpg"
 key = "3608F3D413836957"
 
 [template-aliases]
+'format_short_signature(signature)' = 'coalesce(signature.name(), email_placeholder)'
+'format_short_id(id)' = 'id.shortest()'
 prompt = '''
   separate(
     " ",
