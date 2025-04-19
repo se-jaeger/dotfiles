@@ -4,10 +4,11 @@ email = "github@sebastian-jaeger.me"
 
 [ui]
 default-command = ["log"]
+show-cryptographic-signatures = true
 
 [signing]
+behavior = "own"
 backend = "gpg"
-key = "3608F3D413836957"
 
 [template-aliases]
 'format_short_signature(signature)' = 'coalesce(signature.name(), email_placeholder)'
