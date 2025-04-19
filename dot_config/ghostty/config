@@ -1,4 +1,4 @@
-# theme = GruvboxDark
+theme = GruvboxDarkHard
 mouse-hide-while-typing = true
 initial-command = fish --command 'zellij attach --create main'
 command = fish

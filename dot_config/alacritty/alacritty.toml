@@ -1,4 +1,3 @@
-
 [terminal.shell]
 program = "fish"
 args = ["--command", "zellij attach --create main"]
