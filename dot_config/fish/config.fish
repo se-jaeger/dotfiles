@@ -124,8 +124,6 @@ if status is-interactive
 
     # set gpg tty to sign git commits
     set --global --export GPG_TTY (tty)
-    # add GitHub SSH key to identity for gitui
-    ssh-add ~/.ssh/id_ed25519 &>/dev/null
 
     # zoxide
     if type --query zoxide
