@@ -102,10 +102,11 @@ if status is-interactive
     #### Abbreviations ####
     #######################
     abbr --position command b brew
-    abbr --position command c clear
-    abbr --position command g git
     abbr --position command k kubectl
     abbr --position command o open
+    abbr --position command c clear
+    abbr --position command jf fj
+    abbr --position command cat bat
 
     # Jujutsu
     abbr --position command je jj edit
