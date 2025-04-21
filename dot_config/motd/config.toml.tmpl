@@ -1,0 +1,50 @@
+{{ if eq .chezmoi.os "darwin" -}}
+[last_update]
+[uptime]
+
+[filesystem]
+root = "/"
+
+[memory]
+
+[brew_upgradable]
+list = true
+
+{{ else if eq .chezmoi.hostname "mail" -}}
+
+[last_update]
+[uptime]
+
+[last_login]
+# username is abbreviated by 'last'
+users = ["{{ trunc 8 .chezmoi.username }}"]
+n = 2
+
+[filesystem]
+root = "/"
+
+[memory]
+
+[apt_upgradable]
+
+{{ else if eq .chezmoi.hostname "homeserver" -}}
+
+[last_update]
+[uptime]
+
+[last_login]
+users = ["{{ .chezmoi.username }}"]
+n = 2
+
+[filesystem]
+root = "/"
+sebs = "/home/{{ .chezmoi.username }}"
+
+[memory]
+
+[zpool_status]
+[zpool_iostat]
+
+[apt_upgradable]
+
+{{ end }}
