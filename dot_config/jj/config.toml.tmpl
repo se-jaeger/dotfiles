@@ -6,9 +6,11 @@ email = "github@sebastian-jaeger.me"
 default-command = ["log"]
 show-cryptographic-signatures = true
 
+{{ if eq .chezmoi.os "darwin" -}}
 [signing]
 behavior = "own"
 backend = "gpg"
+{{ end }}
 
 [template-aliases]
 'format_short_signature(signature)' = 'coalesce(signature.name(), email_placeholder)'
