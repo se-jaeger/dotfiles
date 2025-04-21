@@ -6,6 +6,9 @@ set --global --export XDG_CONFIG_HOME "$HOME/.config"
 set --global --export XDG_DATA_HOME "$HOME/.local/share"
 set --global --export XDG_CACHE_HOME "$HOME/.cache"
 
+# JJ
+set --global --export JJ_CONFIG "$XDG_CONFIG_HOME/jj"
+
 # PKM
 set --global --export SECOND_BRAIN "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain"
 
