@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# download repo if it does not exists
+if [ ! -d ~/code/private/utils/ ]; then
+	git clone git@github.com:se-jaeger/utils.git ~/code/private/utils/
+fi
+
+# update repo and install utils
+cd ~/code/private/utils
+git fetch
+git pull
+cargo install --path rust/motd/
+
+## Tools on all machines
+# cargo update command
+cargo install --locked cargo-update
+
+brew install viddy
+brew install git-delta
+brew install zellij
+brew install gitui
+brew install eza
+brew install jj
+brew install tealdeer
+brew install fd
+brew install bat
+brew install fzf
+brew install zoxide
+brew install ripgrep
+brew install starship
+brew install npm
+brew install yazi ffmpeg sevenzip jq poppler resvg imagemagick
+
+brew install helix

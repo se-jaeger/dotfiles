@@ -1,95 +1,17 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-sudo apt update
-sudo apt install --yes libssl-dev openssl pkg-config build-essential
-
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-. "{{ .chezmoi.homeDir }}/.cargo/env"
-
-## Jujutsu
-cargo install --locked --bin jj jj-cli
-
-## eza
-cargo install --locked eza
-
-## gitui
-cargo install --locked gitui
-
-## zellij
-cargo install --locked zellij
-
-## git-delta
-cargo install --locked git-delta
-
-## tealdeer
-cargo install --locked tealdeer
-
-## yazi
-cargo install --locked yazi-fm yazi-cli
-
-## viddy
-cargo install --locked viddy
-
-## cargo update command
-cargo install --locked cargo-update
-
-# download repo if it does not exists
-if [ ! -d ~/.local/share/utils/ ]; then
-	git clone git@github.com:se-jaeger/utils.git ~/.local/share/utils/
-fi
-
-# update repo and install utils
-cd ~/.local/share/utils
-git fetch
-git pull
-cargo install --path rust/motd/
 
 # escalate privileges
 sudo /bin/bash <<EOF
     apt update
-
-    # Dependencies
-    apt install --yes npm
-
-    ## fd
-    apt install --yes fd-find
-    ln -sf /usr/bin/fdfind /usr/local/bin/fd
-
-    ## bat
-    apt install --yes bat
-    ln -sf /usr/bin/batcat /usr/local/bin/bat
-
-    ## fzf
-    rm -f /usr/local/bin/fzf
-    wget https://github.com/junegunn/fzf/releases/download/v0.61.2/fzf-0.61.2-linux_amd64.tar.gz -O - | tar -xz -C /usr/local/bin/
-    chown root:root /usr/local/bin/fzf
-    chmod 755 /usr/local/bin/fzf
-
-    ## zoxide
-    apt install --yes zoxide
-
-    ## ripgrep
-    apt install ripgrep
-
-    ## tldr
-    apt install --yes tldr
+    apt install --yes libssl-dev openssl pkg-config build-essential
 
     ## fail2ban
     apt install --yes iptables
     apt install --yes fail2ban
-
-    ## starship
-    curl -sS https://starship.rs/install.sh | sh
-
-	## yazi dependencies
-	apt install --yes ffmpeg 7zip jq poppler-utils zoxide imagemagick
 EOF
 
 ## helix
-# TODO: currently helix can't be build for ubuntu because of cargo is too old...
-# sudo add-apt-repository --yes ppa:maveonair/helix-editor
-# sudo apt install helix
-
 # TODO: so for now, build from source
 rm -rf /tmp/helix
 git clone git@github.com:helix-editor/helix.git /tmp/helix
