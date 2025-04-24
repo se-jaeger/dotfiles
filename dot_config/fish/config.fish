@@ -59,6 +59,7 @@ if status is-interactive
 
     # fzf
     fzf --fish | FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= source
+    set --export fzf_complete_opts --preview-window="hidden"
     bind --erase ctrl-r
 
     #### Setup Tools ####
