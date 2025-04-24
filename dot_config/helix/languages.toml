@@ -19,6 +19,14 @@ file-types = ["txt"]
 language-servers = ["harper-ls", "scls"]
 
 [[language]]
+name = "git-commit"
+language-servers = ["codebook", "harper-ls", "scls"]
+
+[[language]]
+name = "jjdescription"
+language-servers = ["codebook", "harper-ls", "scls"]
+
+[[language]]
 name = "markdown"
 language-servers = ["moxide", "harper-ls", "scls"]
 auto-format = true
