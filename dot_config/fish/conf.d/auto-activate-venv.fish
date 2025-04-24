@@ -28,8 +28,6 @@ if status is-interactive
         end
 
         if test -n "$venv_dir" -a "$VIRTUAL_ENV" != "$venv_dir" -a -e "$venv_dir/bin/activate.fish"
-            # prompt is handled by starship
-            set --local --export VIRTUAL_ENV_DISABLE_PROMPT 1
             source "$venv_dir/bin/activate.fish"
 
         else if test -n "$VIRTUAL_ENV" -a -z "$venv_dir"
