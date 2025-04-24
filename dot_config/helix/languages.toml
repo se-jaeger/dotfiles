@@ -57,6 +57,11 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 #########################
 # Setup additional LSPs #
+# TODO? harper is now in default language settings. Remove it after new update is shipped.
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
 [language-server.harper-ls.config.harper-ls]
 userDictPath = "~/.config/harper-ls/dictionary.txt"
 fileDictPath = "~/.local/share/harper-ls/file_dictionaries"
