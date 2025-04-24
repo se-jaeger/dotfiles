@@ -4,8 +4,6 @@ if status is-interactive
     set --global __VENV_HANDLING 0
 
     function __auto_source_venv --on-variable PWD --description "Activate/Deactivate virtualenv on directory change"
-        # Prevent running during command substitution or if we're already handling venv
-        status --is-command-substitution; and return
         test "$__VENV_HANDLING" -eq 1; and return
 
         set --global __VENV_HANDLING 1
