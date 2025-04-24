@@ -10,14 +10,4 @@ sudo /bin/bash <<EOF
     apt install --yes iptables
     apt install --yes fail2ban
 EOF
-
-## helix
-# TODO: so for now, build from source
-rm -rf /tmp/helix
-git clone git@github.com:helix-editor/helix.git /tmp/helix
-cd /tmp/helix
-export HELIX_DEFAULT_RUNTIME=$(pwd)/runtime
-cargo install --path helix-term --locked
-cd # avoid downstream issues
-
 {{ end -}}
