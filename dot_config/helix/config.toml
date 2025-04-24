@@ -9,7 +9,7 @@ clipboard-provider = "termcode"
 completion-replace = true
 
 [editor.statusline]
-center = ["workspace-diagnostics", "spacer", "version-control"]
+center = ["workspace-diagnostics"]
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
