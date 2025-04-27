@@ -3,7 +3,6 @@ README.md
 
 {{ if (or (eq .chezmoi.hostname "mail") (eq .chezmoi.hostname "homeserver")) -}}
 # only on machines used for programming
-.config/nvim/lua/plugins/python.lua
 .config/fish/functions/python_lint.fish
 .config/fish/functions/python_format.fish
 .config/fish/conf.d/auto-activate-venv.fish
@@ -13,9 +12,6 @@ README.md
 # only on MacBook
 .config/alacritty
 .config/ghostty
-.config/nvim/lua/plugins/rust.lua
-.config/nvim/lua/plugins/obsidian.lua
-.config/nvim/lua/plugins/codecompenion.lua
 {{ end -}}
 
 {{ if not (eq .chezmoi.hostname "homeserver") -}}
