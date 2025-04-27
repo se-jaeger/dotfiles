@@ -79,10 +79,8 @@ if status is-interactive
     ################
     function starship_transient_prompt_func
         set_color brblack
-        set --local cols (tput cols)
-        printf '%*s\n' $cols '' | tr ' ' '─'
+        printf '\n----> '
         set_color normal
-        starship module character
     end
     starship init fish | source
     enable_transience

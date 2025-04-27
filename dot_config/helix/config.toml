@@ -8,6 +8,9 @@ scrolloff = 20
 clipboard-provider = "termcode"
 completion-replace = true
 
+[editor.whitespace]
+render = "all"
+
 [editor.statusline]
 center = ["workspace-diagnostics"]
 mode.normal = "NORMAL"
@@ -48,7 +51,7 @@ C-j = "save_selection"
 
 # Latex bindings
 # HACK: harper-ls does not work with tex files. This script temporarily renames it.
-t.l = [
+"space".t.l = [
     ':write',
     ':run-shell-command rm -f /tmp/change-filename-to',
     ''':run-shell-command "
@@ -64,10 +67,10 @@ t.l = [
     ':move %sh{cat /tmp/change-filename-to}',
 ]
 # NOTE: Assuming justfile exists that has default recipe to build (and view) and 'clean' recipe.
-t.c = [
+"space".t.c = [
     ":run-shell-command just clean",
 ]
-t.b = [
+"space".t.b = [
     ":write-all",
     ":run-shell-command just",
 ]
