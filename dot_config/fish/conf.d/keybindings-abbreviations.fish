@@ -14,7 +14,6 @@ if status is-interactive
     end
 
     bind --mode default U redo
-    bind --mode insert j,k 'set fish_bind_mode default' repaint-mode
 
     # move left/right or prev/next directory if commandline is empty
     set -l prevd_or_backward_char '

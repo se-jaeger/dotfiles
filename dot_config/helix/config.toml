@@ -71,6 +71,3 @@ t.b = [
     ":write-all",
     ":run-shell-command just",
 ]
-
-[keys.insert]
-j.k = "normal_mode"
