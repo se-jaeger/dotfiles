@@ -12,7 +12,7 @@ $character"""
 
 [directory]
 style = "blue"
-format = '[$path]($style)[$read_only]($read_only_style)  '
+format = "[$path]($style)[$read_only]($read_only_style)  "
 
 [character]
 success_symbol = "[❯](green)"
@@ -31,4 +31,6 @@ style = "bright-black"
 format = "[$symbol](blue bold)$output  "
 symbol = "🥋"
 detect_folders = [".jj"]
-command = 'jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template "prompt"'
+# NOTE: sh is much faster than fish (default)
+shell = ["sh"]
+command = "jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template 'prompt'"
