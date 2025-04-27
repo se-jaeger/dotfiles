@@ -28,7 +28,7 @@ language-servers = ["codebook", "harper-ls", "scls"]
 
 [[language]]
 name = "markdown"
-language-servers = ["markdown-oxide", "harper-ls", "scls"]
+language-servers = ["zettelkasten", "harper-ls", "scls"]
 auto-format = true
 formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "md"] }
 
@@ -65,12 +65,14 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 #########################
 # Setup additional LSPs #
-# TODO? harper and markdown-oxide are now in default language settings. Remove it after new update is shipped.
+# TODO? harper is now in default language settings. Remove it after new update is shipped.
 [language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]
-[language-server]
-markdown-oxide = { command = "markdown-oxide" }
+
+[language-server.zettelkasten]
+command = "zk"
+args = ["lsp"]
 
 [language-server.harper-ls.config.harper-ls]
 userDictPath = "~/.config/harper-ls/dictionary.txt"

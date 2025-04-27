@@ -16,7 +16,9 @@ layout {
 {{ if eq .chezmoi.os "darwin" }}
     tab name="Zettelkasten" {
         pane {
-            command "zet"
+            cwd "$SECOND_BRAIN"
+            command "zk"
+            args "edit"
         }
     }
 {{- end }}
