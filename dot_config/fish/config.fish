@@ -36,8 +36,7 @@ end
 set --global --export FZF_DEFAULT_COMMAND "fd --follow"
 set --global --export FZF_DEFAULT_OPTS "
     --height 20
-    --preview-window=right,75%
-    --preview 'preview {}'
+    --preview-window=right,50%
     --layout reverse
     --cycle
     --multi
@@ -59,7 +58,7 @@ if status is-interactive
 
     # fzf
     fzf --fish | FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= source
-    set fzf_complete_opts --preview-window="hidden"
+    set FZF_CTRL_T_OPTS "--preview 'preview {}'"
     bind --erase ctrl-r
 
     #### Setup Tools ####

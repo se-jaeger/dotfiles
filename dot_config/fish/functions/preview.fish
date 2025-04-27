@@ -1,5 +1,4 @@
 function preview --description "Preview file with different tools based on some heuristics"
-
     # Not file or directory.
     # Just echo it.
     if ! test -d $argv -o -e $argv
@@ -7,10 +6,9 @@ function preview --description "Preview file with different tools based on some 
 
     else
         switch $argv
-
             case "*.md"
                 if command --query glow
-                    glow -s $theme $argv
+                    glow --style dark $argv
                 end
 
             case "*.plist"
@@ -30,7 +28,7 @@ function preview --description "Preview file with different tools based on some 
                 switch $mime[1]
                     case "*/directory"
                         if command --query eza
-                            l --color always --no-permissions --no-user
+                            l --color always --no-permissions --no-user $argv
                         end
 
                     case "text/*"
