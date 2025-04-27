@@ -27,7 +27,6 @@ root = "/"
 
 [apt_upgradable]
 [brew_upgradable]
-list = true
 
 {{ else if eq .chezmoi.hostname "homeserver" -}}
 
@@ -49,6 +48,5 @@ sebs = "/home/{{ .chezmoi.username }}"
 
 [apt_upgradable]
 [brew_upgradable]
-list = true
 
 {{ end }}
