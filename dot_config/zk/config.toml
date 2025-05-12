@@ -165,8 +165,8 @@ dead-link = "error"
 [alias]
 # Here are a few aliases to get you started.
 
-edit = 'zk edit --interactive'
-e = 'zk edit --interactive'
+edit = 'zk edit --interactive --tag "NOT source"'
+e = 'zk edit --interactive --tag "NOT source"'
 se = 'zk edit --interactive --tag source'
 sn = 'zk new --group source source --title "$argv"'
 
