@@ -15,14 +15,17 @@ backend = "gpg"
 [git]
 push-bookmark-prefix = 'se-jaeger/push-'
 
+[revsets]
+log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
+ 
 [revset-aliases]
-stragglers = '(visible_heads() & mine()) ~ trunk()'
+"stragglers()" = '(visible_heads() & mine()) ~ trunk()'
 "immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
 
 [aliases]
 sync = ['git', 'fetch', '--all-remotes']
 evolve = ['rebase', '--skip-emptied', '--destination', 'trunk()']
-pullup = ['evolve', '--source', 'all:stragglers']
+pullup = ['evolve', '--source', 'all:stragglers()']
 push = ['git', 'push', '--all']
 
 [template-aliases]
