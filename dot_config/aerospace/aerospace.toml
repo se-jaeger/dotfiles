@@ -11,49 +11,6 @@ on-focus-changed = ['move-mouse window-lazy-center']
 
 accordion-padding = 50
 
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace q'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.librewolf'
-check-further-callbacks = true
-run = 'move-node-to-workspace q'
-
-[[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
-run = 'move-node-to-workspace w'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.betterbird'
-check-further-callbacks = true
-run = 'move-node-to-workspace w'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.bitwarden.desktop'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.librewolf'
-check-further-callbacks = true
-if.window-title-regex-substring = '.*bitwarden password manager.*'
-run = 'layout floating'
-
-# TODO: Betterbid Popup
-[[on-window-detected]]
-if.app-id = 'org.mozilla.betterbird'
-if.window-title-regex-substring = '.+'
-check-further-callbacks = true
-run = 'layout floating'
-
-[workspace-to-monitor-force-assignment]
-q = 'main'
-w = 'secondary'
-
 [gaps]
 inner.horizontal = 3
 inner.vertical = 3
@@ -84,17 +41,11 @@ ctrl-alt-shift-k = 'focus down'
 ctrl-alt-shift-i = 'focus up'
 ctrl-alt-shift-l = 'focus right'
 
-# Move windows
-cmd-ctrl-alt-shift-j = 'move left'
-cmd-ctrl-alt-shift-k = 'move down'
-cmd-ctrl-alt-shift-i = 'move up'
-cmd-ctrl-alt-shift-l = 'move right'
-
-# Joining windows
-cmd-ctrl-alt-shift-s = 'join-with left'
-cmd-ctrl-alt-shift-f = 'join-with down'
-cmd-ctrl-alt-shift-d = 'join-with up'
-cmd-ctrl-alt-shift-g = 'join-with right'
+# Join windows
+cmd-ctrl-alt-shift-j = 'join-with left'
+cmd-ctrl-alt-shift-k = 'join-with down'
+cmd-ctrl-alt-shift-i = 'join-with up'
+cmd-ctrl-alt-shift-l = 'join-with right'
 
 # Move focus to workspace
 ctrl-alt-shift-q = 'workspace q'
@@ -116,11 +67,60 @@ ctrl-alt-shift-f = 'exec-and-forget open -a "Microsoft Teams.app"'
 
 # Layout operations
 ctrl-alt-shift-u = 'layout tiles horizontal vertical'
-cmd-ctrl-alt-shift-u = 'resize smart -20'
+cmd-ctrl-alt-shift-u = 'layout accordion horizontal vertical'
 
-ctrl-alt-shift-o = 'layout accordion horizontal vertical'
-cmd-ctrl-alt-shift-o = 'resize smart +20'
+ctrl-alt-shift-o = 'resize smart +20'
+cmd-ctrl-alt-shift-o = 'resize smart -20'
 
 ctrl-alt-shift-m = 'fullscreen'
+cmd-ctrl-alt-shift-m = 'layout floating tiling'
 ctrl-alt-shift-comma = 'balance-sizes'
-ctrl-alt-shift-period = 'layout floating tiling'
+
+# Some apps should be floating
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'net.freemacsoft.AppCleaner'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.bitwarden.desktop'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.librewolf'
+check-further-callbacks = true
+if.window-title-regex-substring = '.*bitwarden password manager.*'
+run = 'layout floating'
+
+# TODO: Betterbid Popup
+[[on-window-detected]]
+if.app-id = 'org.mozilla.betterbird'
+if.window-title-regex-substring = '.+'
+check-further-callbacks = true
+run = 'layout floating'
+
+# Window and Monitor setup
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace q'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.librewolf'
+check-further-callbacks = true
+run = 'move-node-to-workspace q'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace w'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.betterbird'
+check-further-callbacks = true
+run = 'move-node-to-workspace w'
+
+[workspace-to-monitor-force-assignment]
+q = 'main'
+w = 'secondary'
