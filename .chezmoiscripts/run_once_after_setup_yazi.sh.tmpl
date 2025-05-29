@@ -1,13 +1,13 @@
 #!/bin/sh
 
-ya pack --add yazi-rs/plugins:full-border
-ya pack --add dedukun/relative-motions
-ya pack --add hankertrix/augment-command
-ya pack --add Rolv-Apneseth/starship
-ya pack --add yazi-rs/plugins:smart-filter
-ya pack --add yazi-rs/plugins:max-preview
-ya pack --add yazi-rs/plugins:jump-to-char
-ya pack --add yazi-rs/plugins:git
+ya pkg add yazi-rs/plugins:full-border
+ya pkg add dedukun/relative-motions
+ya pkg add hankertrix/augment-command
+ya pkg add Rolv-Apneseth/starship
+ya pkg add yazi-rs/plugins:smart-filter
+ya pkg add yazi-rs/plugins:toggle-pane
+ya pkg add yazi-rs/plugins:jump-to-char
+ya pkg add yazi-rs/plugins:git
 
 # avoid not 0 return value if plugins already installed
 true
