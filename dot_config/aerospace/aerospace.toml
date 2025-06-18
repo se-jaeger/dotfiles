@@ -6,11 +6,6 @@ after-startup-command = [
     'exec-and-forget borders style=square active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
 ]
 
-# Mouse follows focus when window changes
-on-focus-changed = ['move-mouse window-lazy-center']
-
-accordion-padding = 50
-
 [gaps]
 inner.horizontal = 3
 inner.vertical = 3
@@ -36,10 +31,10 @@ outer.right = 3
 # All possible modifiers: cmd, alt, ctrl, shift
 
 # Move focus
-ctrl-alt-shift-j = 'focus left'
-ctrl-alt-shift-k = 'focus down'
-ctrl-alt-shift-i = 'focus up'
-ctrl-alt-shift-l = 'focus right'
+ctrl-alt-shift-j = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left'
+ctrl-alt-shift-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors down'
+ctrl-alt-shift-i = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors up'
+ctrl-alt-shift-l = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors right'
 
 # Join windows
 cmd-ctrl-alt-shift-j = 'join-with left'
