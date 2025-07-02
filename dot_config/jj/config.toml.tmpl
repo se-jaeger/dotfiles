@@ -18,6 +18,7 @@ backend = "gpg"
 
 [templates]
 git_push_bookmark = '"se-jaeger/push-" ++ change_id.short()'
+commit_trailers = "format_signed_off_by_trailer(self)"
 
 [revsets]
 log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
