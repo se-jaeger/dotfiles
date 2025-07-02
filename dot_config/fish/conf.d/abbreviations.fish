@@ -17,6 +17,6 @@ if status is-interactive
     abbr --position command jn jj new
     abbr --position command jsh jj show
     abbr --position command jsp jj split -i
-    abbr --position command jsq jj squash
+    abbr --position command jsq jj squash -i
     abbr --position command jst jj status
 end
