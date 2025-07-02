@@ -24,17 +24,18 @@ commit_trailers = "format_signed_off_by_trailer(self)"
 log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
  
 [revset-aliases]
-"stragglers()" = '(visible_heads() & mine()) ~ trunk()'
+"stragglers()" = "(visible_heads() & mine()) ~ trunk()"
 "immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
 
 [aliases]
-sync = ['git', 'fetch', '--all-remotes']
-evolve = ['rebase', '--skip-emptied', '--destination', 'trunk()']
-pullup = ['evolve', '--source', 'all:stragglers()']
-push = ['git', 'push', '--all']
+sync = ["git", "fetch", "--all-remotes"]
+push = ["git", "push", "--all"]
+evolve = ["rebase", "--skip-emptied", "--destination", "trunk()"]
+pullup = ["evolve", "--source", "all:stragglers()"]
+history = ["log", "-r", "@----------.."]
 
 [template-aliases]
-'format_short_signature(signature)' = 'coalesce(signature.name(), email_placeholder)'
+"format_short_signature(signature)" = "coalesce(signature.name(), email_placeholder)"
 "format_short_id(id)" = "id.shortest(4)"
 prompt = '''
   separate(
