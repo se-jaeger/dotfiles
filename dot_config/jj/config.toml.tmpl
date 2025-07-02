@@ -35,7 +35,7 @@ push = ['git', 'push', '--all']
 
 [template-aliases]
 'format_short_signature(signature)' = 'coalesce(signature.name(), email_placeholder)'
-'format_short_id(id)' = 'id.shortest()'
+"format_short_id(id)" = "id.shortest(4)"
 prompt = '''
   separate(
     " ",
