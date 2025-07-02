@@ -16,8 +16,8 @@ behavior = "own"
 backend = "gpg"
 {{ end }}
 
-[git]
-push-bookmark-prefix = 'se-jaeger/push-'
+[templates]
+git_push_bookmark = '"se-jaeger/push-" ++ change_id.short()'
 
 [revsets]
 log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
