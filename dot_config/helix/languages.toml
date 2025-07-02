@@ -65,10 +65,8 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 #########################
 # Setup additional LSPs #
-# TODO? harper is now in default language settings. Remove it after new update is shipped.
-[language-server.harper-ls]
-command = "harper-ls"
-args = ["--stdio"]
+[language-server.texlab.config.texlab]
+formatterLineLength = 160
 
 [language-server.zettelkasten]
 command = "zk"
@@ -96,10 +94,10 @@ command = "simple-completion-language-server"
 
 [language-server.scls.config]
 max_completion_items = 3
-feature_words = true
+feature_words = false
 feature_snippets = true
 snippets_first = true
 snippets_inline_by_word_tail = false
 feature_unicode_input = false
 feature_paths = false
-feature_citations = true
+feature_citations = false
