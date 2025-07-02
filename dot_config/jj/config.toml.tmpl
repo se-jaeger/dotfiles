@@ -1,5 +1,5 @@
-[core]
-fsmonitor = "watchman"
+[fsmonitor]
+backend = "watchman"
 watchman.register-snapshot-trigger = true
 
 [user]
@@ -7,7 +7,7 @@ name = "Sebastian Jäger"
 email = "github@sebastian-jaeger.me"
 
 [ui]
-default-command = ["log"]
+default-command = ["log", "--reversed"]
 show-cryptographic-signatures = true
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -31,7 +31,7 @@ log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())
 sync = ["git", "fetch", "--all-remotes"]
 push = ["git", "push", "--all"]
 evolve = ["rebase", "--skip-emptied", "--destination", "trunk()"]
-pullup = ["evolve", "--source", "all:stragglers()"]
+pullup = ["evolve", "--source", "stragglers()"]
 history = ["log", "-r", "@----------.."]
 
 [template-aliases]
