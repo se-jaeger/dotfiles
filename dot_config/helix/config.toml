@@ -38,35 +38,37 @@ insert = "bar"
 [editor.file-picker]
 hidden = false
 
-################
+## #############
 # Key Mappings #
+
 [keys.normal]
-"space".q.q = ":quit"
-"space".q.f = ":quit!"
 C-s = ":write"
 C-j = "save_selection"
-
 # use yazi as file-picker
 "-" = [
-    ':run-shell-command rm -f /tmp/unique-file',
-    ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
-    ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
-    ':open %sh{cat /tmp/unique-file}',
-    ':redraw',
+  ":run-shell-command rm -f /tmp/unique-file",
+  ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file",
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ":open %sh{cat /tmp/unique-file}",
+  ":redraw",
 ]
 
-# Latex bindings
+# 'quit' minor mode
+[keys.normal."space".q]
+q = ":quit"
+f = ":quit!"
+
+# 'config' minor mode
+[keys.normal."space".c]
+w = ":toggle-option soft-wrap.enable"
+
+# 'latex' minor mode
+[keys.normal."space".t]
 # NOTE: Assuming justfile exists that implements recipes.
-# HACK: harper-ls does not work with tex files. This script temporarily renames it.
-"space".t.l = [
-    ":write-all",
-    ":run-shell-command just lint",
-    ":buffer-close-all",
+c = [
+  ":run-shell-command just clean",
 ]
-"space".t.c = [
-    ":run-shell-command just clean",
-]
-"space".t.b = [
-    ":write-all",
-    ":run-shell-command just",
+b = [
+  ":write-all",
+  ":run-shell-command just",
 ]

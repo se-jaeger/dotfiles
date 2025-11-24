@@ -6,16 +6,10 @@ auto-format = true
 [language.formatter]
 command = "sh"
 args = [
-    "-c",
-    # We typically do both fix linting issues and format
-    "ruff check --fix - | ruff format -",
+  "-c",
+  # We typically do both fix linting issues and format
+  "ruff check --fix - | ruff format -",
 ]
-
-[[language]]
-name = "text"
-scope = ""
-file-types = ["txt"]
-language-servers = ["harper-ls"]
 
 [[language]]
 name = "git-commit"
@@ -27,9 +21,8 @@ language-servers = ["codebook", "harper-ls"]
 
 [[language]]
 name = "markdown"
-language-servers = ["zettelkasten", "harper-ls"]
+language-servers = ["rumdl", "zettelkasten", "codebook", "harper-ls"]
 auto-format = true
-formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "md"] }
 
 [[language]]
 name = "rust"
@@ -37,33 +30,15 @@ language-servers = ["rust-analyzer", "codebook", "harper-ls"]
 
 [[language]]
 name = "toml"
-language-servers = ["taplo", "codebook", "harper-ls"]
+language-servers = ["tombi", "codebook", "harper-ls"]
 auto-format = true
-formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "toml"] }
 
 [[language]]
 name = "latex"
-language-servers = ["texlab", "codebook"]
+language-servers = ["texlab", "codebook", "harper-ls"]
 
-[[language]]
-name = "yaml"
-language-servers = ["codebook", "harper-ls"]
-auto-format = true
-formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "yaml"] }
-
-[[language]]
-name = "json"
-auto-format = true
-formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "json"] }
-
-[[language]]
-name = "dockerfile"
-language-servers = ["codebook", "harper-ls"]
-auto-format = true
-formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "dockerfile"] }
-
-#########################
-# Setup additional LSPs #
+## #######################
+# Set up additional LSPs #
 [language-server.texlab.config.texlab]
 formatterLineLength = 160
 
@@ -71,15 +46,15 @@ formatterLineLength = 160
 command = "zk"
 args = ["lsp"]
 
-[language-server.harper-ls.config.harper-ls]
-userDictPath = "~/.config/harper-ls/dictionary.txt"
-fileDictPath = "~/.local/share/harper-ls/file_dictionaries"
-
 [language-server.harper-ls.config.harper-ls.linters]
-BoringWords = true
-LinkingVerbs = true
-UseGenitive = true
+SpellCheck = false  # We use codebook for this
+AnotherThinkComing = true
 SpelledNumbers = true
+ViciousCycle = true
+BoringWords = true
+NoOxfordComma = false  # We do not want this
+PossessiveNoun = true
+ViciousCircleOrCycle = true
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
