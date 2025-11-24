@@ -19,4 +19,5 @@ if status is-interactive
     abbr --position command jsp jj split -i
     abbr --position command jsq jj squash -i
     abbr --position command jst jj status
+    abbr --position command jc jj commit -i
 end

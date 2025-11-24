@@ -4,7 +4,7 @@ watchman.register-snapshot-trigger = true
 
 [user]
 name = "Sebastian Jäger"
-email = "github@sebastian-jaeger.me"
+email = "git@sebastian-jaeger.me"
 
 [ui]
 default-command = ["log", "--reversed"]
@@ -19,6 +19,15 @@ backend = "gpg"
 [templates]
 git_push_bookmark = '"se-jaeger/push-" ++ change_id.short()'
 commit_trailers = "format_signed_off_by_trailer(self)"
+# Shows also which files changed in working directory (or nothing)
+log = '''builtin_log_oneline ++ if(
+  self.current_working_copy() && !self.empty(),
+  "Working copy changes:" ++ indent(
+    "  ",
+    self.diff().files().map(|file| label("diff " ++ file.status(), "\n" ++ file.path()))
+  )
+)
+'''
 
 [revsets]
 log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
@@ -32,10 +41,11 @@ sync = ["git", "fetch", "--all-remotes"]
 push = ["git", "push", "--all"]
 evolve = ["rebase", "--skip-emptied", "--destination", "trunk()"]
 pullup = ["evolve", "--source", "stragglers()"]
-history = ["log", "-r", "@----------.."]
+history = ["log", "--reversed", "-r", "@----------.."]
 
 [template-aliases]
 "format_short_signature(signature)" = "coalesce(signature.name(), email_placeholder)"
+"format_short_signature_oneline(signature)" = "coalesce(signature.name(), email_placeholder)"
 "format_short_id(id)" = "id.shortest(4)"
 prompt = '''
   separate(
