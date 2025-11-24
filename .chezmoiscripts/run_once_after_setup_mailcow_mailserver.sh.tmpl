@@ -11,7 +11,9 @@ sudo /bin/bash <<EOF
     systemctl enable --now docker
 
     # install Docker Compose v2
-    apt install docker-compose-plugin -y
+    apt install --yes docker-compose-plugin
+
+    apt install --yes jq
 
 EOF
 
