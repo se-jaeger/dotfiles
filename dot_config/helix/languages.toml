@@ -1,6 +1,6 @@
 [[language]]
 name = "python"
-language-servers = ["ty", "ruff", "codebook", "harper-ls", "scls"]
+language-servers = ["ty", "ruff", "codebook", "harper-ls"]
 auto-format = true
 
 [language.formatter]
@@ -15,39 +15,39 @@ args = [
 name = "text"
 scope = ""
 file-types = ["txt"]
-language-servers = ["harper-ls", "scls"]
+language-servers = ["harper-ls"]
 
 [[language]]
 name = "git-commit"
-language-servers = ["codebook", "harper-ls", "scls"]
+language-servers = ["codebook", "harper-ls"]
 
 [[language]]
 name = "jjdescription"
-language-servers = ["codebook", "harper-ls", "scls"]
+language-servers = ["codebook", "harper-ls"]
 
 [[language]]
 name = "markdown"
-language-servers = ["zettelkasten", "harper-ls", "scls"]
+language-servers = ["zettelkasten", "harper-ls"]
 auto-format = true
 formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "md"] }
 
 [[language]]
 name = "rust"
-language-servers = ["rust-analyzer", "codebook", "harper-ls", "scls"]
+language-servers = ["rust-analyzer", "codebook", "harper-ls"]
 
 [[language]]
 name = "toml"
-language-servers = ["taplo", "codebook", "harper-ls", "scls"]
+language-servers = ["taplo", "codebook", "harper-ls"]
 auto-format = true
 formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "toml"] }
 
 [[language]]
 name = "latex"
-language-servers = ["texlab", "codebook", "scls"]
+language-servers = ["texlab", "codebook"]
 
 [[language]]
 name = "yaml"
-language-servers = ["codebook", "harper-ls", "scls"]
+language-servers = ["codebook", "harper-ls"]
 auto-format = true
 formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "yaml"] }
 
@@ -58,7 +58,7 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 [[language]]
 name = "dockerfile"
-language-servers = ["codebook", "harper-ls", "scls"]
+language-servers = ["codebook", "harper-ls"]
 auto-format = true
 formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/dprint.json", "--stdin", "dockerfile"] }
 
@@ -91,16 +91,3 @@ command = "clippy"
 [language-server.codebook]
 command = "codebook-lsp"
 args = ["serve"]
-
-[language-server.scls]
-command = "simple-completion-language-server"
-
-[language-server.scls.config]
-max_completion_items = 3
-feature_words = false
-feature_snippets = true
-snippets_first = true
-snippets_inline_by_word_tail = false
-feature_unicode_input = false
-feature_paths = false
-feature_citations = false
