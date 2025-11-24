@@ -6,7 +6,7 @@ function python_lint --argument-names directory
         set directory (pwd)
     end
 
-    set MYPY_CMD "mypy $directory"
+    set TY_CMD "ty check $directory"
     set RUFF_CHECK_CMD "ruff check $directory"
 
     if type -q ruff
@@ -21,15 +21,15 @@ function python_lint --argument-names directory
         set_color normal
     end
 
-    if type -q mypy
+    if type -q ty
         set_color green
-        printf "\n\nRunning: '$MYPY_CMD'\n"
+        printf "\n\nRunning: '$TY_CMD'\n"
         set_color normal
 
-        eval $MYPY_CMD
+        eval $TY_CMD
     else
         set_color red
-        printf "\n\n'mypy' not found"
+        printf "\n\n'ty' not found"
         set_color normal
     end
 

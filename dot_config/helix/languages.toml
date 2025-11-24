@@ -1,7 +1,6 @@
 [[language]]
 name = "python"
-# language-servers = ["pylyzer", "ruff", "codebook", "harper-ls", "scls"]
-language-servers = ["pyright", "ruff", "codebook", "harper-ls", "scls"]
+language-servers = ["ty", "ruff", "codebook", "harper-ls", "scls"]
 auto-format = true
 
 [language.formatter]
@@ -65,6 +64,10 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 #########################
 # Setup additional LSPs #
+[language-server.ty.config.experimental]
+autoImport = true
+rename = true
+
 [language-server.texlab.config.texlab]
 formatterLineLength = 160
 
