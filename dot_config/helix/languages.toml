@@ -64,10 +64,6 @@ formatter = { command = "dprint", args = ["fmt", "--config", "~/.config/dprint/d
 
 #########################
 # Setup additional LSPs #
-[language-server.ty.config.experimental]
-autoImport = true
-rename = true
-
 [language-server.texlab.config.texlab]
 formatterLineLength = 160
 
