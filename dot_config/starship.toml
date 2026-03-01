@@ -11,6 +11,7 @@ $cmd_duration\
 $line_break\
 $python\
 $env_var\
+$jobs\
 $character"""
 
 [directory]
@@ -32,7 +33,7 @@ style = "bright-black"
 
 [custom.jj]
 format = "[$symbol](blue bold)$output  "
-symbol = "🥋"
+symbol = "🥋 "
 when = "jj root --ignore-working-copy"
 # NOTE: sh is much faster than fish (default)
 shell = ["sh"]

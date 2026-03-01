@@ -6,6 +6,7 @@ bufferline = "multiple"
 scrolloff = 20
 clipboard-provider = "termcode"
 completion-replace = true
+cursorline = true
 
 [editor.word-completion]
 enable = true
@@ -45,6 +46,7 @@ C-j = "save_selection"
 [keys.normal."space".q]
 q = ":quit"
 f = ":quit!"
+w = ":buffer-close"
 
 # 'config' minor mode
 [keys.normal."space".c]

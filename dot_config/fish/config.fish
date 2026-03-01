@@ -63,11 +63,6 @@ if status is-interactive
         eval (zellij setup --generate-auto-start fish | string collect)
     end
 
-    # television
-    if type --query tv
-        tv init fish | source
-    end
-
     # fzf
     if type --query fzf
         fzf --fish | FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= FZF_CTRL_R_COMMAND= source
