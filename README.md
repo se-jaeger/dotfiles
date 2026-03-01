@@ -2,12 +2,13 @@
 
 My personal dot files managed by chezmoi.
 
-## Setup new machine
+## Setup New Machine
 
 On Linux:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew analytics off
 
 brew install fish
 cat /etc/shells | grep fish || echo /home/linuxbrew/.linuxbrew/bin/fish | sudo tee --append /etc/shells
@@ -21,6 +22,7 @@ On macOS
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew analytics off
 
 brew install fish
 cat /etc/shells | grep fish || echo /usr/local/bin/fish >> /etc/shells
