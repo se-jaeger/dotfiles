@@ -3,11 +3,15 @@ if status is-interactive
     #######################
 
     abbr --position command b brew
+    abbr --position command m z
     abbr --position command k kubectl
+    abbr --position command h helm --kube-context sjaeger
     abbr --position command o open
     abbr --position command c clear
-    abbr --position command jf fj
+    abbr --position command jf yazi
+    abbr --position command fj yazi
     abbr --position command cat bat
+    abbr --position command del trash
 
     # Jujutsu
     abbr --position command je jj edit

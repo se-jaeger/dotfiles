@@ -33,52 +33,60 @@ end
 set --global --export FZF_DEFAULT_COMMAND "fd --follow"
 set --global --export FZF_DEFAULT_OPTS "
     --height 20
-    --preview-window=right,50%
+    --preview-window 'right,50%,wrap'
     --layout reverse
     --cycle
     --multi
+    --marker '*'
     --bind 'change:first'
     --bind 'CTRL-j:down'
     --bind 'CTRL-k:up'
     --bind 'CTRL-u:preview-half-page-up'
     --bind 'CTRL-d:preview-half-page-down'
+    --with-shell 'fish -c'
 "
+# python
+set --global --export POETRY_VIRTUALENVS_IN_PROJECT 1
 
 ####### Interactive Shell Setup #######
 #######################################
 if status is-interactive
-    ####### Fish Setup #######
-    ##########################
 
     # supress greeting message
     set fish_greeting
 
-    # fzf
-    fzf --fish | FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= source
-    set FZF_CTRL_T_OPTS "--preview 'preview {}'"
-    bind --erase ctrl-r
-
     #### Setup Tools ####
     #####################
 
-    # set gpg tty to sign git commits
-    set --global --export GPG_TTY (tty)
+    # zellij
+    if type --query zellij
+        eval (zellij setup --generate-auto-start fish | string collect)
+    end
+
+    # television
+    if type --query tv
+        tv init fish | source
+    end
+
+    # fzf
+    if type --query fzf
+        fzf --fish | FZF_ALT_C_COMMAND= FZF_CTRL_T_COMMAND= FZF_CTRL_R_COMMAND= source
+    end
 
     # zoxide
     if type --query zoxide
         zoxide init fish | source
     end
 
-    # python
-    set --global --export POETRY_VIRTUALENVS_IN_PROJECT 1
-
     #### Prompt ####
     ################
-    function starship_transient_prompt_func
-        set_color brblack
-        printf '\n----> '
-        set_color normal
+    if type --query starship
+        function starship_transient_prompt_func
+            set_color brblack
+            printf '\n----> '
+            set_color normal
+        end
+        starship init fish | source
+        enable_transience
     end
-    starship init fish | source
-    enable_transience
 end
