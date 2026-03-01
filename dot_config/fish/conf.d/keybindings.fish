@@ -16,6 +16,9 @@ if status is-interactive
 
         bind --mode $mode down fzf-history-widget execute
         bind --mode $mode up fzf-history-widget 'set fish_bind_mode default'
+
+        bind --mode $mode ctrl-z fg_auto_complete
+        bind --mode $mode ctrl-z fg_auto_complete
     end
 
     bind --mode default U redo
