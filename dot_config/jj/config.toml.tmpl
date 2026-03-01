@@ -33,7 +33,7 @@ log = '''builtin_log_oneline ++ if(
 '''
 
 [revsets]
-log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
+log = "present(@) | ancestors(immutable_heads().., 2) | trunk() | bookmarks()"
 
 [revset-aliases]
 wip = "description(regex-i:'^WIP.*')"
