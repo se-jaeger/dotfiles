@@ -40,6 +40,7 @@ wip = "description(regex-i:'^WIP.*')"
 empty_desc = "description(exact:'')"
 megamerge = "description(substring-i:'megamerge') | description(substring-i:'mega merge')"
 "closest_pushable(to)" = "heads(::to & mutable() & ~(wip | empty_desc | megamerge) & (~empty() | merges()))"
+"immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
 
 
 [aliases]
