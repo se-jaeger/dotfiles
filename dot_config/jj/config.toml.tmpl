@@ -8,6 +8,7 @@ email = "git@sebastian-jaeger.me"
 
 [ui]
 default-command = ["log", "--reversed"]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
 show-cryptographic-signatures = true
 
 {{ if eq .chezmoi.os "darwin" -}}
