@@ -3,6 +3,9 @@ import = [
   "~/.config/alacritty/themes/gruvbox-dark.toml",
 ]
 
+[terminal]
+shell = "/opt/homebrew/bin/fish"
+
 [window]
 decorations = "none"
 startup_mode = "Maximized"
