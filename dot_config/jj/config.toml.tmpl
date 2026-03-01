@@ -27,24 +27,26 @@ log = '''builtin_log_oneline ++ if(
   self.current_working_copy() && !self.empty(),
   "Working copy changes:" ++ indent(
     "  ",
-    self.diff().files().map(|file| label("diff " ++ file.status(), "\n" ++ file.path()))
+    self.diff().files().map(|file| label("diff " ++ file.status(), "\n" ++ file.status_char() ++ " " ++ file.path()))
   )
 )
 '''
 
 [revsets]
 log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
- 
+
 [revset-aliases]
-"stragglers()" = "(visible_heads() & mine()) ~ trunk()"
-"immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
+"closest_pushable(to)" = "heads(::to & mutable() & ~description(exact:'') & (~empty() | merges()))"
+
 
 [aliases]
 sync = ["git", "fetch", "--all-remotes"]
 push = ["git", "push", "--all"]
-evolve = ["rebase", "--skip-emptied", "--destination", "trunk()"]
-pullup = ["evolve", "--source", "stragglers()"]
-history = ["log", "--reversed", "-r", "@----------.."]
+tug = ["bookmark", "move", "--from", "heads(::@ & bookmarks())", "--to", "closest_pushable(@)",]
+rebase-all = ["rebase", "--source", "roots(trunk()..mutable())", "--onto", "trunk()"]
+l = ["log", "--reversed", "--revision", "::@", "--limit", "10"]
+ll = ["log", "--reversed", "--revision", "::@", "--limit", "20"]
+lll = ["log", "--reversed", "--revision", "::@", "--limit", "40"]
 
 [template-aliases]
 "format_short_signature(signature)" = "coalesce(signature.name(), email_placeholder)"
