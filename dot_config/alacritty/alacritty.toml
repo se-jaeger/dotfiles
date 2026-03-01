@@ -1,10 +1,10 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/gruvbox-dark.toml",
+  "~/.config/alacritty/themes/gruvbox-dark.toml",
 ]
 
 [window]
-decorations = "None"
+decorations = "none"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
 option_as_alt = "Both"
@@ -22,6 +22,6 @@ hide_when_typing = true
 
 [keyboard]
 bindings = [
-    { key = "Right", mods = "Alt", chars = "\u001BF" },
-    { key = "Left", mods = "Alt", chars = "\u001BB" },
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left", mods = "Alt", chars = "\u001BB" },
 ]

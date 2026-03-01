@@ -9,31 +9,35 @@
 {
   "proxy": "",
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "BHT",
+      "model": "bht/large",
+      "enable_thinking": true,
+    },
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "vim": {
     "use_smartcase_find": true,
-    "use_system_clipboard": "never"
+    "use_system_clipboard": "never",
   },
   "terminal": {
     "copy_on_select": true,
-    "shell": {
-      "program": "sh"
-    },
+    "shell": "system",
   },
   "helix_mode": true,
   "languages": {
