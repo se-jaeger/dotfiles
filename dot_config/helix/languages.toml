@@ -37,6 +37,12 @@ auto-format = true
 name = "latex"
 language-servers = ["texlab", "codebook", "harper-ls"]
 
+[[language]]
+name = "elixir"
+language-servers = ["expert"]
+auto-format = true
+formatter = { command = "mix", args = ["format", "-"] }
+
 ## #######################
 # Set up additional LSPs #
 [language-server.texlab.config.texlab]
