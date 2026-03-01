@@ -36,15 +36,18 @@ log = '''builtin_log_oneline ++ if(
 log = "present(@) | ancestors(builtin_immutable_heads().., 2) | present(trunk())"
 
 [revset-aliases]
-"closest_pushable(to)" = "heads(::to & mutable() & ~description(exact:'') & (~empty() | merges()))"
+wip = "description(regex-i:'^WIP.*')"
+empty_desc = "description(exact:'')"
+megamerge = "description(substring-i:'megamerge') | description(substring-i:'mega merge')"
+"closest_pushable(to)" = "heads(::to & mutable() & ~(wip | empty_desc | megamerge) & (~empty() | merges()))"
 
 
 [aliases]
 sync = ["git", "fetch", "--all-remotes"]
 push = ["git", "push", "--all"]
 tug = ["bookmark", "move", "--from", "heads(::@ & bookmarks())", "--to", "closest_pushable(@)",]
-pull-up = ["rebase", "--revision", "heads(closest_pushable(@)..) & mutable()", "--onto", "closest_pushable(@)",]
-rebase-all = ["rebase", "--source", "roots(trunk()..mutable())", "--onto", "trunk()"]
+pullup = ["rebase", "--revision", "heads(closest_pushable(@)..) & mutable()", "--onto", "closest_pushable(@)",]
+rebaseall = ["rebase", "--source", "roots(trunk()..mutable())", "--onto", "trunk()"]
 l = ["log", "--reversed", "--revision", "::@", "--limit", "10"]
 ll = ["log", "--reversed", "--revision", "::@", "--limit", "20"]
 lll = ["log", "--reversed", "--revision", "::@", "--limit", "40"]
