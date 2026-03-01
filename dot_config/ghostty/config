@@ -1,8 +1,0 @@
-theme = Gruvbox Dark Hard
-mouse-hide-while-typing = true
-initial-command = fish --command 'zellij attach --create main'
-command = fish
-clipboard-read = deny
-quit-after-last-window-closed = true
-window-decoration = none
-macos-option-as-alt = true

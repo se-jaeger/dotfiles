@@ -7,6 +7,78 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "format_on_save": "on",
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "default_profile": "write",
+    "model_parameters": [],
+  },
+  "inlay_hints": {
+    "enabled": true,
+  },
+  "cli_default_open_behavior": "new_window",
+  "edit_predictions": {
+    "allow_data_collection": "no",
+  },
+  "language_models": {
+    "openai_compatible": {
+      "BHT": {
+        "api_url": "https://lumis-api.bht-berlin.de/v1",
+        "available_models": [
+          {
+            "name": "bht/small",
+            "max_tokens": 200000,
+            "max_output_tokens": 4096,
+            "max_completion_tokens": 60000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": false,
+            },
+          },
+          {
+            "name": "bht/medium",
+            "max_tokens": 200000,
+            "max_output_tokens": 4096,
+            "max_completion_tokens": 28000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": false,
+            },
+          },
+          {
+            "name": "bht/large",
+            "max_tokens": 200000,
+            "max_output_tokens": 4096,
+            "max_completion_tokens": 190000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": false,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "disable_ai": false,
+  "debugger": {
+    "timeout": 2000,
+  },
   "proxy": "",
   "project_panel": {
     "dock": "left",
@@ -17,29 +89,34 @@
   "collaboration_panel": {
     "dock": "left",
   },
-  "agent": {
-    "default_profile": "ask",
-    "default_model": {
-      "provider": "BHT",
-      "model": "bht/large",
-      "enable_thinking": true,
+
+  "agent_servers": {
+    "OpenCode": {
+      "default_config_options": {
+        "effort": "high",
+        "mode": "build",
+        "model": "bht_llms/bht/large",
+      },
+      "favorite_config_option_values": {
+        "model": ["bht_llms/bht/large"],
+      },
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
     },
-    "dock": "right",
-    "favorite_models": [],
-    "model_parameters": [],
   },
   "git_panel": {
     "dock": "left",
   },
   "vim": {
-    "use_smartcase_find": true,
     "use_system_clipboard": "never",
+    "toggle_relative_line_numbers": true,
+    "use_smartcase_find": true,
   },
   "terminal": {
     "copy_on_select": true,
     "shell": "system",
   },
-  "helix_mode": true,
   "languages": {
     "Python": {
       "preferred_line_length": 160,
@@ -59,7 +136,7 @@
     "metrics": false,
   },
   "vim_mode": false,
-  "base_keymap": "VSCode",
+  "helix_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
