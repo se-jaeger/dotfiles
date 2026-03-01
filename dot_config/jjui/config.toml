@@ -1,2 +1,9 @@
 [ui]
 theme = "base24-gruvbox-dark"
+auto_refresh_interval = 2
+
+[preview]
+show_at_start = true
+
+[revisions]
+template = "builtin_log_oneline"

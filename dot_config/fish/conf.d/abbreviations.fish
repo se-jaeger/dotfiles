@@ -14,6 +14,7 @@ if status is-interactive
     abbr --position command del trash
 
     # Jujutsu
+    abbr --position command ja jj absorb -i
     abbr --position command je jj edit
     abbr --position command jdf jj diff
     abbr --position command jds jj describe
