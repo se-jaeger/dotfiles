@@ -3,10 +3,6 @@ import = [
     "~/.config/alacritty/themes/gruvbox-dark.toml",
 ]
 
-[terminal.shell]
-program = "fish"
-args = ["--command", "zellij attach --create main"]
-
 [window]
 decorations = "None"
 startup_mode = "Maximized"
